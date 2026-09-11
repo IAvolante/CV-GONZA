@@ -22,32 +22,24 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 export function Hero() {
   const { t } = useLanguage();
 
-  const specializations = [
-    'Systems & Process Automation',
-    'API Integrations',
-    'Business Software',
-    'Data Solutions',
-    'Applied AI',
-  ];
-
   return (
     <section
       id="home"
-      className="min-h-[90vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative"
+      className="min-h-[85vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative"
     >
       <div className="section-container max-w-4xl mx-auto flex flex-col items-center text-center">
-        {/* Availability / Location tag */}
+        {/* Availability / Location: discrete line, no badge styling */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-800 bg-slate-900/60 text-slate-400 font-mono text-xs"
+          className="mb-8 flex items-center gap-2 text-slate-400 font-mono text-xs tracking-wide"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 shrink-0" />
           <span>{t.hero.location}</span>
         </motion.div>
 
-        {/* Identity & Headline */}
+        {/* 1. Name */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,39 +49,33 @@ export function Hero() {
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white">
             {t.hero.name}
           </h1>
+          {/* 2. Software Solutions Developer */}
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-300 tracking-tight">
             {t.hero.title}
           </h2>
         </motion.div>
 
-        {/* Core Value Statement */}
+        {/* 3. Value Proposition / Summary */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.1 }}
-          className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-8 font-normal"
+          className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-6 font-normal"
         >
           {t.hero.summary}
         </motion.p>
 
-        {/* Focus Areas Pills */}
-        <motion.div
+        {/* 4. Focus Line: single discrete monospace line, no boxes/borders/background */}
+        <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.15 }}
-          className="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-2xl"
+          className="font-mono text-xs text-slate-500 tracking-wider mb-10 selection:bg-cyan-500/20"
         >
-          {specializations.map((item, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800/80 text-slate-300 font-mono text-xs"
-            >
-              {item}
-            </span>
-          ))}
-        </motion.div>
+          {t.hero.focusPills}
+        </motion.p>
 
-        {/* Action Buttons */}
+        {/* 5. CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
