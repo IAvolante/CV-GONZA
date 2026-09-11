@@ -1,143 +1,153 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { AuroraBackground } from '@/components/magicui/aurora-background';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { NumberTicker } from '@/components/magicui/number-ticker';
-import { BorderBeam } from '@/components/magicui/border-beam';
-import { TrendingUp, FileText, ChevronDown } from 'lucide-react';
+import { ArrowDown, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+const GitHubIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedInIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 export function Hero() {
   const { t } = useLanguage();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const specializations = [
+    'Systems & Process Automation',
+    'API Integrations',
+    'Business Software',
+    'Data Solutions',
+    'Applied AI',
+  ];
 
   return (
-    <AuroraBackground className="bg-gray-950 w-full relative">
-      <section id="home" className="min-h-screen w-full flex flex-col items-center justify-center pt-24 pb-16 px-4 md:px-8 relative z-10">
+    <section
+      id="home"
+      className="min-h-[90vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative"
+    >
+      <div className="section-container max-w-4xl mx-auto flex flex-col items-center text-center">
+        {/* Availability / Location tag */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="section-container flex flex-col items-center text-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-800 bg-slate-900/60 text-slate-400 font-mono text-xs"
         >
-          {/* Status Badge */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <Badge variant="outline" className="bg-slate-900/50 backdrop-blur-sm border-white/10 text-slate-300 font-mono py-1.5 px-3 rounded-full flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              {t.hero.status}
-            </Badge>
-          </motion.div>
-
-          {/* Profile & Name - Responsive layout */}
-          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-6 mb-6">
-            <div className="md:hidden">
-              <img
-                src="/profile.jpg"
-                alt="Gonzalo Volante"
-                className="w-32 h-32 rounded-full object-cover ring-2 ring-cyan-500/50 shadow-lg shadow-cyan-500/20"
-              />
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight">
-              <span className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-violet-400 transition-all duration-300">
-                {t.hero.name}
-              </span>
-            </h1>
-            
-            <div className="hidden md:block">
-              <img
-                src="/profile.jpg"
-                alt="Gonzalo Volante"
-                className="w-40 h-40 rounded-full object-cover ring-2 ring-cyan-500/50 shadow-lg shadow-cyan-500/20"
-              />
-            </div>
-          </motion.div>
-
-          {/* Title */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
-              {t.hero.title}
-            </h2>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p variants={itemVariants} className="text-slate-400 text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
-            {t.hero.description.split('**').map((part, i) => 
-              i % 2 === 1 ? <strong key={i} className="text-slate-200 font-semibold">{part}</strong> : 
-              part.split('*').map((sub, j) => j % 2 === 1 ? <em key={`${i}-${j}`} className="text-cyan-400 not-italic">{sub}</em> : sub)
-            )}
-          </motion.p>
-
-          {/* Metrics Row */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mb-12">
-            {[
-              { val: 320, prefix: '+$', suffix: ' USD', label: t.hero.metric1Label },
-              { val: 40, prefix: '+', suffix: ' Plantas', label: t.hero.metric2Label },
-              { val: 28, prefix: '', suffix: ' Proyectos', label: t.hero.metric3Label },
-            ].map((metric, i) => (
-              <Card key={i} className="relative overflow-hidden bg-slate-900/60 backdrop-blur-sm border-white/10 p-6 flex flex-col items-center justify-center group min-h-[120px]">
-                <BorderBeam size={100} duration={12} delay={i * 2} />
-                <div className="relative z-10 text-3xl md:text-4xl font-bold text-white mb-2 flex items-center gap-0.5">
-                  <span>{metric.prefix}</span>
-                  <NumberTicker value={metric.val} className="text-white" />
-                  <span className="text-lg md:text-xl font-medium text-slate-300 ml-1">{metric.suffix}</span>
-                </div>
-                <div className="relative z-10 text-sm text-slate-400 font-medium text-center">
-                  {metric.label}
-                </div>
-              </Card>
-            ))}
-          </motion.div>
-
-          {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-            <Button asChild size="lg" className="w-full sm:w-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white border-0 shadow-lg shadow-cyan-500/20 gap-2 text-md h-12 px-8">
-              <a href="#transformacion">
-                <TrendingUp className="w-5 h-5" />
-                {t.hero.ctaTransformation}
-              </a>
-            </Button>
-            
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-white gap-2 text-md h-12 px-8">
-              <a href="#projects">
-                {t.hero.ctaProjects}
-              </a>
-            </Button>
-
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto rounded-full border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-50 hover:text-cyan-400 gap-2 text-md h-12 px-8">
-              <Link to="/cv">
-                <FileText className="w-5 h-5" />
-                {t.hero.ctaCV}
-              </Link>
-            </Button>
-          </motion.div>
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          <span>{t.hero.location}</span>
         </motion.div>
 
-        {/* Bouncing Scroll Indicator */}
+        {/* Identity & Headline */}
         <motion.div
-          className="absolute bottom-8 text-slate-500"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
+          className="space-y-3 mb-6"
         >
-          <ChevronDown className="w-8 h-8" />
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white">
+            {t.hero.name}
+          </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-300 tracking-tight">
+            {t.hero.title}
+          </h2>
         </motion.div>
-      </section>
-    </AuroraBackground>
+
+        {/* Core Value Statement */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
+          className="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-8 font-normal"
+        >
+          {t.hero.summary}
+        </motion.p>
+
+        {/* Focus Areas Pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.15 }}
+          className="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-2xl"
+        >
+          {specializations.map((item, idx) => (
+            <span
+              key={idx}
+              className="px-3 py-1 rounded-md bg-slate-900/80 border border-slate-800/80 text-slate-300 font-mono text-xs"
+            >
+              {item}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto"
+        >
+          <Button
+            asChild
+            className="h-10 px-5 rounded-md bg-white hover:bg-slate-200 text-slate-950 font-medium text-xs sm:text-sm transition-colors gap-2"
+          >
+            <a href="#work">
+              <span>{t.hero.ctaWork}</span>
+              <ArrowDown className="w-3.5 h-3.5" />
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          >
+            <a
+              href="https://github.com/gonzalo-volante"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon className="w-4 h-4 text-slate-400" />
+              <span>{t.hero.ctaGithub}</span>
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          >
+            <a
+              href="https://linkedin.com/in/gonzalo-volante"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon className="w-4 h-4 text-slate-400" />
+              <span>{t.hero.ctaLinkedin}</span>
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          >
+            <Link to="/cv">
+              <FileText className="w-4 h-4 text-slate-400" />
+              <span>{t.hero.ctaResume}</span>
+            </Link>
+          </Button>
+        </motion.div>
+      </div>
+    </section>
   );
 }

@@ -80,17 +80,21 @@ const CommandPalette = () => {
         <CommandEmpty>No results found.</CommandEmpty>
         
         <CommandGroup heading={t?.cmd?.navigation || "Navigation"}>
-          <CommandItem onSelect={() => runCommand(() => scrollTo('transformacion'))}>
-            <Terminal className="mr-2 h-4 w-4" />
-            <span>Transformación</span>
-          </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => scrollTo('projects'))}>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('work'))}>
             <Briefcase className="mr-2 h-4 w-4" />
-            <span>{t?.nav?.projects || "Projects"}</span>
+            <span>{t?.nav?.work || "Work"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => scrollTo('skills'))}>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('experience'))}>
+            <Terminal className="mr-2 h-4 w-4" />
+            <span>{t?.nav?.experience || "Experience"}</span>
+          </CommandItem>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('focus'))}>
             <Code2 className="mr-2 h-4 w-4" />
-            <span>{t?.nav?.skills || "Skills"}</span>
+            <span>{t?.nav?.focus || "Technical Focus"}</span>
+          </CommandItem>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('about'))}>
+            <Terminal className="mr-2 h-4 w-4" />
+            <span>{t?.nav?.about || "About"}</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => scrollTo('contact'))}>
             <Mail className="mr-2 h-4 w-4" />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Command, Globe } from 'lucide-react';
+import { Menu, X, Globe, ArrowUpRight } from 'lucide-react';
 
 export function Navbar() {
   const { t, lang, toggleLanguage } = useLanguage();
@@ -28,7 +28,7 @@ export function Navbar() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
@@ -38,103 +38,137 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { id: 'transformacion', label: t.nav.transformation },
-    { id: 'projects', label: t.nav.projects },
-    { id: 'skills', label: t.nav.skills },
+    { id: 'work', label: t.nav.work },
+    { id: 'experience', label: t.nav.experience },
+    { id: 'focus', label: t.nav.focus },
+    { id: 'about', label: t.nav.about },
     { id: 'contact', label: t.nav.contact },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
-      <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className={`w-full max-w-6xl rounded-full border border-white/10 px-4 py-2 flex items-center justify-between transition-all duration-300 ${
-          isScrolled ? 'bg-slate-900/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 sm:pt-4 px-4">
+      <nav
+        className={`w-full max-w-5xl rounded-full border px-4 py-2 flex items-center justify-between transition-all duration-200 ${
+          isScrolled
+            ? 'bg-slate-950/85 backdrop-blur-md border-slate-800 shadow-lg shadow-black/40'
+            : 'bg-slate-950/40 backdrop-blur-sm border-white/5'
         }`}
+        aria-label="Main Navigation"
       >
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center text-white font-bold group-hover:scale-105 transition-transform">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <span className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-mono font-bold text-slate-200 group-hover:border-cyan-500/50 group-hover:text-cyan-400 transition-colors">
             GV
-          </div>
-          <span className="font-semibold text-white hidden md:block">Gonzalo Volante</span>
+          </span>
+          <span className="font-semibold text-sm text-slate-100 tracking-tight hidden sm:block">
+            Gonzalo Volante
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              className="relative px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
-            >
-              {activeSection === link.id && (
-                <motion.div
-                  layoutId="activeSection"
-                  className="absolute inset-0 bg-white/10 rounded-full"
-                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{link.label}</span>
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className={`relative px-3.5 py-1.5 text-xs font-medium transition-colors rounded-full ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute inset-0 bg-white/5 border border-white/10 rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{link.label}</span>
+              </a>
+            );
+          })}
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={toggleLanguage} className="rounded-full text-slate-300 hover:text-white" title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}>
-            <Globe className="w-4 h-4" />
-            <span className="sr-only">Toggle Language</span>
+        <div className="hidden md:flex items-center gap-2.5">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleLanguage}
+            className="h-8 px-2.5 rounded-full text-slate-400 hover:text-slate-200 hover:bg-white/5 text-xs font-mono gap-1.5"
+            title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          >
+            <Globe className="w-3.5 h-3.5" />
+            <span>{lang.toUpperCase()}</span>
           </Button>
 
-          <Button variant="outline" className="rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-slate-300 gap-2">
-            <Command className="w-4 h-4" />
-            <span className="hidden lg:inline">{t.nav.cmdK}</span>
-            <kbd className="hidden lg:inline-flex bg-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-slate-400">⌘K</kbd>
-          </Button>
-
-          <Button asChild className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white border-0 hover:scale-105 transition-transform shadow-lg shadow-cyan-500/20">
-            <Link to="/cv">{t.nav.viewCV}</Link>
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="h-8 px-3.5 rounded-full border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-medium gap-1 transition-colors"
+          >
+            <Link to="/cv">
+              <span>{t.nav.resume}</span>
+              <ArrowUpRight className="w-3 h-3 text-slate-400" />
+            </Link>
           </Button>
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleLanguage} className="rounded-full text-slate-300 hover:text-white">
-            <Globe className="w-4 h-4" />
+        <div className="md:hidden flex items-center gap-1.5">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleLanguage}
+            className="h-8 w-8 rounded-full text-slate-400 hover:text-slate-200 text-xs font-mono"
+          >
+            {lang.toUpperCase()}
           </Button>
-          <Button variant="ghost" size="icon" className="text-white" onClick={() => setMobileMenuOpen(true)}>
-            <Menu className="w-6 h-6" />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-slate-200 hover:text-white"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu className="w-4 h-4" />
           </Button>
         </div>
-      </motion.div>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-50 bg-slate-950 flex flex-col pt-20 px-6"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.15 }}
+            className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex flex-col pt-20 px-6"
           >
             <Button
               variant="ghost"
               size="icon"
-              className="absolute top-6 right-6 text-white"
+              className="absolute top-5 right-5 text-slate-400 hover:text-white"
               onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </Button>
 
-            <div className="flex flex-col gap-6 mt-8">
+            <div className="flex flex-col gap-4 mt-6">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`text-2xl font-semibold ${
-                    activeSection === link.id ? 'text-cyan-400' : 'text-slate-300'
+                  className={`text-lg font-medium py-2 border-b border-white/5 ${
+                    activeSection === link.id
+                      ? 'text-cyan-400'
+                      : 'text-slate-300 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -142,18 +176,20 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className="mt-auto pb-12 flex flex-col gap-4">
-              <Button variant="outline" className="w-full rounded-full border-white/10 bg-white/5 justify-start gap-2 h-12 text-white">
-                <Command className="w-5 h-5" />
-                {t.nav.cmdK}
-              </Button>
-              <Button asChild className="w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white h-12">
-                <Link to="/cv" onClick={() => setMobileMenuOpen(false)}>{t.nav.viewCV}</Link>
+            <div className="mt-auto pb-12 flex flex-col gap-3">
+              <Button
+                asChild
+                className="w-full rounded-full bg-slate-900 hover:bg-slate-800 text-slate-100 border border-slate-800 h-11 text-sm font-medium gap-1.5"
+              >
+                <Link to="/cv" onClick={() => setMobileMenuOpen(false)}>
+                  <span>{t.nav.resume}</span>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400" />
+                </Link>
               </Button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }
