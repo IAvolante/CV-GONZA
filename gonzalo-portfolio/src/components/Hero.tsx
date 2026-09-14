@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { Button } from '@/components/ui/button';
 import { ArrowDown, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -27,16 +26,27 @@ export function Hero() {
       id="home"
       className="min-h-[85vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative"
     >
-      <div className="section-container max-w-4xl mx-auto flex flex-col items-center text-center">
-        {/* Availability / Location: discrete line, no badge styling */}
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center px-4 sm:px-6">
+        {/* Profile Avatar & Location */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-8 flex items-center gap-2 text-slate-400 font-mono text-xs tracking-wide"
+          className="mb-6 flex flex-col items-center gap-3"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 shrink-0" />
-          <span>{t.hero.location}</span>
+          <div className="relative group">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2px] bg-gradient-to-tr from-cyan-500/40 via-slate-700 to-cyan-500/20 shadow-xl shadow-cyan-950/20">
+              <img
+                src="/profile.jpg"
+                alt="Gonzalo Volante"
+                className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-slate-400 font-mono text-xs tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
+            <span>{t.hero.location}</span>
+          </div>
         </motion.div>
 
         {/* 1. Name */}
@@ -65,73 +75,58 @@ export function Hero() {
           {t.hero.summary}
         </motion.p>
 
-        {/* 4. Focus Line: single discrete monospace line, no boxes/borders/background */}
+        {/* 4. Focus Line: single discrete monospace text line */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.15 }}
-          className="font-mono text-xs text-slate-500 tracking-wider mb-10 selection:bg-cyan-500/20"
+          className="font-mono text-xs text-slate-500 tracking-wider mb-10"
         >
           {t.hero.focusPills}
         </motion.p>
 
-        {/* 5. CTAs */}
+        {/* 5. CTAs with pure Tailwind utility classes */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.2 }}
           className="flex flex-wrap items-center justify-center gap-3 w-full sm:w-auto"
         >
-          <Button
-            asChild
-            className="h-10 px-5 rounded-md bg-white hover:bg-slate-200 text-slate-950 font-medium text-xs sm:text-sm transition-colors gap-2"
+          <a
+            href="#work"
+            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-white hover:bg-slate-200 text-slate-950 font-semibold text-xs sm:text-sm transition-colors shadow-sm"
           >
-            <a href="#work">
-              <span>{t.hero.ctaWork}</span>
-              <ArrowDown className="w-3.5 h-3.5" />
-            </a>
-          </Button>
+            <span>{t.hero.ctaWork}</span>
+            <ArrowDown className="w-3.5 h-3.5 text-slate-950" />
+          </a>
 
-          <Button
-            asChild
-            variant="outline"
-            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          <a
+            href="https://github.com/gonzalo-volante"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
-            <a
-              href="https://github.com/gonzalo-volante"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon className="w-4 h-4 text-slate-400" />
-              <span>{t.hero.ctaGithub}</span>
-            </a>
-          </Button>
+            <GitHubIcon className="w-4 h-4 text-slate-400" />
+            <span>{t.hero.ctaGithub}</span>
+          </a>
 
-          <Button
-            asChild
-            variant="outline"
-            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          <a
+            href="https://linkedin.com/in/gonzalo-volante"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
-            <a
-              href="https://linkedin.com/in/gonzalo-volante"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon className="w-4 h-4 text-slate-400" />
-              <span>{t.hero.ctaLinkedin}</span>
-            </a>
-          </Button>
+            <LinkedInIcon className="w-4 h-4 text-slate-400" />
+            <span>{t.hero.ctaLinkedin}</span>
+          </a>
 
-          <Button
-            asChild
-            variant="outline"
-            className="h-10 px-4 rounded-md border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-xs sm:text-sm transition-colors gap-2"
+          <Link
+            to="/cv"
+            className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
-            <Link to="/cv">
-              <FileText className="w-4 h-4 text-slate-400" />
-              <span>{t.hero.ctaResume}</span>
-            </Link>
-          </Button>
+            <FileText className="w-4 h-4 text-slate-400" />
+            <span>{t.hero.ctaResume}</span>
+          </Link>
         </motion.div>
       </div>
     </section>

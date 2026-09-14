@@ -40,18 +40,17 @@ export function Navbar() {
   const navLinks = [
     { id: 'work', label: t.nav.work },
     { id: 'experience', label: t.nav.experience },
-    { id: 'focus', label: t.nav.focus },
-    { id: 'about', label: t.nav.about },
-    { id: 'contact', label: t.nav.contact },
+    { id: 'education', label: t.nav.training },
+    { id: 'initiatives', label: t.nav.initiatives },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 sm:pt-4 px-4">
       <nav
-        className={`w-full max-w-5xl rounded-full border px-4 py-2 flex items-center justify-between transition-all duration-200 ${
+        className={`w-full max-w-5xl rounded-full border px-5 py-2.5 flex items-center justify-between transition-all duration-200 ${
           isScrolled
-            ? 'bg-slate-950/85 backdrop-blur-md border-slate-800 shadow-lg shadow-black/40'
-            : 'bg-slate-950/40 backdrop-blur-sm border-white/5'
+            ? 'bg-slate-950/90 backdrop-blur-md border-slate-800 shadow-xl shadow-black/50'
+            : 'bg-slate-950/70 backdrop-blur-sm border-slate-800/80'
         }`}
         aria-label="Main Navigation"
       >
@@ -64,27 +63,20 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-1">
+        {/* Desktop Navigation Links: flex with gap-2 and proper padding so links never smush */}
+        <div className="hidden md:flex items-center gap-1.5">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={`#${link.id}`}
-                className={`relative px-3.5 py-1.5 text-xs font-medium transition-colors rounded-full ${
+                className={`relative inline-flex items-center px-3.5 py-1.5 text-xs font-medium transition-colors rounded-full ${
                   isActive
-                    ? 'text-white'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'text-white bg-slate-800/80 border border-slate-700/60'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute inset-0 bg-white/5 border border-white/10 rounded-full"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
                 <span className="relative z-10">{link.label}</span>
               </a>
             );
@@ -92,12 +84,12 @@ export function Navbar() {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-2.5">
+        <div className="hidden md:flex items-center gap-2">
           <Button
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="h-8 px-2.5 rounded-full text-slate-400 hover:text-slate-200 hover:bg-white/5 text-xs font-mono gap-1.5"
+            className="h-8 px-3 rounded-full text-slate-400 hover:text-slate-200 hover:bg-slate-900 text-xs font-mono gap-1.5"
             title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
           >
             <Globe className="w-3.5 h-3.5" />
@@ -108,7 +100,7 @@ export function Navbar() {
             asChild
             variant="outline"
             size="sm"
-            className="h-8 px-3.5 rounded-full border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-medium gap-1 transition-colors"
+            className="h-8 px-3.5 rounded-full border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-medium gap-1 transition-colors"
           >
             <Link to="/cv">
               <span>{t.nav.resume}</span>
