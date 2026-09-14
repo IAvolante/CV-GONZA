@@ -20,10 +20,10 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="w-full bg-slate-950 text-slate-400 py-8 relative">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+    <footer className="w-full bg-slate-950/90 text-slate-400 pt-10 pb-16 relative z-10 border-t border-slate-900/80">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
       
-      <div className="container mx-auto px-4 max-w-6xl flex flex-col items-center gap-4">
+      <div className="container mx-auto px-4 max-w-6xl flex flex-col items-center gap-4 text-center">
         <div className="flex gap-6 mb-2">
           <a href="https://github.com/gonzalo-volante" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
             <GitHubIcon className="w-5 h-5" />
@@ -37,11 +37,14 @@ const Footer = () => {
         </div>
         
         <p className="text-sm font-medium text-slate-300">
-          Gonzalo Volante · 2024 - 2026
+          Gonzalo Volante · 2024 – 2026
         </p>
         
-        <p className="text-xs text-slate-500 font-mono">
-          {t?.footer?.builtWith || "Built with React, TypeScript & ☕"}
+        <p className="text-xs text-slate-500 font-mono flex items-center justify-center gap-1.5 flex-wrap">
+          <span>{t.footer.builtWith}</span>
+          <span className="text-cyan-400">Tailwind CSS</span>
+          <span>·</span>
+          <span>{t.footer.rights}</span>
         </p>
       </div>
     </footer>
