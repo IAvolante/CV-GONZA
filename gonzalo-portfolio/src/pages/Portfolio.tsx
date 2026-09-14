@@ -10,8 +10,24 @@ import Footer from '../components/Footer';
 const Portfolio = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#030712] text-slate-100 font-sans selection:bg-cyan-500/20 selection:text-cyan-200">
+      {/* Background Layer 1: Petrol Blue (top-right / center) */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_60%_at_65%_-10%,rgba(16,42,77,0.45),transparent_70%)]" 
+        aria-hidden="true" 
+      />
+      {/* Background Layer 2: Petrol Green / Deep Teal (top-left / center) */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_60%_at_30%_0%,rgba(13,59,62,0.42),transparent_70%)]" 
+        aria-hidden="true" 
+      />
+      {/* Background Layer 3: Smooth ambient depth into deep darkness */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 bg-gradient-to-b from-transparent via-[#06131c]/30 to-[#02050e]"
+        aria-hidden="true"
+      />
+
       <Navbar />
-      <main className="relative flex flex-col">
+      <main className="relative z-10 flex flex-col">
         {/* 1. Hero */}
         <Hero />
 

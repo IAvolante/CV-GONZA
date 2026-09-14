@@ -24,8 +24,14 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative"
+      className="min-h-[85vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative overflow-hidden"
     >
+      {/* Subtle technical glow - Top Center (petrol blue & petrol green blend) */}
+      <div
+        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[400px] rounded-full bg-gradient-to-tr from-emerald-950/20 via-teal-900/15 to-blue-900/20 blur-[130px] -z-10"
+        aria-hidden="true"
+      />
+
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center px-4 sm:px-6">
         {/* Profile Avatar & Location */}
         <motion.div

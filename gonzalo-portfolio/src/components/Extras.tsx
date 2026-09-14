@@ -16,29 +16,36 @@ export function Extras() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  const getIcon = (idx: number) => {
-    switch (idx) {
-      case 0: // OTBN
-        return <Layers className="w-5 h-5 text-emerald-400" />;
-      case 1: // Publi-Prop
-        return <Terminal className="w-5 h-5 text-cyan-400" />;
-      case 2: // RAG & Webhooks
-        return <Sparkles className="w-5 h-5 text-violet-400" />;
-      case 3: // Facturas EDESA
-        return <FileSpreadsheet className="w-5 h-5 text-amber-400" />;
-      case 4: // Generador Propuestas
-        return <FileCode2 className="w-5 h-5 text-blue-400" />;
-      case 5: // Notion Cargador
-        return <Database className="w-5 h-5 text-rose-400" />;
-      case 6: // Nuevi Bot
-        return <Bot className="w-5 h-5 text-teal-400" />;
-      case 7: // Hairphoria
-        return <Palette className="w-5 h-5 text-pink-400" />;
-      case 8: // Web Nuevas Energías
-        return <Globe className="w-5 h-5 text-indigo-400" />;
-      default:
-        return <Sparkles className="w-5 h-5 text-cyan-400" />;
+  const getProjectIcon = (title: string) => {
+    const lower = title.toLowerCase();
+    if (lower.includes('otbn') || lower.includes('geospatial') || lower.includes('bosques')) {
+      return <Layers className="w-5 h-5 text-emerald-400" />;
     }
+    if (lower.includes('publi-prop')) {
+      return <Terminal className="w-5 h-5 text-cyan-400" />;
+    }
+    if (lower.includes('rag') || lower.includes('asistentes')) {
+      return <Sparkles className="w-5 h-5 text-violet-400" />;
+    }
+    if (lower.includes('factura') || lower.includes('edesa') || lower.includes('bill')) {
+      return <FileSpreadsheet className="w-5 h-5 text-amber-400" />;
+    }
+    if (lower.includes('propuesta') || lower.includes('dimensionamiento') || lower.includes('proposal') || lower.includes('sizing')) {
+      return <FileCode2 className="w-5 h-5 text-blue-400" />;
+    }
+    if (lower.includes('notion') || lower.includes('resúmenes') || lower.includes('statement')) {
+      return <Database className="w-5 h-5 text-rose-400" />;
+    }
+    if (lower.includes('nuevi') || lower.includes('mantenimiento') || lower.includes('growth')) {
+      return <Bot className="w-5 h-5 text-teal-400" />;
+    }
+    if (lower.includes('hairphoria')) {
+      return <Palette className="w-5 h-5 text-pink-400" />;
+    }
+    if (lower.includes('corporativa') || lower.includes('website') || lower.includes('nuevas energías')) {
+      return <Globe className="w-5 h-5 text-indigo-400" />;
+    }
+    return <Sparkles className="w-5 h-5 text-cyan-400" />;
   };
 
   const categories = [
@@ -95,13 +102,13 @@ export function Extras() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredItems.map((item) => (
             <div
-              key={item.originalIdx}
-              className="p-6 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/60 transition-all flex flex-col justify-between space-y-4 group"
+              key={item.title}
+              className="p-6 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 transition-all flex flex-col justify-between space-y-4 group shadow-sm"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 shrink-0 transition-transform group-hover:scale-105">
-                    {getIcon(item.originalIdx)}
+                    {getProjectIcon(item.title)}
                   </div>
                   <span className="text-[10px] font-mono text-slate-400 px-2.5 py-0.5 rounded-full bg-slate-950 border border-slate-800">
                     {item.tag}
