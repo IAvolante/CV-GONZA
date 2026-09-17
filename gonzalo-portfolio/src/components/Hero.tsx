@@ -26,9 +26,9 @@ export function Hero() {
       id="home"
       className="min-h-[85vh] flex flex-col justify-center items-center pt-28 pb-16 px-4 md:px-8 relative overflow-hidden"
     >
-      {/* Subtle technical glow - Top Center (petrol blue & petrol green blend) */}
+      {/* Subtle technical glow - Top Center (petrol blue & petrol green blend, very discreet) */}
       <div
-        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[400px] rounded-full bg-gradient-to-tr from-emerald-950/20 via-teal-900/15 to-blue-900/20 blur-[130px] -z-10"
+        className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] sm:w-[850px] h-[360px] rounded-full bg-gradient-to-tr from-emerald-950/10 via-teal-900/10 to-blue-900/15 blur-[140px] -z-10"
         aria-hidden="true"
       />
 
@@ -41,7 +41,7 @@ export function Hero() {
           className="mb-6 flex flex-col items-center gap-3"
         >
           <div className="relative group">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2px] bg-gradient-to-tr from-cyan-500/40 via-slate-700 to-cyan-500/20 shadow-xl shadow-cyan-950/20">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[1.5px] bg-slate-800 border border-slate-700/60 shadow-lg shadow-black/40">
               <img
                 src="/profile.jpg"
                 alt="Gonzalo Volante"

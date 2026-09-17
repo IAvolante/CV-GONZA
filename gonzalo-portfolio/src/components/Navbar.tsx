@@ -55,29 +55,37 @@ export function Navbar() {
         aria-label="Main Navigation"
       >
         <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-mono font-bold text-slate-200 group-hover:border-cyan-500/50 group-hover:text-cyan-400 transition-colors">
+          <span className="text-xs font-mono font-bold text-slate-300 group-hover:text-cyan-400 transition-colors tracking-wider">
             GV
           </span>
-          <span className="font-semibold text-sm text-slate-100 tracking-tight hidden sm:block">
+          <span className="text-slate-600 font-mono text-xs hidden sm:inline">/</span>
+          <span className="font-medium text-sm text-slate-200 tracking-tight hidden sm:block group-hover:text-white transition-colors">
             Gonzalo Volante
           </span>
         </Link>
 
-        {/* Desktop Navigation Links: flex with gap-2 and proper padding so links never smush */}
-        <div className="hidden md:flex items-center gap-1.5">
+        {/* Desktop Navigation Links: clean typographic navigation with subtle active underline/glow */}
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.id}
                 href={`#${link.id}`}
-                className={`relative inline-flex items-center px-3.5 py-1.5 text-xs font-medium transition-colors rounded-full ${
+                className={`relative px-3 py-1.5 text-xs font-medium transition-colors ${
                   isActive
-                    ? 'text-white bg-slate-800/80 border border-slate-700/60'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                    ? 'text-white'
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                <span className="relative z-10">{link.label}</span>
+                <span>{link.label}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-3 right-3 h-[2px] bg-cyan-400/80 rounded-full"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
               </a>
             );
           })}
@@ -89,18 +97,18 @@ export function Navbar() {
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="h-8 px-3 rounded-full text-slate-400 hover:text-slate-200 hover:bg-slate-900 text-xs font-mono gap-1.5"
+            className="h-7 px-2.5 text-slate-400 hover:text-slate-200 hover:bg-transparent text-xs font-mono gap-1"
             title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
           >
-            <Globe className="w-3.5 h-3.5" />
-            <span>{lang.toUpperCase()}</span>
+            <Globe className="w-3 h-3 text-slate-500" />
+            <span className="text-[11px]">{lang.toUpperCase()}</span>
           </Button>
 
           <Button
             asChild
-            variant="outline"
+            variant="ghost"
             size="sm"
-            className="h-8 px-3.5 rounded-full border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white text-xs font-medium gap-1 transition-colors"
+            className="h-7 px-3 text-slate-300 hover:text-white hover:bg-slate-900 border border-slate-800 text-xs font-medium gap-1 transition-colors rounded-md"
           >
             <Link to="/cv">
               <span>{t.nav.resume}</span>
