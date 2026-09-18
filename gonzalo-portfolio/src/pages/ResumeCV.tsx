@@ -64,7 +64,7 @@ const ResumeCV = () => {
             GONZALO VOLANTE
           </h1>
           <h2 className="text-sm font-semibold tracking-wider text-cyan-400 mb-3 print:text-blue-700">
-            FULL STACK DEVELOPER | AI & AUTOMATION SOLUTIONS DEVELOPER | DIGITAL TRANSFORMATION
+            SOFTWARE SOLUTIONS DEVELOPER | FULL STACK · AUTOMATION · SYSTEM INTEGRATION
           </h2>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-slate-400 print:text-slate-700">
             <span className="flex items-center gap-1.5">
@@ -85,10 +85,13 @@ const ResumeCV = () => {
         {/* Perfil Profesional */}
         <section className="mb-6 print:mb-5">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Perfil Profesional & Liderazgo Digital
+            Perfil Profesional
           </h3>
+          <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800 mb-2">
+            Software Solutions Developer con experiencia diseñando y desarrollando sistemas internos, automatizaciones e integraciones orientadas a resolver problemas operativos reales. Experiencia end-to-end desde el relevamiento de procesos y requerimientos hasta el diseño, desarrollo, integración, despliegue y mantenimiento de soluciones en producción. He trabajado transversalmente con áreas comerciales, administrativas y operativas, transformando procesos manuales y herramientas dispersas en sistemas digitales centralizados, mantenibles y adaptados a las necesidades reales de la organización.
+          </p>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800">
-            Desarrollador Full Stack (Certified Tech Developer) especializado en el <strong>diseño de arquitectura web, automatización de procesos e integración de Inteligencia Artificial (Agentes / RAG / LLMs)</strong>. Amplia experiencia transformando requerimientos de negocio en software escalable (<strong>React, Next.js, TypeScript, Python, Node.js, PostgreSQL, n8n</strong>). Destacado por liderar la digitalización completa en la empresa <em>Nuevas Energías</em>, reemplazando herramientas SaaS costosas en USD por sistemas a medida self-hosted y guiando la tecnología de la empresa como referente técnico y Project Manager sobre más de 28 iniciativas.
+            Stack principal: React, TypeScript, Python, Node.js, PostgreSQL, REST APIs, Docker, n8n y herramientas de automatización e integración.
           </p>
         </section>
 
@@ -101,19 +104,19 @@ const ResumeCV = () => {
             <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
               <strong className="block text-cyan-400 mb-1 print:text-blue-700">Frontend & UI:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                React, Next.js, TypeScript, Tailwind CSS, Framer Motion, ShadCN UI, Responsive & High Performance.
+                React, TypeScript, Tailwind CSS, Responsive UI, Component Architecture.
               </span>
             </div>
             <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
               <strong className="block text-cyan-400 mb-1 print:text-blue-700">Backend & Data:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                Python (Flask/FastAPI), Node.js, PostgreSQL, Supabase (pgvector), REST APIs, Webhooks, OCR, pdfplumber.
+                Python, Node.js, PostgreSQL, REST APIs, Webhooks, OCR / document processing.
               </span>
             </div>
             <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-700">Automatización & Herramientas:</strong>
+              <strong className="block text-cyan-400 mb-1 print:text-blue-700">Automation & Infrastructure:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                REST APIs, Webhooks, n8n, Playwright/Puppeteer, Docker, Linux/Ubuntu, Meta WhatsApp API, Chatwoot.
+                n8n, Docker, Linux / Ubuntu, API integrations, Chatwoot / WhatsApp Cloud API, Git / GitHub.
               </span>
             </div>
           </div>
@@ -134,89 +137,93 @@ const ResumeCV = () => {
               </span>
             </div>
             <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
-              Especialista en TI | Software Solutions Developer & Digital Transformation Lead
+              Especialista en TI | Software Solutions Developer
+            </p>
+            <p className="text-xs text-slate-300 print:text-slate-800 mb-2.5 leading-relaxed">
+              Lideré el proceso de digitalización de distintos procesos internos de la empresa, partiendo de una operatoria basada en tareas manuales, planillas de cálculo y herramientas dispersas. Relevé necesidades junto a las áreas comercial, administrativa y operativa, y diseñé y desarrollé soluciones internas a medida para centralizar información, automatizar flujos y mejorar la trazabilidad operativa.
             </p>
             <ul className="list-disc pl-4 space-y-1.5 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
               <li>
-                <strong>Sistema de Gestión Financiera & Reemplazo SaaS:</strong> Desarrollé el módulo a medida de gestión financiera y cuentas por pagar/cobrar, <strong>reemplazando Xubio ($120 USD/mes), noCRM ($150 USD/mes) y Whaticket ($50 USD/mes)</strong> por un ecosistema propio self-hosted integrando <strong>Chatwoot, WhatsApp Meta API, Notion API, Python y PostgreSQL (Ahorro de +$320 USD/mes)</strong>.
+                Diseño y desarrollo de una plataforma interna de gestión para centralizar clientes, operaciones, documentación, presupuestos y seguimiento de procesos.
               </li>
               <li>
-                <strong>Cerebro IA "Nuevi":</strong> Agente conversacional y automatización inteligente para atención 24/7 de ventas y triaje automático de tickets de soporte técnico derivando directamente a Trello.
+                Desarrollo de herramientas para elaboración de presupuestos, dimensionamiento de soluciones fotovoltaicas y generación automatizada de documentación técnica y comercial.
               </li>
               <li>
-                <strong>Motor de Informes Fotovoltaicos:</strong> Sistema asíncrono en Python que consulta APIs de inversores solares y cruza consumos horariales EDESA (pico/resto/valle). <strong>Redujo la emisión de reportes de 1 día a 2 minutos por planta para +40 plantas activas</strong>.
+                Implementación de sistemas para monitoreo y procesamiento de datos de instalaciones fotovoltaicas mediante integración con APIs externas.
               </li>
               <li>
-                <strong>Analizador de Facturas con IA:</strong> Ingesta de datos (OCR + pdfplumber + OpenAI API) para detección automática de excesos de potencia contratada y prospección de clientes industriales.
+                Automatización de flujos operativos mediante Python, APIs, webhooks, n8n y servicios self-hosted.
               </li>
               <li>
-                <strong>Cotizador & Dimensionador Solar:</strong> Motores de cálculo en React + Flask para proyecciones On-Grid / Off-Grid y emisión instantánea de propuestas comerciales en PDF.
+                Diseño y mantenimiento de bases de datos PostgreSQL para centralización de información operativa.
               </li>
               <li>
-                <strong>Gestión de Proyectos (Tech Lead & PM):</strong> Planificación y liderazgo técnico transversal sobre un pipeline de 28 proyectos digitales coordinando a las áreas comercial, operativa y de soporte.
+                Integración de canales de comunicación y soporte mediante herramientas como Chatwoot y WhatsApp Cloud API.
+              </li>
+              <li>
+                Trabajo transversal con Comercial, Administración y Operaciones para relevar requerimientos, traducir necesidades en soluciones técnicas y acompañar la adopción de nuevas herramientas.
+              </li>
+              <li>
+                Desarrollo, despliegue y mantenimiento de soluciones en producción utilizando Docker y entornos Linux.
               </li>
             </ul>
           </div>
 
-          {/* iGrowker & Foo Talent Group */}
-          <div className="mb-5 print:mb-4 page-break-avoid">
+          {/* Smart Projects */}
+          <div className="page-break-avoid">
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
+              <h4 className="text-sm font-bold text-white print:text-slate-950">Smart Projects</h4>
+              <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
+                2022 – Presente | Remoto / Salta
+              </span>
+            </div>
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
+              Software Solutions & Automation Consultant
+            </p>
+            <ul className="list-disc pl-4 space-y-1.5 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+              <li>
+                Desarrollo de bots de automatización con Node.js y Playwright para navegación web, gestión de sesiones y publicación estructurada de contenidos.
+              </li>
+              <li>
+                Implementación de asistentes basados en documentos y flujos de automatización mediante PostgreSQL / Supabase, REST APIs y WhatsApp API para consulta y triaje de información.
+              </li>
+              <li>
+                Procesamiento y visualización de datos geoespaciales e imágenes satelitales utilizando Python, QGIS y Google Earth Engine en proyectos de análisis territorial.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Formación Práctica & Simulación Profesional */}
+        <section className="mb-6 print:mb-5 page-break-avoid">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-3 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+            Formación Práctica & Simulación Profesional
+          </h3>
+          <div>
             <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
               <h4 className="text-sm font-bold text-white print:text-slate-950">iGrowker & Foo Talent Group</h4>
               <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
                 2023 – 2024 | Remoto
               </span>
             </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
               Frontend Lead / Desarrollador Frontend
             </p>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>FastLab (LIS SARESA):</strong> Desarrollo de interfaces reactivas para Sistema de Información de Laboratorio clínico (React, TypeScript, Tailwind CSS, Docker) para gestión de historias clínicas y resultados diagnósticos.
-              </li>
-              <li>
-                <strong>YouCreate 2.0:</strong> Liderazgo del equipo frontend y desarrollo de módulos de interfaz para gestión de balances de ingresos, facturación y liquidaciones de usuarios (React, TypeScript, Tailwind CSS).
-              </li>
-              <li>
-                <strong>Metodología de Aceleración:</strong> Trabajo colaborativo en sprints de 2 semanas bajo metodologías ágiles (Scrum, CI/CD, Code Reviews integrados).
-              </li>
-            </ul>
-          </div>
-
-          {/* Smart Projects */}
-          <div className="mb-5 print:mb-4 page-break-avoid">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">Smart Projects</h4>
-              <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
-                2022 – Presente | Remoto
-              </span>
-            </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
-              Software Solutions & AI Automation Consultant
+            <p className="text-xs text-slate-300 print:text-slate-800 mb-2 leading-relaxed">
+              Participación en programas de simulación profesional y aceleración técnica, trabajando en equipos multidisciplinarios bajo metodologías ágiles y dinámicas similares a entornos de software factory.
             </p>
             <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
               <li>
-                <strong>Publi-Prop:</strong> Bot headless en Node.js y Playwright para publicación masiva en Facebook Marketplace con almacenamiento de sesiones y evasión de huellas digitales.
+                Liderazgo del equipo frontend en YouCreate, plataforma para gestión de balances, facturación y liquidaciones.
               </li>
               <li>
-                <strong>Agentes RAG & Automatización:</strong> Creación de asistentes con Supabase (pgvector), REST APIs y WhatsApp API para triaje de consultas sobre documentos y catálogos.
+                Desarrollo de interfaces para FastLab, sistema de información de laboratorio clínico.
               </li>
               <li>
-                <strong>Visor OTBN & GIS (Ley de Bosques):</strong> Miembro del Comité Técnico OTBN Salta. Desarrollo de visor georreferenciado e imágenes satelitales (NDVI/NDWI) en Python, QGIS y Google Earth Engine.
+                Trabajo con React, TypeScript, Tailwind CSS, REST APIs, Git, code reviews y sprints ágiles.
               </li>
             </ul>
-          </div>
-
-          {/* Digital House */}
-          <div className="page-break-avoid">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">Digital House</h4>
-              <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
-                2021 – 2023 | Remoto
-              </span>
-            </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800">
-              Certified Tech Developer - Desarrollador Full Stack
-            </p>
           </div>
         </section>
 
@@ -227,13 +234,13 @@ const ResumeCV = () => {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
+              <strong>Certified Tech Developer Jr.</strong> - Digital House (2021 – 2023)
+            </div>
+            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
               <strong>Certificación Simulación Laboral Full Stack</strong> - iGrowker (2024)
             </div>
             <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
               <strong>Certificación Aceleración de Software</strong> - Foo Talent Group (2024)
-            </div>
-            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certified Tech Developer Jr.</strong> - Digital House (2023)
             </div>
             <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
               <strong>Diseño UX/UI</strong> - Coderhouse (2021)
