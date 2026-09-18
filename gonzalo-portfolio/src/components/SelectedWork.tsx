@@ -52,6 +52,11 @@ export function SelectedWork() {
       entity: 'iGrowker',
       featuredTechs: partB.fastLab.stack.slice(0, 4),
     },
+    {
+      data: partB.smartProjects,
+      entity: 'Foo Talent Group',
+      featuredTechs: partB.smartProjects.stack.slice(0, 4),
+    },
   ];
 
   return (
@@ -224,7 +229,7 @@ export function SelectedWork() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {simulationProjects.map((sim, idx) => (
               <article
                 key={idx}

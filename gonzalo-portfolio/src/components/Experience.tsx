@@ -66,7 +66,7 @@ export function Experience() {
                 {/* Achievements List */}
                 <div className="space-y-2">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold block">
-                    Impacto y entregas clave:
+                    {t.experience.achievementsTitle}
                   </span>
                   <ul className="space-y-2">
                     {item.achievements.map((achievement, aIdx) => (
