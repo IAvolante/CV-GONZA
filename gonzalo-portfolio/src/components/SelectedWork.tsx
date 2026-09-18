@@ -6,30 +6,38 @@ export function SelectedWork() {
   const { t } = useLanguage();
   const work = t.selectedWork;
   const umbrella = work.digitalTransformation;
-  const partA = work.partA;
   const partB = work.partB;
 
-  const modules = [
+  const pillars = [
     {
-      id: 'pv-reporting',
-      path: '/work/pv-reporting-system',
-      data: partA.pvReporting,
       number: '01',
-      featuredTechs: partA.pvReporting.stack.slice(0, 4),
+      data: work.pillars.pillar1,
+      featuredTechs: work.pillars.pillar1.stack.slice(0, 4),
+      anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar1.anchor}`,
     },
     {
-      id: 'operations-platform',
-      path: '/work/operations-platform',
-      data: partA.operationsPlatform,
       number: '02',
-      featuredTechs: partA.operationsPlatform.stack.slice(0, 4),
+      data: work.pillars.pillar2,
+      featuredTechs: work.pillars.pillar2.stack.slice(0, 4),
+      anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar2.anchor}`,
     },
     {
-      id: 'solar-quotation',
-      path: '/work/solar-quotation-system',
-      data: partA.quotationSystem,
       number: '03',
-      featuredTechs: partA.quotationSystem.stack.slice(0, 4),
+      data: work.pillars.pillar3,
+      featuredTechs: work.pillars.pillar3.stack.slice(0, 4),
+      anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar3.anchor}`,
+    },
+    {
+      number: '04',
+      data: work.pillars.pillar4,
+      featuredTechs: work.pillars.pillar4.stack.slice(0, 4),
+      anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar4.anchor}`,
+    },
+    {
+      number: '05',
+      data: work.pillars.pillar5,
+      featuredTechs: work.pillars.pillar5.stack.slice(0, 4),
+      anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar5.anchor}`,
     },
   ];
 
@@ -110,7 +118,7 @@ export function SelectedWork() {
 
               {/* Technologies */}
               <div className="flex flex-wrap items-center gap-1.5">
-                {umbrella.stack.slice(0, 5).map((tech: string, idx: number) => (
+                {umbrella.stack.slice(0, 6).map((tech: string, idx: number) => (
                   <span
                     key={idx}
                     className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs"
@@ -133,50 +141,51 @@ export function SelectedWork() {
         </div>
 
         {/* ========================================================
-            MÓDULOS DEL ECOSISTEMA (TARJETAS COMPACTAS)
+            5 PILARES FUNCIONALES (TARJETAS COMPACTAS)
            ======================================================== */}
         <div className="space-y-6 pt-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold">
-              {work.modulesTitle}
+              {work.pillarsTitle}
             </h3>
             <span className="text-xs font-mono text-slate-500">
-              3 Sistemas Especializados
+              {work.pillarsSubtitle}
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {modules.map((mod) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {pillars.map((pillar) => (
               <article
-                key={mod.id}
+                key={pillar.number}
                 className="group rounded-xl border border-slate-800/90 bg-slate-900/35 p-5 sm:p-6 space-y-4 flex flex-col justify-between hover:border-slate-700 hover:bg-slate-900/50 transition-all"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">
-                      {mod.number} // {mod.data.tag}
+                      {pillar.data.tag}
                     </span>
                   </div>
 
                   <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
-                    <Link to={mod.path}>
-                      {mod.data.title}
+                    <Link to={pillar.anchorPath}>
+                      {pillar.data.title}
                     </Link>
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
-                    {mod.data.shortDescription}
-                  </p>
-
-                  <div className="text-[11px] font-mono text-slate-400 pt-1">
-                    <span className="text-slate-500">Rol: </span>
-                    <span className="text-slate-300">{mod.data.myResponsibility.split(',')[0]}</span>
+                  <div className="space-y-2 text-xs text-slate-400 leading-relaxed">
+                    <p className="line-clamp-2">
+                      <strong className="text-slate-300 font-medium">{work.labels.problem}: </strong>
+                      {pillar.data.shortProblem}
+                    </p>
+                    <p className="line-clamp-2 text-slate-300">
+                      {pillar.data.shortDescription}
+                    </p>
                   </div>
                 </div>
 
                 <div className="pt-3 border-t border-slate-800/80 space-y-3">
                   <div className="flex flex-wrap gap-1.5">
-                    {mod.featuredTechs.map((tech: string, sIdx: number) => (
+                    {pillar.featuredTechs.map((tech: string, sIdx: number) => (
                       <span
                         key={sIdx}
                         className="px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700/50 text-slate-300 font-mono text-[11px]"
@@ -187,10 +196,10 @@ export function SelectedWork() {
                   </div>
 
                   <Link
-                    to={mod.path}
+                    to={pillar.anchorPath}
                     className="inline-flex items-center justify-between w-full pt-1 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition-colors"
                   >
-                    <span>{work.viewCaseStudy}</span>
+                    <span>{work.viewPillar}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

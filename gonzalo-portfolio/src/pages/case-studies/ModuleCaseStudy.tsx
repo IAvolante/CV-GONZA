@@ -68,7 +68,7 @@ export function ModuleCaseStudy({ moduleId }: ModuleCaseStudyProps) {
             <span>{work.backToUmbrella}</span>
           </Link>
           <span className="text-xs font-mono text-slate-500">
-            Módulo 0{currentIndex + 1} de 03
+            0{currentIndex + 1} / 03
           </span>
         </div>
 
@@ -92,7 +92,7 @@ export function ModuleCaseStudy({ moduleId }: ModuleCaseStudyProps) {
 
           <div className="pt-2 flex items-center gap-2 text-xs font-mono text-slate-400">
             <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Parte del ecosistema: </span>
+            <span>{work.labels.partOfPlatform}: </span>
             <Link 
               to="/work/digital-transformation-nuevas-energias" 
               className="text-cyan-300 hover:underline inline-flex items-center gap-0.5"

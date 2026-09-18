@@ -27,8 +27,18 @@ export function CaseStudyLayout({ breadcrumbs, children }: CaseStudyLayoutProps)
   const location = useLocation();
 
   useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   const cta = t.selectedWork.caseStudyCta;
 
