@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
         
         <p className="text-sm font-medium text-slate-300">
-          Gonzalo Volante · 2024 – 2026
+          Gonzalo Volante · 2021 – 2026
         </p>
         
         <p className="text-xs text-slate-500 font-mono flex items-center justify-center gap-1.5 flex-wrap">
