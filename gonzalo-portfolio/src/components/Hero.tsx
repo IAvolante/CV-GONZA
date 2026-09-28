@@ -33,12 +33,12 @@ export function Hero() {
       />
 
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center px-4 sm:px-6">
-        {/* Profile Avatar & Location */}
+        {/* Profile Avatar */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-6 flex flex-col items-center gap-3"
+          className="mb-6 flex flex-col items-center"
         >
           <div className="relative group">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[1.5px] bg-slate-800 border border-slate-700/60 shadow-lg shadow-black/40">
@@ -48,10 +48,6 @@ export function Hero() {
                 className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-          </div>
-          <div className="flex items-center gap-2 text-slate-400 font-mono text-xs tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-            <span>{t.hero.location}</span>
           </div>
         </motion.div>
 
