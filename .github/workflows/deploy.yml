@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./gonzalo-portfolio
-        run: npm ci
+        run: npm ci || npm install
 
       - name: Build
         working-directory: ./gonzalo-portfolio
