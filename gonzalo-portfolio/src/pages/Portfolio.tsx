@@ -3,7 +3,6 @@ import { Hero } from '../components/Hero';
 import { TechMarquee } from '../components/TechMarquee';
 import { SelectedWork } from '../components/SelectedWork';
 import { EngineeringBentoGrid } from '../components/EngineeringBentoGrid';
-import { SystemPlayground } from '../components/SystemPlayground';
 import { Experience } from '../components/Experience';
 import { Education } from '../components/Education';
 import { Extras } from '../components/Extras';
@@ -35,16 +34,13 @@ const Portfolio = () => {
         {/* 1. Hero */}
         <Hero />
 
-        {/* 2. Selected Work (Professional Work & Selected Projects) */}
+        {/* 2. Selected Work (Dual Flagship & Collaborative Work) */}
         <SelectedWork />
 
         {/* 3. Engineering Bento Grid (Automation & Specialized Data Systems) */}
         <EngineeringBentoGrid />
 
-        {/* 4. Live Architecture System Playground (Interactive Pipeline Simulator) */}
-        <SystemPlayground />
-
-        {/* 5. Professional Experience */}
+        {/* 4. Professional Experience */}
         <Experience />
 
         {/* 4. Technologies & Tools Marquee (Summary of Demonstrated Stack) */}
