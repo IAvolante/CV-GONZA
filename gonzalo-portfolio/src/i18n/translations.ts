@@ -3,6 +3,7 @@ export const translations = {
     // Navbar
     nav: {
       work: 'Trabajo',
+      sandbox: 'Sandbox ⚡',
       experience: 'Experiencia',
       training: 'Formación',
       initiatives: 'Soluciones',
@@ -18,6 +19,7 @@ export const translations = {
       title: 'Software Solutions Developer',
       summary: 'Diseño y construyo sistemas de software que automatizan procesos, integran plataformas y transforman problemas operativos en soluciones digitales confiables.',
       focusPills: 'Systems · Automation · APIs · Data · Applied AI',
+      architectureBadge: '⚡ Architecture Sandbox',
       ctaWork: 'Ver Trabajo',
       ctaGithub: 'GitHub',
       ctaLinkedin: 'LinkedIn',
@@ -500,6 +502,47 @@ export const translations = {
       github: 'GitHub',
       cv: 'Descargar CV',
     },
+    // System Playground (Live Architecture Simulator)
+    systemPlayground: {
+      tag: 'INTERACTIVE ARCHITECTURE // SYSTEM PLAYGROUND',
+      title: 'Simulador de Arquitectura de Automatización en Vivo',
+      subtitle: 'Explora cómo opera en tiempo real la solución de software que construí para erradicar cuellos de botella operativos: haz clic en los nodos o dispara una ejecución para ver el flujo de datos y la reducción de latencia.',
+      triggerBtn: 'Ejecutar Simulación de Pipeline',
+      runningBtn: 'Procesando Flujo de Datos...',
+      resetBtn: 'Reiniciar Telemetría',
+      efficiencyBadge: '97.3% Reducción de Tiempo',
+      liveTelemetry: 'TELEMETRÍA EN TIEMPO REAL',
+      nodes: {
+        ingestion: {
+          title: 'Ingesta de Datos & Webhooks',
+          tech: 'FastAPI · REST · Webhooks',
+          desc: 'Recepción y validación de 1.400+ registros de telemetría de inversores solares y solicitudes comerciales.',
+        },
+        engine: {
+          title: 'Motor de Cálculo & Reglas',
+          tech: 'Python · NumPy · Pandas',
+          desc: 'Matriz de cálculo fotovoltaico, detección de transgresiones de potencia y tarificación eléctrica algorítmica.',
+        },
+        storage: {
+          title: 'Caché Resiliente & Sync CRM',
+          tech: 'PostgreSQL · SQLite · noCRM API',
+          desc: 'Cliente noCRM de solo lectura con caché local para consulta ultrarrápida sin sobrecargar límites de API.',
+        },
+        dispatch: {
+          title: 'Despacho & Alertas Automáticas',
+          tech: 'Chatwoot · Linux SSH · GitHub Actions',
+          desc: 'Enrutamiento omnicanal, alertas automáticas para asesores y generación desatendida de reportes periódicos.',
+        },
+      },
+      comparison: {
+        manualLabel: 'Proceso Manual Previo',
+        manualValue: '~120 minutos por ciclo',
+        automatedLabel: 'Sistema Automatizado Gonzalo',
+        automatedValue: '3.2 segundos / ciclo',
+      },
+      toastTitle: 'Pipeline de Automatización Ejecutado',
+      toastDesc: 'Flujo completado en 3.2s. 8.5 horas operativas ahorradas con 0% error de cálculo.',
+    },
     // Footer
     footer: {
       builtWith: 'Construido con React, TypeScript y',
@@ -510,7 +553,9 @@ export const translations = {
       placeholder: 'Buscar sección, proyecto o acción...',
       navigation: 'Navegación',
       actions: 'Acciones',
+      sandbox: 'Simulador de Arquitectura (Sandbox)',
       copyEmail: 'Copiar Email',
+      emailCopied: 'Email copiado al portapapeles',
       downloadCV: 'Descargar CV',
       openGitHub: 'Abrir GitHub',
       openLinkedIn: 'Abrir LinkedIn',
@@ -520,6 +565,7 @@ export const translations = {
   en: {
     nav: {
       work: 'Work',
+      sandbox: 'Sandbox ⚡',
       experience: 'Experience',
       training: 'Training',
       initiatives: 'Solutions',
@@ -534,6 +580,7 @@ export const translations = {
       title: 'Software Solutions Developer',
       summary: 'I design and build software systems that automate processes, integrate platforms and turn operational problems into reliable digital solutions.',
       focusPills: 'Systems · Automation · APIs · Data · Applied AI',
+      architectureBadge: '⚡ Architecture Sandbox',
       ctaWork: 'View Work',
       ctaGithub: 'GitHub',
       ctaLinkedin: 'LinkedIn',
@@ -1016,6 +1063,47 @@ export const translations = {
       github: 'GitHub',
       cv: 'Download CV',
     },
+    // System Playground (Live Architecture Simulator)
+    systemPlayground: {
+      tag: 'INTERACTIVE ARCHITECTURE // SYSTEM PLAYGROUND',
+      title: 'Live Automation Architecture Simulator',
+      subtitle: 'Inspect how the software platform I built resolves operational bottlenecks in real time: click the nodes or trigger an execution to observe data flow and latency reduction.',
+      triggerBtn: 'Trigger Pipeline Simulation',
+      runningBtn: 'Processing Data Flow...',
+      resetBtn: 'Reset Telemetry',
+      efficiencyBadge: '97.3% Latency Reduction',
+      liveTelemetry: 'LIVE RUNTIME TELEMETRY',
+      nodes: {
+        ingestion: {
+          title: 'Data Ingestion & Webhooks',
+          tech: 'FastAPI · REST · Webhooks',
+          desc: 'Ingestion and validation of 1,400+ solar inverter telemetry data points and incoming commercial requests.',
+        },
+        engine: {
+          title: 'Calculation Engine & Rules',
+          tech: 'Python · NumPy · Pandas',
+          desc: 'Photovoltaic sizing algorithm, power transgression detection, and automated tariff computation matrix.',
+        },
+        storage: {
+          title: 'Resilient Cache & CRM Sync',
+          tech: 'PostgreSQL · SQLite · noCRM API',
+          desc: 'Read-only noCRM client pipeline with local cache for instant zero-latency querying within API rate limits.',
+        },
+        dispatch: {
+          title: 'Automated Dispatch & Alerts',
+          tech: 'Chatwoot · Linux SSH · GitHub Actions',
+          desc: 'Omnichannel routing, instant sales team notifications, and headless scheduled reporting engine.',
+        },
+      },
+      comparison: {
+        manualLabel: 'Legacy Manual Process',
+        manualValue: '~120 minutes per cycle',
+        automatedLabel: "Gonzalo's Automated System",
+        automatedValue: '3.2 seconds / cycle',
+      },
+      toastTitle: 'Automation Pipeline Executed',
+      toastDesc: 'Simulation completed in 3.2s. 8.5 operational hours saved with 0% calculation error.',
+    },
     footer: {
       builtWith: 'Built with React, TypeScript and',
       rights: 'All rights reserved.',
@@ -1024,7 +1112,9 @@ export const translations = {
       placeholder: 'Search section, project or action...',
       navigation: 'Navigation',
       actions: 'Actions',
+      sandbox: 'Architecture Simulator (Sandbox)',
       copyEmail: 'Copy Email',
+      emailCopied: 'Email copied to clipboard',
       downloadCV: 'Download CV',
       openGitHub: 'Open GitHub',
       openLinkedIn: 'Open LinkedIn',

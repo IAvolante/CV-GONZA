@@ -6,10 +6,12 @@ import { Experience } from '../components/Experience';
 import { Education } from '../components/Education';
 import { Extras } from '../components/Extras';
 import Footer from '../components/Footer';
+import CommandPalette from '../components/CommandPalette';
 
 const Portfolio = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#030712] text-slate-100 font-sans selection:bg-cyan-500/20 selection:text-cyan-200">
+      <CommandPalette />
       {/* Background Layer 1: Petrol Blue (top-right / center, soft opacity ~0.30) */}
       <div 
         className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_60%_at_65%_-10%,rgba(16,42,77,0.30),transparent_70%)]" 

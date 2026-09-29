@@ -37,7 +37,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.05 }}
           className="mb-6 flex flex-col items-center"
         >
           <div className="relative group">

@@ -17,7 +17,7 @@ import {
   Languages,
   Terminal
 } from 'lucide-react';
-import { toast } from 'sonner';
+import { sileo } from 'sileo';
 import { useNavigate } from 'react-router-dom';
 
 const GitHubIcon = ({ className }: { className?: string }) => (
@@ -58,7 +58,11 @@ const CommandPalette = () => {
 
   const copyEmail = () => {
     navigator.clipboard.writeText('gonzavolante@gmail.com');
-    toast.success('Email copied to clipboard!');
+    sileo.success({
+      title: t?.cmd?.emailCopied || (lang === 'es' ? 'Email copiado al portapapeles' : 'Email copied to clipboard'),
+      description: 'gonzavolante@gmail.com',
+      duration: 3500,
+    });
   };
 
   const scrollTo = (id: string) => {
