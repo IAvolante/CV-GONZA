@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { Toaster } from 'sonner';
@@ -57,6 +57,7 @@ function App() {
               path="/work/solar-quotation-system" 
               element={<ModuleCaseStudy moduleId="quotationSystem" />} 
             />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Router>
         <Toaster theme="dark" position="bottom-right" richColors />

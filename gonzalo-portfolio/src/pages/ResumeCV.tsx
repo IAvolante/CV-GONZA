@@ -91,7 +91,7 @@ const ResumeCV = () => {
             Software Solutions Developer con experiencia diseñando y desarrollando sistemas internos, automatizaciones e integraciones orientadas a resolver problemas operativos reales. Experiencia end-to-end desde el relevamiento de procesos y requerimientos hasta el diseño, desarrollo, integración, despliegue y mantenimiento de soluciones en producción. He trabajado transversalmente con áreas comerciales, administrativas y operativas, transformando procesos manuales y herramientas dispersas en sistemas digitales centralizados, mantenibles y adaptados a las necesidades reales de la organización.
           </p>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800">
-            Stack principal: React, TypeScript, Python, Node.js, PostgreSQL, REST APIs, Docker, n8n y herramientas de automatización e integración.
+            Stack principal: React, TypeScript, Python, Node.js, SQLite / PostgreSQL, REST APIs, n8n y herramientas de automatización e integración.
           </p>
         </section>
 
@@ -110,13 +110,13 @@ const ResumeCV = () => {
             <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
               <strong className="block text-cyan-400 mb-1 print:text-blue-700">Backend & Data:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                Python, Node.js, PostgreSQL, REST APIs, Webhooks, OCR / document processing.
+                Python, Node.js, SQLite / PostgreSQL, REST APIs, Webhooks, OCR / document processing.
               </span>
             </div>
             <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
               <strong className="block text-cyan-400 mb-1 print:text-blue-700">Automation & Infrastructure:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                n8n, Docker, Linux / Ubuntu, API integrations, Chatwoot / WhatsApp Cloud API, Git / GitHub.
+                n8n, VPS Linux (systemd, Gunicorn, Nginx), API integrations, webhook / Whaticket / Chatwoot, Git / GitHub.
               </span>
             </div>
           </div>
@@ -156,16 +156,16 @@ const ResumeCV = () => {
                 Automatización de flujos operativos mediante Python, APIs, webhooks, n8n y servicios self-hosted.
               </li>
               <li>
-                Diseño y mantenimiento de bases de datos PostgreSQL para centralización de información operativa.
+                Diseño y mantenimiento de bases de datos utilizando SQLite + SQLAlchemy (persistencia local y series temporales fotovoltaicas) para centralización de información operativa.
               </li>
               <li>
-                Integración de canales de comunicación y soporte mediante herramientas como Chatwoot y WhatsApp Cloud API.
+                Integración de canales de mensajería y soporte mediante webhook / n8n / Whaticket / Chatwoot.
               </li>
               <li>
                 Trabajo transversal con Comercial, Administración y Operaciones para relevar requerimientos, traducir necesidades en soluciones técnicas y acompañar la adopción de nuevas herramientas.
               </li>
               <li>
-                Desarrollo, despliegue y mantenimiento de soluciones en producción utilizando Docker y entornos Linux.
+                Desarrollo, despliegue y mantenimiento de soluciones en producción en VPS Linux utilizando systemd, Gunicorn y Nginx.
               </li>
             </ul>
           </div>

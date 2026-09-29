@@ -3,6 +3,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { Mail, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { RetroGrid } from '@/components/magicui/retro-grid';
+import { Link } from 'react-router-dom';
 
 const GitHubIcon = ({ className }: { className?: string }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -20,7 +21,7 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 );
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section id="contact" className="relative py-20 md:py-32 overflow-hidden scroll-mt-24">
@@ -45,7 +46,11 @@ const Contact = () => {
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="mailto:gonzavolante@gmail.com" className="block group">
+            <a
+              href="mailto:gonzavolante@gmail.com"
+              aria-label={lang === 'es' ? 'Enviar correo electrónico a gonzavolante@gmail.com' : 'Send email to gonzavolante@gmail.com'}
+              className="block group"
+            >
               <Card className="bg-slate-900/60 backdrop-blur-md border-white/10 group-hover:scale-105 group-hover:border-cyan-500/50 transition-all duration-300">
                 <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500/20 transition-colors">
@@ -58,7 +63,13 @@ const Contact = () => {
               </Card>
             </a>
 
-            <a href="https://linkedin.com/in/gonzalo-volante" target="_blank" rel="noopener noreferrer" className="block group">
+            <a
+              href="https://linkedin.com/in/gonzalo-volante"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de LinkedIn de Gonzalo Volante"
+              className="block group"
+            >
               <Card className="bg-slate-900/60 backdrop-blur-md border-white/10 group-hover:scale-105 group-hover:border-blue-500/50 transition-all duration-300">
                 <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
@@ -71,7 +82,13 @@ const Contact = () => {
               </Card>
             </a>
 
-            <a href="https://github.com/gonzalo-volante" target="_blank" rel="noopener noreferrer" className="block group">
+            <a
+              href="https://github.com/gonzalo-volante"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de GitHub de Gonzalo Volante"
+              className="block group"
+            >
               <Card className="bg-slate-900/60 backdrop-blur-md border-white/10 group-hover:scale-105 group-hover:border-slate-500/50 transition-all duration-300">
                 <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-400 group-hover:bg-slate-500/20 transition-colors">
@@ -84,7 +101,11 @@ const Contact = () => {
               </Card>
             </a>
 
-            <a href="/cv" className="block group">
+            <Link
+              to="/cv"
+              aria-label={lang === 'es' ? 'Ver Curriculum Vitae de Gonzalo Volante' : 'View Gonzalo Volante Curriculum Vitae'}
+              className="block group"
+            >
               <Card className="bg-slate-900/60 backdrop-blur-md border-white/10 group-hover:scale-105 group-hover:border-violet-500/50 transition-all duration-300">
                 <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-colors">
@@ -95,7 +116,7 @@ const Contact = () => {
                   </span>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

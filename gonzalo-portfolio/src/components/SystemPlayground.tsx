@@ -42,7 +42,7 @@ export function SystemPlayground() {
       id: 'init-2',
       time: '00:00.042',
       level: 'OPTIMIZE',
-      text: lang === 'es' ? 'Caché local en memoria activa: SQLite/PostgreSQL sincronizado.' : 'In-memory local client cache active: SQLite/PostgreSQL synchronized.',
+      text: lang === 'es' ? 'Caché local en memoria activa: SQLite + SQLAlchemy sincronizado.' : 'In-memory local client cache active: SQLite + SQLAlchemy synchronized.',
     },
   ]);
 

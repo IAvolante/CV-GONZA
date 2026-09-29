@@ -77,7 +77,7 @@ export const translations = {
         overview: 'El proyecto surgió a partir de la necesidad de centralizar procesos comerciales, técnicos y administrativos que se encontraban distribuidos entre planillas, herramientas externas y tareas manuales. A partir del relevamiento de procesos internos se desarrolló progresivamente una plataforma web que integra herramientas de dimensionamiento energético, análisis de facturas eléctricas, generación de propuestas, monitoreo de instalaciones fotovoltaicas, automatización comercial e integraciones con servicios externos. La solución combina un frontend React/TypeScript con un backend Flask/Python y distintos almacenes SQLite especializados, integrando servicios como Chatwoot, noCRM, Google Drive, Google Sheets, Notion, Growatt, Slack y n8n.',
         initialContext: 'Antes de la implementación de la plataforma, los cálculos de dimensionamiento solar dependían de planillas de cálculo locales con fórmulas expuestas a desajustes, el análisis de consumos requería transcripción manual de facturas eléctricas, el seguimiento comercial se gestionaba en herramientas externas sin conexión con las áreas técnicas y la emisión de reportes de generación requería descargas manuales desde portales de inversores. Esta dinámica provocaba demoras operativas, redundancia de tareas y dificultades para el seguimiento unificado de las instalaciones.',
         myResponsibility: 'Lideré el proceso de relevamiento, diseño y desarrollo de distintas soluciones internas, trabajando de forma directa sobre motores de cálculo energético, automatización de procesos, frontend, backend, integraciones y despliegue de la plataforma.',
-        architectureOverview: 'La arquitectura principal opera como una aplicación web modular: el frontend SPA en React y TypeScript se comunica mediante peticiones HTTP con un backend en Flask organizado en Blueprints funcionales. La persistencia se gestiona con SQLAlchemy y bases de datos SQLite especializadas según el dominio (datos operativos del ERP, registro histórico de plantas solares, análisis tarifario y caché de CRM). Los motores de cálculo y parsers corren directamente en Python, mientras que las tareas pesadas de reporte se ejecutan en segundo plano mediante subprocesos y sincronizaciones en hilos daemon.',
+        architectureOverview: 'La arquitectura principal opera como una aplicación web modular: el frontend SPA en React y TypeScript se comunica mediante peticiones HTTP con un backend en Flask organizado en Blueprints funcionales. La persistencia se gestiona con SQLAlchemy y bases de datos SQLite especializadas según el dominio (datos operativos del ERP, registro histórico de plantas solares, análisis tarifario y caché de CRM). Los motores de cálculo y parsers corren directamente en Python, mientras que las tareas pesadas de reporte se ejecutan en segundo plano mediante subprocesos y sincronizaciones en hilos daemon. El despliegue de la infraestructura se realiza en un VPS Linux operado con systemd, Gunicorn y Nginx.',
         architectureDiagram: {
           user: 'Navegador / Usuario',
           frontend: 'React / TypeScript (Vite SPA)',
@@ -526,7 +526,7 @@ export const translations = {
         },
         storage: {
           title: 'Caché Resiliente & Sync CRM',
-          tech: 'PostgreSQL · SQLite · noCRM API',
+          tech: 'SQLite + SQLAlchemy (persistencia local y series temporales fotovoltaicas) · noCRM API',
           desc: 'Cliente noCRM de solo lectura con caché local para consulta ultrarrápida sin sobrecargar límites de API.',
         },
         dispatch: {
@@ -640,7 +640,7 @@ export const translations = {
         overview: 'The project originated from the need to centralize commercial, technical, and administrative workflows that were previously scattered across spreadsheets, disjointed external SaaS tools, and manual tasks. Based on internal operational assessments, an internal web platform was progressively developed, integrating energy sizing engines, utility bill analysis, proposal generation, photovoltaic monitoring, commercial automation, and third-party integrations. The solution pairs a React/TypeScript frontend with a Python/Flask backend and domain-specific SQLite databases, integrating services such as Chatwoot, noCRM, Google Drive, Google Sheets, Notion, Growatt, Slack, and n8n.',
         initialContext: 'Prior to the platform, solar sizing calculations relied on local spreadsheets prone to formula drifts, electricity consumption analysis required manual bill transcription, commercial tracking was handled in standalone tools disconnected from technical teams, and solar generation reporting required manual downloads from inverter portals. This dynamic caused operational delays, task duplication, and significant hurdles in unified asset oversight.',
         myResponsibility: 'I led the assessment, design, and development of various internal solutions, directly building energy calculation engines, process automations, frontend, backend, integrations, and platform deployment.',
-        architectureOverview: 'The primary architecture operates as a modular web application: the React and TypeScript SPA frontend communicates via HTTP requests with a Flask backend organized into functional Blueprints. Persistence is managed with SQLAlchemy and domain-specific SQLite databases (operational ERP data, historical solar plant logs, tariff analysis, and CRM cache). Calculation engines and parsers run natively in Python, while heavy reporting tasks execute in the background via subprocesses and daemon thread synchronizations.',
+        architectureOverview: 'The primary architecture operates as a modular web application: the React and TypeScript SPA frontend communicates via HTTP requests with a Flask backend organized into functional Blueprints. Persistence is managed with SQLAlchemy and domain-specific SQLite databases (operational ERP data, historical solar plant logs, tariff analysis, and CRM cache). Calculation engines and parsers run natively in Python, while heavy reporting tasks execute in the background via subprocesses and daemon thread synchronizations. The infrastructure is deployed on a Linux VPS operated with systemd, Gunicorn, and Nginx.',
         architectureDiagram: {
           user: 'Browser / User',
           frontend: 'React / TypeScript (Vite SPA)',
@@ -1088,7 +1088,7 @@ export const translations = {
         },
         storage: {
           title: 'Resilient Cache & CRM Sync',
-          tech: 'PostgreSQL · SQLite · noCRM API',
+          tech: 'SQLite + SQLAlchemy (local persistence & photovoltaic time series) · noCRM API',
           desc: 'Read-only noCRM client pipeline with local cache for instant zero-latency querying within API rate limits.',
         },
         dispatch: {

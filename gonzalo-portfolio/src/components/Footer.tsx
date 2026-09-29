@@ -25,13 +25,29 @@ const Footer = () => {
       
       <div className="container mx-auto px-4 max-w-6xl flex flex-col items-center gap-4 text-center">
         <div className="flex gap-6 mb-2">
-          <a href="https://github.com/gonzalo-volante" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
+          <a
+            href="https://github.com/gonzalo-volante"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Perfil de GitHub de Gonzalo Volante"
+            className="hover:text-cyan-400 transition-colors"
+          >
             <GitHubIcon className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com/in/gonzalo-volante" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">
+          <a
+            href="https://linkedin.com/in/gonzalo-volante"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Perfil de LinkedIn de Gonzalo Volante"
+            className="hover:text-cyan-400 transition-colors"
+          >
             <LinkedInIcon className="w-5 h-5" />
           </a>
-          <a href="mailto:gonzavolante@gmail.com" className="hover:text-cyan-400 transition-colors">
+          <a
+            href="mailto:gonzavolante@gmail.com"
+            aria-label="Enviar correo electrónico a Gonzalo Volante"
+            className="hover:text-cyan-400 transition-colors"
+          >
             <Mail className="w-5 h-5" />
           </a>
         </div>
@@ -40,7 +56,7 @@ const Footer = () => {
           Gonzalo Volante · 2021 – 2026
         </p>
         
-        <p className="text-xs text-slate-500 font-mono flex items-center justify-center gap-1.5 flex-wrap">
+        <p className="text-xs text-slate-400 font-mono flex items-center justify-center gap-1.5 flex-wrap">
           <span>{t.footer.builtWith}</span>
           <span className="text-cyan-400">Tailwind CSS</span>
           <span>·</span>

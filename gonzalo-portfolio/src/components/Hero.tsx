@@ -59,7 +59,16 @@ export function Hero() {
         >
           <div 
             className="relative group cursor-pointer" 
+            role="button"
+            tabIndex={0}
             onClick={handleCopyEmail}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCopyEmail();
+              }
+            }}
+            aria-label={lang === 'es' ? 'Copiar email: gonzavolante@gmail.com' : 'Copy email: gonzavolante@gmail.com'}
             title={lang === 'es' ? 'Copiar email: gonzavolante@gmail.com' : 'Copy email: gonzavolante@gmail.com'}
           >
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2px] bg-slate-900 border border-slate-700/60 shadow-lg shadow-black/40 overflow-hidden">
@@ -104,7 +113,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.15 }}
-          className="font-mono text-xs text-slate-500 tracking-wider mb-10"
+          className="font-mono text-xs text-slate-400 tracking-wider mb-10"
         >
           {t.hero.focusPills}
         </motion.p>
@@ -118,6 +127,7 @@ export function Hero() {
         >
           <a
             href="#work"
+            aria-label={lang === 'es' ? 'Ver proyectos y casos de estudio destacados' : 'View featured work and case studies'}
             className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-white hover:bg-slate-200 text-slate-950 font-semibold text-xs sm:text-sm transition-colors shadow-sm"
           >
             <span>{t.hero.ctaWork}</span>
@@ -127,6 +137,7 @@ export function Hero() {
           <button
             type="button"
             onClick={handleCopyEmail}
+            aria-label={lang === 'es' ? 'Copiar dirección de email gonzavolante@gmail.com' : 'Copy email address gonzavolante@gmail.com'}
             className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-900/40 text-cyan-300 hover:text-cyan-100 font-medium text-xs sm:text-sm transition-all duration-200 shadow-sm shadow-cyan-950/20 cursor-pointer group"
             title={lang === 'es' ? 'Copiar email: gonzavolante@gmail.com' : 'Copy email: gonzavolante@gmail.com'}
           >
@@ -143,6 +154,7 @@ export function Hero() {
             href="https://github.com/gonzalo-volante"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Perfil de GitHub de Gonzalo Volante"
             className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
             <GitHubIcon className="w-4 h-4 text-slate-400" />
@@ -153,6 +165,7 @@ export function Hero() {
             href="https://linkedin.com/in/gonzalo-volante"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Perfil de LinkedIn de Gonzalo Volante"
             className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
             <LinkedInIcon className="w-4 h-4 text-slate-400" />
@@ -161,6 +174,7 @@ export function Hero() {
 
           <Link
             to="/cv"
+            aria-label={lang === 'es' ? 'Ver Curriculum Vitae de Gonzalo Volante' : 'View Curriculum Vitae of Gonzalo Volante'}
             className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-slate-800 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-xs sm:text-sm transition-colors"
           >
             <FileText className="w-4 h-4 text-slate-400" />
