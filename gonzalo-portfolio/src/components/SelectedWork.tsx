@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { ArrowRight, ArrowUpRight, Building2, Layers } from 'lucide-react';
+import { Spotlight } from '@/components/magicui/spotlight';
+import { BorderBeam } from '@/components/magicui/border-beam';
 
 export function SelectedWork() {
   const { t } = useLanguage();
@@ -80,9 +82,12 @@ export function SelectedWork() {
             PROYECTO PARAGUAS PRINCIPAL: NUEVAS ENERGÍAS
            ======================================================== */}
         <div className="space-y-4">
-          <article className="group relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/50 p-6 sm:p-9 shadow-xl shadow-cyan-950/20 hover:border-cyan-500/60 transition-all duration-300">
+          <article className="group relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/50 p-6 sm:p-9 shadow-xl shadow-cyan-950/20 hover:border-cyan-500/60 transition-all duration-300 overflow-hidden">
+            {/* Ambient BorderBeam around the main flagship case study */}
+            <BorderBeam size={180} duration={12} delay={0} colorFrom="#06b6d4" colorTo="#3b82f6" />
+
             {/* Header info */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-5">
+            <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-5">
               <div className="flex items-center gap-2.5">
                 <span className="px-3 py-1 rounded bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 font-mono text-[11px] uppercase tracking-wider font-semibold">
                   {umbrella.badge}
@@ -97,7 +102,7 @@ export function SelectedWork() {
             </div>
 
             {/* Title & Short Description */}
-            <div className="py-6 space-y-3">
+            <div className="relative z-10 py-6 space-y-3">
               <div className="flex items-center gap-2 text-slate-400 font-mono text-xs">
                 <Building2 className="w-4 h-4 text-cyan-400" />
                 <span>{umbrella.company}</span>
@@ -115,7 +120,7 @@ export function SelectedWork() {
             </div>
 
             {/* Responsibility & Key Stack & CTA */}
-            <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+            <div className="relative z-10 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
                 <Layers className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span className="text-slate-300 font-medium">{umbrella.role}</span>
@@ -146,7 +151,7 @@ export function SelectedWork() {
         </div>
 
         {/* ========================================================
-            5 PILARES FUNCIONALES (TARJETAS COMPACTAS)
+            5 PILARES FUNCIONALES (TARJETAS COMPACTAS CON SPOTLIGHT)
            ======================================================== */}
         <div className="space-y-6 pt-4">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
@@ -160,9 +165,9 @@ export function SelectedWork() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {pillars.map((pillar) => (
-              <article
+              <Spotlight
                 key={pillar.number}
-                className="group rounded-xl border border-slate-800/90 bg-slate-900/35 p-5 sm:p-6 space-y-4 flex flex-col justify-between hover:border-slate-700 hover:bg-slate-900/50 transition-all"
+                className="rounded-xl border border-slate-800/90 bg-slate-900/35 p-5 sm:p-6 space-y-4 flex flex-col justify-between hover:border-slate-700 hover:bg-slate-900/50 transition-all"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between gap-2">
@@ -208,7 +213,7 @@ export function SelectedWork() {
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </article>
+              </Spotlight>
             ))}
           </div>
         </div>

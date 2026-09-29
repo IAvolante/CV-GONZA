@@ -183,7 +183,7 @@ export function SystemPlayground() {
   const selectedNode = nodes.find((n) => n.key === activeNodeKey) || nodes[1];
 
   return (
-    <section id="sandbox" className="w-full py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="playground" className="w-full py-20 px-4 sm:px-6 lg:px-8 relative z-10 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">

@@ -2,6 +2,7 @@ import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { TechMarquee } from '../components/TechMarquee';
 import { SelectedWork } from '../components/SelectedWork';
+import { SystemPlayground } from '../components/SystemPlayground';
 import { Experience } from '../components/Experience';
 import { Education } from '../components/Education';
 import { Extras } from '../components/Extras';
@@ -35,6 +36,9 @@ const Portfolio = () => {
 
         {/* 2. Selected Work (Professional Work & Selected Projects) */}
         <SelectedWork />
+
+        {/* Interactive Architecture Playground */}
+        <SystemPlayground />
 
         {/* 3. Professional Experience */}
         <Experience />

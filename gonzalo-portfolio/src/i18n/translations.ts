@@ -504,6 +504,7 @@ export const translations = {
     },
     // System Playground (Live Architecture Simulator)
     systemPlayground: {
+      navTitle: 'Simulador',
       tag: 'INTERACTIVE ARCHITECTURE // SYSTEM PLAYGROUND',
       title: 'Simulador de Arquitectura de Automatización en Vivo',
       subtitle: 'Explora cómo opera en tiempo real la solución de software que construí para erradicar cuellos de botella operativos: haz clic en los nodos o dispara una ejecución para ver el flujo de datos y la reducción de latencia.',
@@ -1065,6 +1066,7 @@ export const translations = {
     },
     // System Playground (Live Architecture Simulator)
     systemPlayground: {
+      navTitle: 'Architecture',
       tag: 'INTERACTIVE ARCHITECTURE // SYSTEM PLAYGROUND',
       title: 'Live Automation Architecture Simulator',
       subtitle: 'Inspect how the software platform I built resolves operational bottlenecks in real time: click the nodes or trigger an execution to observe data flow and latency reduction.',

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { ArrowDown, FileText } from 'lucide-react';
+import { ArrowDown, FileText, Mail, Check, Copy } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { BorderBeam } from './magicui/border-beam';
+import { sileo } from 'sileo';
 
 const GitHubIcon = ({ className }: { className?: string }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -19,7 +22,21 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 );
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    const email = 'gonzavolante@gmail.com';
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+
+    sileo.success({
+      title: lang === 'es' ? 'Email copiado al portapapeles' : 'Email copied to clipboard',
+      description: email,
+      duration: 3500,
+    });
+  };
 
   return (
     <section
@@ -40,12 +57,17 @@ export function Hero() {
           transition={{ duration: 0.3, delay: 0.05 }}
           className="mb-6 flex flex-col items-center"
         >
-          <div className="relative group">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[1.5px] bg-slate-800 border border-slate-700/60 shadow-lg shadow-black/40">
+          <div 
+            className="relative group cursor-pointer" 
+            onClick={handleCopyEmail}
+            title={lang === 'es' ? 'Copiar email: gonzavolante@gmail.com' : 'Copy email: gonzavolante@gmail.com'}
+          >
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[2px] bg-slate-900 border border-slate-700/60 shadow-lg shadow-black/40 overflow-hidden">
+              <BorderBeam size={90} duration={8} colorFrom="#06b6d4" colorTo="#14b8a6" />
               <img
                 src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt="Gonzalo Volante"
-                className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
+                className="relative z-10 w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </div>
@@ -101,6 +123,21 @@ export function Hero() {
             <span>{t.hero.ctaWork}</span>
             <ArrowDown className="w-3.5 h-3.5 text-slate-950" />
           </a>
+
+          <button
+            type="button"
+            onClick={handleCopyEmail}
+            className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-md border border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-900/40 text-cyan-300 hover:text-cyan-100 font-medium text-xs sm:text-sm transition-all duration-200 shadow-sm shadow-cyan-950/20 cursor-pointer group"
+            title={lang === 'es' ? 'Copiar email: gonzavolante@gmail.com' : 'Copy email: gonzavolante@gmail.com'}
+          >
+            {copied ? (
+              <Check className="w-4 h-4 text-emerald-400" />
+            ) : (
+              <Mail className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+            )}
+            <span>{copied ? (lang === 'es' ? 'Email copiado' : 'Email copied') : 'gonzavolante@gmail.com'}</span>
+            <Copy className="w-3.5 h-3.5 text-cyan-500/60 group-hover:text-cyan-400 transition-colors" />
+          </button>
 
           <a
             href="https://github.com/gonzalo-volante"
