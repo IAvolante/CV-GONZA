@@ -43,7 +43,7 @@ export function Hero() {
           <div className="relative group">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-[1.5px] bg-slate-800 border border-slate-700/60 shadow-lg shadow-black/40">
               <img
-                src="/profile.jpg"
+                src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt="Gonzalo Volante"
                 className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
               />
