@@ -40,6 +40,7 @@ export function Navbar() {
   const navLinks = [
     { id: 'work', label: t.nav.work },
     { id: 'engineering', label: t.nav.engineering },
+    { id: 'playground', label: lang === 'es' ? 'Simulador' : 'Sandbox' },
     { id: 'experience', label: t.nav.experience },
     { id: 'education', label: t.nav.training },
     { id: 'initiatives', label: t.nav.initiatives },

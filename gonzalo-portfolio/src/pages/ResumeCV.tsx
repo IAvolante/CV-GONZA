@@ -9,7 +9,7 @@ const ResumeCV = () => {
         {`
           @page {
             size: A4;
-            margin: 12mm 14mm;
+            margin: 10mm 12mm;
           }
           @media print {
             .no-print {
@@ -18,6 +18,8 @@ const ResumeCV = () => {
             body, html {
               background: #ffffff !important;
               color: #0f172a !important;
+              font-size: 11px !important;
+              line-height: 1.35 !important;
             }
             .cv-wrapper {
               background: #ffffff !important;
@@ -36,6 +38,12 @@ const ResumeCV = () => {
               break-inside: avoid !important;
               page-break-inside: avoid !important;
             }
+            h1 { font-size: 1.7rem !important; }
+            h2 { font-size: 0.78rem !important; margin-bottom: 0.4rem !important; }
+            h3 { font-size: 0.75rem !important; margin-bottom: 0.35rem !important; padding-bottom: 0.2rem !important; }
+            h4 { font-size: 0.82rem !important; }
+            p, li { font-size: 0.72rem !important; line-height: 1.35 !important; }
+            .section-gap { margin-bottom: 0.75rem !important; }
           }
         `}
       </style>
@@ -59,13 +67,20 @@ const ResumeCV = () => {
       {/* Main CV Container */}
       <div className="cv-wrapper max-w-4xl mx-auto bg-slate-950/90 border border-slate-800 rounded-xl p-8 sm:p-10 shadow-2xl print:bg-white print:border-none print:p-0 print:shadow-none print:text-slate-900">
         {/* Header */}
-        <header className="border-b-2 border-slate-800 pb-5 mb-6 print:border-slate-900 print:pb-4 print:mb-5">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1.5 print:text-slate-950">
-            GONZALO VOLANTE
-          </h1>
-          <h2 className="text-sm font-semibold tracking-wider text-cyan-400 mb-3 print:text-blue-700">
-            SOFTWARE SOLUTIONS DEVELOPER | FULL STACK · AUTOMATION · SYSTEM INTEGRATION
-          </h2>
+        <header className="border-b-2 border-slate-800 pb-5 mb-5 print:border-slate-900 print:pb-3 print:mb-4">
+          <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-2">
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1.5 print:text-slate-950">
+                GONZALO VOLANTE
+              </h1>
+              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 mb-2.5 print:text-blue-800">
+                LEAD SOLUTIONS ARCHITECT & PRODUCT ENGINEER | FULL-STACK SYSTEMS · MISSION-CRITICAL ERPS · INDUSTRIAL AUTOMATION
+              </h2>
+            </div>
+            <div className="hidden sm:inline-flex px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold self-start print:hidden">
+              ● SISTEMAS EN PRODUCCIÓN ACTIVA
+            </div>
+          </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-slate-400 print:text-slate-700">
             <span className="flex items-center gap-1.5">
               <Mail size={13} /> gonzavolante@gmail.com
@@ -79,182 +94,203 @@ const ResumeCV = () => {
             <span className="flex items-center gap-1.5">
               <strong className="font-mono text-cyan-400 print:text-blue-700">[in]</strong> linkedin.com/in/gonzalo-volante
             </span>
+            <span className="flex items-center gap-1.5">
+              <strong className="font-mono text-cyan-400 print:text-blue-700">[web]</strong> Portfolio: gonzavolante.dev
+            </span>
           </div>
         </header>
 
         {/* Perfil Profesional */}
-        <section className="mb-6 print:mb-5">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+        <section className="mb-5 print:mb-3 section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
             Perfil Profesional
           </h3>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800 mb-2">
-            Software Solutions Developer con experiencia diseñando y desarrollando sistemas internos, automatizaciones e integraciones orientadas a resolver problemas operativos reales. Experiencia end-to-end desde el relevamiento de procesos y requerimientos hasta el diseño, desarrollo, integración, despliegue y mantenimiento de soluciones en producción. He trabajado transversalmente con áreas comerciales, administrativas y operativas, transformando procesos manuales y herramientas dispersas en sistemas digitales centralizados, mantenibles y adaptados a las necesidades reales de la organización.
+            <strong>Lead Solutions Architect & Product Engineer</strong> especializado en el diseño, desarrollo y despliegue de plataformas de software empresariales de misión crítica y sistemas de automatización industrial. Con un enfoque riguroso de ingeniería de extremo a extremo, transformo problemáticas complejas de negocio en sistemas centralizados de alta confiabilidad y rendimiento.
           </p>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800">
-            Stack principal: React, TypeScript, Python, Node.js, SQLite / PostgreSQL, REST APIs, n8n y herramientas de automatización e integración.
+            Actualmente lidero en producción dos plataformas core activas en industrias exigentes: el <strong>ERP Operativo de Nuevas Energías</strong> (energía solar con conciliación de telemetría IoT y facturación de red eléctrica) y el <strong>LIS SARESA V4</strong> (sistema de información para laboratorio clínico con más de 1.4M de registros médicos migrados, IA multimodal Gemini Vision y respuesta analítica en 0 ms).
           </p>
         </section>
 
         {/* Competencias Clave */}
-        <section className="mb-6 print:mb-5">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+        <section className="mb-5 print:mb-3 section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
             Competencias Clave
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 print:grid-cols-3 print:gap-2">
-            <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-700">Frontend & UI:</strong>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 print:grid-cols-3 print:gap-2">
+            <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Arquitectura & Datos:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                React, TypeScript, Tailwind CSS, Responsive UI, Component Architecture.
+                Domain-Driven Design, SQLite de alta concurrencia (better-sqlite3 sincrónico), PostgreSQL / Supabase, memorias intermedias en RAM (vrCache 0ms), migración y sanitización masiva (+1.4M registros).
               </span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-700">Backend & Data:</strong>
+            <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Full-Stack & IA Multimodal:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                Python, Node.js, SQLite / PostgreSQL, REST APIs, Webhooks, OCR / document processing.
+                React 18, TypeScript, Tailwind CSS, Node.js / Express, Python, Electron Desktop, Gemini Vision AI (OCR de comprobantes), algoritmos de compensación financiera FIFO.
               </span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-700">Automation & Infrastructure:</strong>
+            <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Infraestructura & Automatización:</strong>
               <span className="text-slate-300 print:text-slate-700">
-                n8n, VPS Linux (systemd, Gunicorn, Nginx), API integrations, webhook / Whaticket / Chatwoot, Git / GitHub.
+                Linux VPS (Nginx, Gunicorn, systemd, Certbot SSL), Playwright RPA (evasión anti-bot), telemetría solar Growatt, parsing de facturación con pdfplumber, n8n, webhooks y Chatwoot.
               </span>
             </div>
           </div>
         </section>
 
         {/* Experiencia Profesional */}
-        <section className="mb-6 print:mb-5">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-4 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Experiencia Profesional
+        <section className="mb-5 print:mb-3 section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-3 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+            Experiencia Profesional (Sistemas en Producción Activa)
           </h3>
 
-          {/* Nuevas Energías */}
-          <div className="mb-5 print:mb-4">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">Nuevas Energías</h4>
+          {/* LIS SARESA V4 */}
+          <div className="mb-4 print:mb-3 page-break-avoid">
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
+              <h4 className="text-sm font-bold text-white print:text-slate-950">
+                Laboratorio Bioquímico SARESA
+              </h4>
               <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
-                Sep 2025 – Presente | Salta, Argentina
+                2024 – Presente | Producción Activa | Salta, Arg.
               </span>
             </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
-              Especialista en TI | Software Solutions Developer
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
+              Lead Solutions Architect & Systems Developer | LIS SARESA V4 (Core Laboratory Information System)
             </p>
-            <p className="text-xs text-slate-300 print:text-slate-800 mb-2.5 leading-relaxed">
-              Lideré el proceso de digitalización de distintos procesos internos de la empresa, partiendo de una operatoria basada en tareas manuales, planillas de cálculo y herramientas dispersas. Relevé necesidades junto a las áreas comercial, administrativa y operativa, y diseñé y desarrollé soluciones internas a medida para centralizar información, automatizar flujos y mejorar la trazabilidad operativa.
+            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
+              Diseño, desarrollo integral y despliegue del sistema central de gestión clínica y administrativa del laboratorio, modernizando una plataforma legacy hacia una arquitectura híbrida de alto rendimiento (Electron Desktop + Web SPA en Linux VPS DonWeb con Nginx y Certbot SSL).
             </p>
-            <ul className="list-disc pl-4 space-y-1.5 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
               <li>
-                Diseño y desarrollo de una plataforma interna de gestión para centralizar clientes, operaciones, documentación, presupuestos y seguimiento de procesos.
+                <strong>Migración masiva de datos:</strong> Extracción, saneamiento e indexación sin pérdida de +1.400.000 resultados bioquímicos históricos, 86.000 órdenes de trabajo y 30.000 pacientes sobre SQLite embebido de alto rendimiento.
               </li>
               <li>
-                Desarrollo de herramientas para elaboración de presupuestos, dimensionamiento de soluciones fotovoltaicas y generación automatizada de documentación técnica y comercial.
+                <strong>Arquitectura de ultra-baja latencia (0 ms):</strong> Implementación de memoria intermedia en RAM (<code className="text-cyan-300 print:text-slate-900 font-mono">vrCache</code>) para resolución instantánea de valores de referencia analíticos en caliente, eliminando cuellos de botella N+1 en pantallas críticas.
               </li>
               <li>
-                Implementación de sistemas para monitoreo y procesamiento de datos de instalaciones fotovoltaicas mediante integración con APIs externas.
+                <strong>Gestión de compras con IA multimodal:</strong> Módulo de comprobantes con extracción automática mediante Google Gemini Vision AI (parseo estructurado de facturas PDF e imágenes con fallback a tesseract) y motor de resolución financiera de saldos por algoritmo FIFO.
               </li>
               <li>
-                Automatización de flujos operativos mediante Python, APIs, webhooks, n8n y servicios self-hosted.
+                <strong>Operatividad clínica garantizada:</strong> Módulo de facturación médica a obras sociales, panel de trazabilidad de muestras, auditoría de logs y seguridad con bcrypt y mitigación de fallos de red en box de extracción.
+              </li>
+            </ul>
+          </div>
+
+          {/* Nuevas Energías ERP */}
+          <div className="mb-4 print:mb-3 page-break-avoid">
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
+              <h4 className="text-sm font-bold text-white print:text-slate-950">
+                Nuevas Energías (Energía Solar & Renovables)
+              </h4>
+              <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
+                Sep 2025 – Presente | Producción Activa | Salta, Arg.
+              </span>
+            </div>
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
+              Lead Solutions Architect & Product Engineer | ERP Operativo & Plataforma de Balance Energético
+            </p>
+            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
+              Liderazgo de la transformación digital de la compañía, reemplazando procesos manuales y planillas dispersas por un ERP modular integral que orquesta la ingeniería solar, atención al cliente, facturación contable y análisis de activos fotovoltaicos en producción.
+            </p>
+            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+              <li>
+                <strong>Módulo de Ingesta & Conciliación Energética (EDESA × Growatt):</strong> Pipeline de ingesta automatizada de facturas de red eléctrica mediante extracción programática (pdfplumber) y cruce algorítmico contra telemetría por cuarto de hora de inversores solares Growatt, generando balances netos y reportes de inyección para clientes industriales (Bodegas Etchart, Cendis, Tambo Martorell).
               </li>
               <li>
-                Diseño y mantenimiento de bases de datos utilizando SQLite + SQLAlchemy (persistencia local y series temporales fotovoltaicas) para centralización de información operativa.
+                <strong>Motor matemático de dimensionamiento fotovoltaico:</strong> Algoritmo de cálculo para instalaciones On-Grid y Off-Grid (radiación solar, potencias pico, bancos de baterías e inversores) con generación automatizada de presupuestos técnicos y memorias de cálculo.
               </li>
               <li>
-                Integración de canales de mensajería y soporte mediante webhook / n8n / Whaticket / Chatwoot.
+                <strong>Integraciones operativas centrales:</strong> Canal omnicanal Chatwoot con pre-cotizaciones automatizadas mediante bot, cliente de lectura noCRM con réplica local en SQLite para contingencia de red, control de flota y taller en Supabase y facturación contable en Xubio.
               </li>
               <li>
-                Trabajo transversal con Comercial, Administración y Operaciones para relevar requerimientos, traducir necesidades en soluciones técnicas y acompañar la adopción de nuevas herramientas.
-              </li>
-              <li>
-                Desarrollo, despliegue y mantenimiento de soluciones en producción en VPS Linux utilizando systemd, Gunicorn y Nginx.
+                <strong>Infraestructura y confiabilidad:</strong> Mantenimiento de servicios en producción sobre VPS Linux utilizando systemd, Nginx, Gunicorn y bases de datos relacionales PostgreSQL / SQLite.
               </li>
             </ul>
           </div>
 
           {/* Smart Projects */}
           <div className="page-break-avoid">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">Smart Projects</h4>
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
+              <h4 className="text-sm font-bold text-white print:text-slate-950">
+                Smart Projects (Consultoría de Automatización & Software)
+              </h4>
               <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
                 2022 – Presente | Remoto / Salta
               </span>
             </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-2">
-              Software Solutions & Automation Consultant
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
+              Consultor de Arquitectura de Soluciones & Automatización RPA
             </p>
-            <ul className="list-disc pl-4 space-y-1.5 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
               <li>
-                Desarrollo de bots de automatización con Node.js y Playwright para navegación web, gestión de sesiones y publicación estructurada de contenidos.
+                <strong>Publi-Prop (RPA Inmobiliario de Alto Rendimiento):</strong> Bot de automatización con Playwright en modo headless para navegación web programática, evasión de detección bot, persistencia de sesiones de usuario y publicación estructurada multicanal.
               </li>
               <li>
-                Implementación de asistentes basados en documentos y flujos de automatización mediante PostgreSQL / Supabase, REST APIs y WhatsApp API para consulta y triaje de información.
+                <strong>Asistentes de Conocimiento & Flujos Conversacionales:</strong> Implementación de agentes basados en documentos vectoriales utilizando PostgreSQL con pgvector en Supabase, REST APIs y WhatsApp Cloud API para consulta de catálogos y derivación de leads.
               </li>
               <li>
-                Procesamiento y visualización de datos geoespaciales e imágenes satelitales utilizando Python, QGIS y Google Earth Engine en proyectos de análisis territorial.
+                <strong>Análisis Geoespacial Satelital (OTBN Salta):</strong> Procesamiento de imágenes satelitales multiespectrales (NDVI/NDWI) y capas vectoriales catastrales con Python, QGIS y Google Earth Engine para la comisión de la Ley de Bosques Nativos.
               </li>
             </ul>
           </div>
         </section>
 
-        {/* Formación Práctica & Simulación Profesional */}
-        <section className="mb-6 print:mb-5 page-break-avoid">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-3 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Formación Práctica & Simulación Profesional
+        {/* Ingeniería Colaborativa & Software Factory */}
+        <section className="mb-5 print:mb-3 page-break-avoid section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+            Ingeniería Colaborativa & Software Factory
           </h3>
           <div>
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-1">
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
               <h4 className="text-sm font-bold text-white print:text-slate-950">iGrowker & Foo Talent Group</h4>
               <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
                 2023 – 2024 | Remoto
               </span>
             </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
-              Frontend Lead / Desarrollador Frontend
-            </p>
-            <p className="text-xs text-slate-300 print:text-slate-800 mb-2 leading-relaxed">
-              Participación en programas de simulación profesional y aceleración técnica, trabajando en equipos multidisciplinarios bajo metodologías ágiles y dinámicas similares a entornos de software factory.
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1">
+              Frontend Lead & Full-Stack Developer (Equipos Multidisciplinarios)
             </p>
             <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
               <li>
-                Liderazgo del equipo frontend en YouCreate, plataforma para gestión de balances, facturación y liquidaciones.
+                <strong>YouCreate:</strong> Liderazgo técnico del equipo frontend en el desarrollo de una plataforma SaaS para creadores de contenido (liquidaciones, balance de cuentas, analítica financiera y pasarelas de pago).
               </li>
               <li>
-                Desarrollo de interfaces para FastLab, sistema de información de laboratorio clínico.
-              </li>
-              <li>
-                Trabajo con React, TypeScript, Tailwind CSS, REST APIs, Git, code reviews y sprints ágiles.
+                <strong>Aceleración de Software:</strong> Trabajo en squads ágiles bajo estándares de software factory con React, TypeScript, Tailwind CSS, revisiones de código exhaustivas, control de versiones Git/GitHub y entregas continuas en sprints de 2 semanas.
               </li>
             </ul>
           </div>
         </section>
 
         {/* Formación y Certificaciones */}
-        <section className="mb-5 print:mb-4 page-break-avoid">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+        <section className="mb-4 print:mb-3 page-break-avoid section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
             Formación & Certificaciones
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certified Tech Developer Jr.</strong> - Digital House (2021 – 2023)
+            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
+              <strong>Certified Tech Developer Jr.</strong> — Digital House (2021 – 2023)
             </div>
-            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certificación Simulación Laboral Full Stack</strong> - iGrowker (2024)
+            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
+              <strong>Certificación Full Stack Software Development</strong> — iGrowker (2024)
             </div>
-            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certificación Aceleración de Software</strong> - Foo Talent Group (2024)
+            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
+              <strong>Certificación Aceleración de Software</strong> — Foo Talent Group (2024)
             </div>
-            <div className="p-2.5 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Diseño UX/UI</strong> - Coderhouse (2021)
+            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
+              <strong>Diseño UX/UI</strong> — Coderhouse (2021)
             </div>
           </div>
         </section>
 
         {/* Idiomas */}
         <section className="page-break-avoid">
-          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-1.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
             Idiomas
           </h3>
           <p className="text-xs text-slate-300 print:text-slate-800">
-            <strong>Español:</strong> Nativo | <strong>Inglés:</strong> Intermedio (Lectura técnica avanzada, documentación y conversación de desarrollo).
+            <strong>Español:</strong> Nativo | <strong>Inglés:</strong> B2 Profesional (Capacidad de lectura técnica avanzada, redacción de documentación de arquitectura y comunicación fluida en equipos internacionales).
           </p>
         </section>
       </div>

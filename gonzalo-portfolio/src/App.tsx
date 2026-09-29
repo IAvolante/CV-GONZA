@@ -10,6 +10,7 @@ import 'sileo/styles.css';
 import Portfolio from './pages/Portfolio';
 import ResumeCV from './pages/ResumeCV';
 import { DigitalTransformationCaseStudy } from './pages/case-studies/DigitalTransformationCaseStudy';
+import { LisSaresaCaseStudy } from './pages/case-studies/LisSaresaCaseStudy';
 import { ModuleCaseStudy } from './pages/case-studies/ModuleCaseStudy';
 
 function ScrollToTop() {
@@ -44,6 +45,10 @@ function App() {
             <Route 
               path="/work/digital-transformation-nuevas-energias" 
               element={<DigitalTransformationCaseStudy />} 
+            />
+            <Route 
+              path="/work/lis-saresa-v4" 
+              element={<LisSaresaCaseStudy />} 
             />
             <Route 
               path="/work/pv-reporting-system" 

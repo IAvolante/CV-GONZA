@@ -93,8 +93,8 @@ export function SystemPlayground() {
         time: '00:00.120',
         level: 'INFO',
         text: lang === 'es' 
-          ? '📥 [INGESTA] Recibiendo 1.420 puntos de telemetría de inversor solar vía Webhook.'
-          : '📥 [INGEST] Ingesting 1,420 solar inverter telemetry records via Webhook.',
+          ? '📥 [INGESTA ERP] Ingestando telemetría de inversores Growatt + parsing de bloques horarios de factura EDESA.'
+          : '📥 [ERP INGEST] Ingesting Growatt solar telemetry + parsing EDESA time-of-use invoice blocks.',
       },
     ]);
 
@@ -109,8 +109,8 @@ export function SystemPlayground() {
           time: '00:01.045',
           level: 'INFO',
           text: lang === 'es'
-            ? '⚙️ [MOTOR] Ejecutando matriz NumPy: transgresión de potencia y cálculo de tarificación eléctrica.'
-            : '⚙️ [ENGINE] Executing NumPy matrix: power transgression checks & tariff calculation.',
+            ? '⚙️ [MOTOR DE CONCILIACIÓN] Cruce algorítmico: cálculo de autoconsumo real, inyección neta y auditoría de transgresión de potencia.'
+            : '⚙️ [RECONCILIATION ENGINE] Algorithmic cross-referencing: self-consumption, net grid injection, and power breach audit.',
         },
       ]);
     }, 900);

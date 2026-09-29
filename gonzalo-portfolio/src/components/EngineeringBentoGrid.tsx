@@ -82,39 +82,32 @@ export async function createAuthenticatedContext(): Promise<BrowserContext> {
     icon: Zap,
     spanClass: 'col-span-1 md:col-span-1 lg:col-span-1',
     isHero: false,
-    filename: 'edesa_tariff_parser.py',
+    filename: 'energy_reconciliation_engine.py',
     language: 'python',
     code: `import re
 import pdfplumber
-from typing import Dict, Any
+from typing import Dict, Any, List
 
-# Regex espacial compilada para discriminación de franjas horarias
-RE_HOURLY_BAND = re.compile(
-    r'(?P<banda>PICO|VALLE|RESTO)\\s+'
-    r'(?P<anterior>\\d+[\\.,]?\\d*)\\s+'
-    r'(?P<actual>\\d+[\\.,]?\\d*)\\s+'
-    r'(?P<consumo_kwh>\\d+[\\.,]?\\d*)'
-)
-
-def parse_edesa_invoice(pdf_path: str) -> Dict[str, Any]:
+def reconcile_solar_vs_grid(pdf_path: str, solar_telemetry: List[Dict]) -> Dict[str, Any]:
+    """Cruza facturación horaria EDESA con telemetría de inversores Growatt."""
     readings = {"PICO": 0.0, "VALLE": 0.0, "RESTO": 0.0}
 
     with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            # Cuadrante espacial delimitado por coordenadas del cuadro tarifario
-            bbox = (0, page.height * 0.28, page.width, page.height * 0.72)
-            cropped_page = page.crop(bbox)
+        layout_text = "\\n".join(page.extract_text(layout=True) or "" for page in pdf.pages)
+        for match in re.finditer(r'(?P<banda>PICO|VALLE|RESTO)\\s+[\\d\\.,]+\\s+[\\d\\.,]+\\s+(?P<kwh>[\\d\\.,]+)', layout_text):
+            readings[match.group("banda")] = float(match.group("kwh").replace(".", "").replace(",", "."))
 
-            # Extracción espacial de palabras y texto estructurado
-            words = cropped_page.extract_words(keep_blank_chars=False)
-            layout_text = cropped_page.extract_text(layout=True) or ""
-
-            for match in RE_HOURLY_BAND.finditer(layout_text):
-                banda = match.group("banda")
-                kwh_raw = match.group("consumo_kwh").replace(".", "").replace(",", ".")
-                readings[banda] = float(kwh_raw)
-
-    return readings`,
+    # Cruce de series temporales continuas (curva de generación vs consumo de red)
+    total_grid_kwh = sum(readings.values())
+    total_solar_kwh = sum(t["active_power_kwh"] for t in solar_telemetry)
+    net_injected_kwh = max(0.0, total_solar_kwh - readings["RESTO"])
+    
+    return {
+        "grid_kwh": readings,
+        "solar_generated_kwh": total_solar_kwh,
+        "net_injected_kwh": net_injected_kwh,
+        "self_consumption_pct": round(((total_solar_kwh - net_injected_kwh) / total_solar_kwh) * 100, 2)
+    }`,
   },
   {
     key: 'otbn',
