@@ -39,7 +39,7 @@ export function Navbar() {
 
   const navLinks = [
     { id: 'work', label: t.nav.work },
-    { id: 'playground', label: t.systemPlayground.navTitle || 'Simulador' },
+    { id: 'engineering', label: t.nav.engineering },
     { id: 'experience', label: t.nav.experience },
     { id: 'education', label: t.nav.training },
     { id: 'initiatives', label: t.nav.initiatives },

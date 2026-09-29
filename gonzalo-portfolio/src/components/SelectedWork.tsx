@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { ArrowRight, ArrowUpRight, Building2, Layers } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  Layers,
+  Check,
+  CheckCircle2,
+  AlertOctagon,
+  Radio,
+  Server,
+  Database,
+  Zap,
+  Workflow,
+} from 'lucide-react';
 import { Spotlight } from '@/components/magicui/spotlight';
 import { BorderBeam } from '@/components/magicui/border-beam';
 
@@ -9,6 +22,34 @@ export function SelectedWork() {
   const work = t.selectedWork;
   const umbrella = work.digitalTransformation;
   const partB = work.partB;
+
+  const architectureNodes = [
+    {
+      step: '01',
+      data: umbrella.architectureFlow.nodes.inputs,
+      icon: Radio,
+    },
+    {
+      step: '02',
+      data: umbrella.architectureFlow.nodes.api,
+      icon: Server,
+    },
+    {
+      step: '03',
+      data: umbrella.architectureFlow.nodes.database,
+      icon: Database,
+    },
+    {
+      step: '04',
+      data: umbrella.architectureFlow.nodes.cache,
+      icon: Zap,
+    },
+    {
+      step: '05',
+      data: umbrella.architectureFlow.nodes.services,
+      icon: Workflow,
+    },
+  ];
 
   const pillars = [
     {
@@ -82,7 +123,7 @@ export function SelectedWork() {
             PROYECTO PARAGUAS PRINCIPAL: NUEVAS ENERGÍAS
            ======================================================== */}
         <div className="space-y-4">
-          <article className="group relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/50 p-6 sm:p-9 shadow-xl shadow-cyan-950/20 hover:border-cyan-500/60 transition-all duration-300 overflow-hidden">
+          <article className="group relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/50 p-6 sm:p-9 shadow-xl shadow-cyan-950/20 hover:border-cyan-500/60 transition-all duration-300 overflow-hidden space-y-6">
             {/* Ambient BorderBeam around the main flagship case study */}
             <BorderBeam size={180} duration={12} delay={0} colorFrom="#06b6d4" colorTo="#3b82f6" />
 
@@ -102,7 +143,7 @@ export function SelectedWork() {
             </div>
 
             {/* Title & Short Description */}
-            <div className="relative z-10 py-6 space-y-3">
+            <div className="relative z-10 space-y-3">
               <div className="flex items-center gap-2 text-slate-400 font-mono text-xs">
                 <Building2 className="w-4 h-4 text-cyan-400" />
                 <span>{umbrella.company}</span>
@@ -119,8 +160,116 @@ export function SelectedWork() {
               </p>
             </div>
 
+            {/* Matriz Visual "Antes vs. Después" */}
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+              {/* Columna Izquierda (Antes) */}
+              <div className="rounded-xl border border-rose-900/30 bg-rose-950/10 p-5 space-y-3.5">
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-rose-400">
+                  <AlertOctagon className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{umbrella.beforeAfter.beforeTitle}</span>
+                </div>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-rose-300 leading-relaxed font-normal">
+                  {umbrella.beforeAfter.beforeItems.map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-rose-400/80 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Columna Derecha (Después) */}
+              <div className="rounded-xl border border-cyan-500/30 bg-cyan-950/15 p-5 space-y-3.5">
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-cyan-300">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>{umbrella.beforeAfter.afterTitle}</span>
+                </div>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-cyan-200 leading-relaxed font-normal">
+                  {umbrella.beforeAfter.afterItems.map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <Check className="mt-0.5 w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Diagrama de Arquitectura de Nodos en Producción */}
+            <div className="relative z-10 rounded-xl border border-slate-800/90 bg-slate-950/80 p-5 sm:p-6 space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-800/80 pb-3">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    <span>{umbrella.architectureFlow.tag}</span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold text-white tracking-tight mt-0.5">
+                    {umbrella.architectureFlow.title}
+                  </h4>
+                </div>
+                <p className="text-xs text-slate-400 max-w-md sm:text-right font-normal">
+                  {umbrella.architectureFlow.subtitle}
+                </p>
+              </div>
+
+              {/* Pipeline Nodes Flow */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 relative pt-1">
+                {architectureNodes.map((node, index) => {
+                  const NodeIcon = node.icon;
+                  return (
+                    <div
+                      key={node.step}
+                      className="relative flex flex-col justify-between rounded-xl border border-slate-800/80 bg-slate-900/40 p-4 hover:border-cyan-500/40 hover:bg-slate-900/60 transition-all duration-200 group/node"
+                    >
+                      {/* Connector Arrow (Visible on desktop between items) */}
+                      {index < architectureNodes.length - 1 && (
+                        <div className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 pointer-events-none items-center justify-center text-cyan-500/50 group-hover/node:text-cyan-400 transition-colors">
+                          <svg
+                            className="w-3.5 h-3.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                      )}
+
+                      <div className="space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-[10px] text-slate-500 font-semibold tracking-wider">
+                            NODE // {node.step}
+                          </span>
+                          <div className="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400 group-hover/node:scale-105 transition-transform">
+                            <NodeIcon className="w-3.5 h-3.5" />
+                          </div>
+                        </div>
+
+                        <div>
+                          <h5 className="text-sm font-bold text-white tracking-tight group-hover/node:text-cyan-200 transition-colors">
+                            {node.data.title}
+                          </h5>
+                          <p className="mt-1 font-mono text-[10px] text-cyan-300/90 bg-cyan-950/40 border border-cyan-800/30 px-2 py-0.5 rounded leading-tight">
+                            {node.data.tech}
+                          </p>
+                        </div>
+
+                        <p className="text-xs text-slate-400 leading-relaxed pt-1 font-normal">
+                          {node.data.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             {/* Responsibility & Key Stack & CTA */}
-            <div className="relative z-10 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+            <div className="relative z-10 pt-5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
                 <Layers className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span className="text-slate-300 font-medium">{umbrella.role}</span>
@@ -143,7 +292,7 @@ export function SelectedWork() {
                 to="/work/digital-transformation-nuevas-energias"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs sm:text-sm shadow-md shadow-cyan-950/30 transition-colors"
               >
-                <span>{work.viewCaseStudy}</span>
+                <span>{umbrella.architectureFlow.viewFullCaseStudy || work.viewCaseStudy}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

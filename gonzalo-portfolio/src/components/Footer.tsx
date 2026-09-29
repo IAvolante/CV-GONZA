@@ -20,7 +20,7 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="w-full bg-slate-950/90 text-slate-400 pt-10 pb-16 relative z-10 border-t border-slate-900/80">
+    <footer id="contact" className="w-full bg-slate-950/90 text-slate-400 pt-10 pb-16 relative z-10 border-t border-slate-900/80 scroll-mt-20">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
       
       <div className="container mx-auto px-4 max-w-6xl flex flex-col items-center gap-4 text-center">

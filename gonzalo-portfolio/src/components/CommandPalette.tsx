@@ -15,7 +15,9 @@ import {
   Mail, 
   Download, 
   Languages,
-  Terminal
+  Terminal,
+  GraduationCap,
+  Sparkles
 } from 'lucide-react';
 import { sileo } from 'sileo';
 import { useNavigate } from 'react-router-dom';
@@ -88,17 +90,21 @@ const CommandPalette = () => {
             <Briefcase className="mr-2 h-4 w-4" />
             <span>{t?.nav?.work || "Work"}</span>
           </CommandItem>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('engineering'))}>
+            <Code2 className="mr-2 h-4 w-4" />
+            <span>{t?.cmd?.engineering || "Engineering & Automation"}</span>
+          </CommandItem>
           <CommandItem onSelect={() => runCommand(() => scrollTo('experience'))}>
             <Terminal className="mr-2 h-4 w-4" />
             <span>{t?.nav?.experience || "Experience"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => scrollTo('focus'))}>
-            <Code2 className="mr-2 h-4 w-4" />
-            <span>{t?.nav?.focus || "Technical Focus"}</span>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('education'))}>
+            <GraduationCap className="mr-2 h-4 w-4" />
+            <span>{t?.nav?.training || "Education"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => runCommand(() => scrollTo('about'))}>
-            <Terminal className="mr-2 h-4 w-4" />
-            <span>{t?.nav?.about || "About"}</span>
+          <CommandItem onSelect={() => runCommand(() => scrollTo('initiatives'))}>
+            <Sparkles className="mr-2 h-4 w-4" />
+            <span>{t?.nav?.initiatives || "Solutions"}</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => scrollTo('contact'))}>
             <Mail className="mr-2 h-4 w-4" />
