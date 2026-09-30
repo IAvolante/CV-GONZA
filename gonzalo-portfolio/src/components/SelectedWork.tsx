@@ -24,7 +24,6 @@ export function SelectedWork() {
   const work = t.selectedWork;
   const umbrella = work.digitalTransformation;
   const saresa = work.lisSaresa;
-  const partB = work.partB;
 
   const energyArchitectureNodes = [
     {
@@ -112,19 +111,6 @@ export function SelectedWork() {
       data: work.pillars.pillar5,
       featuredTechs: work.pillars.pillar5.stack.slice(0, 4),
       anchorPath: `/work/digital-transformation-nuevas-energias${work.pillars.pillar5.anchor}`,
-    },
-  ];
-
-  const collaborativeProjects = [
-    {
-      data: partB.youCreate,
-      entity: 'iGrowker',
-      featuredTechs: partB.youCreate.stack.slice(0, 4),
-    },
-    {
-      data: partB.smartProjects,
-      entity: 'Foo Talent Group',
-      featuredTechs: partB.smartProjects.stack.slice(0, 4),
     },
   ];
 
@@ -283,6 +269,23 @@ export function SelectedWork() {
                           {node.data.desc}
                         </p>
                       </div>
+
+                      {index < energyArchitectureNodes.length - 1 && (
+                        <div className="flex lg:hidden justify-center py-1 text-cyan-500/50">
+                          <svg
+                            className="w-3.5 h-3.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 5v14" />
+                            <path d="m19 12-7 7-7-7" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -473,6 +476,23 @@ export function SelectedWork() {
                           {node.data.desc}
                         </p>
                       </div>
+
+                      {index < saresaArchitectureNodes.length - 1 && (
+                        <div className="flex lg:hidden justify-center py-1 text-emerald-500/50">
+                          <svg
+                            className="w-3.5 h-3.5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 5v14" />
+                            <path d="m19 12-7 7-7-7" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -572,70 +592,6 @@ export function SelectedWork() {
                   </Link>
                 </div>
               </Spotlight>
-            ))}
-          </div>
-        </div>
-
-        {/* ========================================================
-            PART B: COLABORACIONES TÉCNICAS & DESARROLLO COLABORATIVO
-           ======================================================== */}
-        <div className="pt-10 border-t border-slate-900 space-y-6">
-          <div className="space-y-1.5 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-slate-500 font-semibold">
-              INGENIERÍA COLABORATIVA
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-              {partB.title}
-            </h3>
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              {partB.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {collaborativeProjects.map((sim, idx) => (
-              <article
-                key={idx}
-                className="rounded-xl border border-slate-800/80 bg-slate-900/30 p-5 space-y-4 flex flex-col justify-between hover:border-slate-700 transition-colors"
-              >
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 text-slate-400 font-mono text-[11px] uppercase tracking-wider">
-                      {sim.data.badge}
-                    </span>
-                    <span className="text-xs font-mono text-cyan-400 font-medium">
-                      {sim.entity}
-                    </span>
-                  </div>
-
-                  <h4 className="text-lg font-bold text-white tracking-tight">
-                    {sim.data.title}
-                  </h4>
-
-                  <p className="text-xs font-mono text-cyan-300 font-medium">
-                    {sim.data.role}
-                  </p>
-
-                  <p className="text-xs text-slate-400 italic">
-                    {sim.data.context}
-                  </p>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
-                    {sim.data.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
-                  {sim.featuredTechs.map((tech: string, tIdx: number) => (
-                    <span
-                      key={tIdx}
-                      className="px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700/50 text-slate-300 font-mono text-[11px]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </article>
             ))}
           </div>
         </div>

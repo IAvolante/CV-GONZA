@@ -49,8 +49,14 @@ const CommandPalette = () => {
         setOpen((open) => !open);
       }
     };
+    const handleOpenCustom = () => setOpen(true);
+
     document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+    window.addEventListener('open-command-palette', handleOpenCustom);
+    return () => {
+      document.removeEventListener('keydown', down);
+      window.removeEventListener('open-command-palette', handleOpenCustom);
+    };
   }, []);
 
   const runCommand = (command: () => void) => {

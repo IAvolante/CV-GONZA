@@ -2,6 +2,7 @@ export const translations = {
   es: {
     // Navbar
     nav: {
+      searchHint: 'Buscar... ⌘K',
       work: 'Trabajo',
       engineering: 'Ingeniería',
       experience: 'Experiencia',
@@ -579,27 +580,28 @@ export const translations = {
     },
     // Formación & Certificaciones
     training: {
-      sectionTag: '04 / FORMACIÓN & SIMULACIÓN',
-      sectionTitle: 'Simulación profesional y formación académica',
-      sectionSubtitle: 'Entrenamiento en equipos ágiles de software y formación técnica en ingeniería de software.',
-      practicalSectionTitle: 'Formación Práctica & Simulación Profesional',
+      sectionTag: '04 / FORMACIÓN ACADÉMICA & ENTRENAMIENTO',
+      sectionTitle: 'Formación Académica y Certificaciones Profesionales',
+      sectionSubtitle: 'Bases sólidas de ingeniería de software complementadas con entrenamiento colaborativo en equipos ágiles.',
       academicSectionTitle: 'Formación Académica & Certificaciones',
+      practicalSectionTitle: 'Entrenamiento Ágil & Colaboración en Equipos',
+      practicalSectionSubtitle: 'Prácticas colaborativas en equipos multidisciplinarios bajo metodologías ágiles',
       practicalItems: [
         {
           title: 'Simulación Laboral Full Stack',
           issuer: 'iGrowker',
           period: '2024',
-          badge: 'Simulación Profesional',
+          badge: 'Software Factory Simulation',
           projects: 'Proyectos: YouCreate · FastLab',
-          description: 'Desarrollo en equipo multidisciplinario bajo metodología Scrum, simulación de software factory, entregas quincenales, code reviews continuas y arquitectura frontend reactiva en React/TypeScript.',
+          description: 'Desarrollo en equipo multidisciplinario bajo simulaciones de software factory. Implementación de CI/CD, metodologías ágiles (Scrum), code reviews continuos vía Pull Requests y entregas iterativas de software.',
         },
         {
           title: 'Smart Projects',
           issuer: 'Foo Talent Group',
           period: '2024',
-          badge: 'Simulación de Proyectos',
+          badge: 'Ingeniería de Software Colaborativa',
           projects: 'Programa: Smart Projects',
-          description: 'Entrenamiento intensivo en dinámicas de equipos reales de software: organización ágil por proyectos, control de versiones con Git/GitHub, revisión de pull requests, entregas iterativas y colaboración frontend/backend.',
+          description: 'Entrenamiento intensivo en ingeniería de software colaborativa: orquestación de sprints ágiles, revisiones técnicas de código en GitHub, aseguramiento de calidad y coordinación entre equipos frontend y backend.',
         },
       ],
       academicItems: [
@@ -778,6 +780,7 @@ export const translations = {
   },
   en: {
     nav: {
+      searchHint: 'Search... ⌘K',
       work: 'Work',
       engineering: 'Engineering',
       experience: 'Experience',
@@ -1355,27 +1358,28 @@ export const translations = {
     },
     // Training & Certifications
     training: {
-      sectionTag: '04 / TRAINING & SIMULATION',
-      sectionTitle: 'Professional simulation and academic education',
-      sectionSubtitle: 'Hands-on training in agile software teams and software engineering foundations.',
-      practicalSectionTitle: 'Hands-on Training & Professional Simulation',
-      academicSectionTitle: 'Academic Education & Certifications',
+      sectionTag: '04 / ACADEMIC BACKGROUND & TRAINING',
+      sectionTitle: 'Academic Background and Professional Certifications',
+      sectionSubtitle: 'Solid software engineering foundations complemented by collaborative training in agile teams.',
+      academicSectionTitle: 'Academic Background & Certifications',
+      practicalSectionTitle: 'Agile Team Practice & Collaborative Training',
+      practicalSectionSubtitle: 'Collaborative software factory simulations in cross-functional agile teams',
       practicalItems: [
         {
           title: 'Full Stack Work Simulation',
           issuer: 'iGrowker',
           period: '2024',
-          badge: 'Professional Simulation',
+          badge: 'Software Factory Simulation',
           projects: 'Projects: YouCreate · FastLab',
-          description: 'Multidisciplinary team development simulating a software factory under Scrum. Reactive React/TypeScript UI development, REST API consumption, continuous peer code reviews, and bi-weekly sprint deliveries.',
+          description: 'Multidisciplinary team development under software factory simulations. Implementation of CI/CD pipelines, agile methodologies (Scrum), continuous peer code reviews via Pull Requests, and iterative software deliveries.',
         },
         {
           title: 'Smart Projects',
           issuer: 'Foo Talent Group',
           period: '2024',
-          badge: 'Project Simulation',
+          badge: 'Collaborative Software Engineering',
           projects: 'Program: Smart Projects',
-          description: 'Intensive training in real software engineering team dynamics: agile project organization, professional Git/GitHub version control, pull request reviews, iterative deliveries, and frontend/backend collaboration.',
+          description: 'Intensive training in collaborative software engineering: agile sprint orchestration, technical code reviews on GitHub, quality assurance, and cross-functional frontend/backend coordination.',
         },
       ],
       academicItems: [

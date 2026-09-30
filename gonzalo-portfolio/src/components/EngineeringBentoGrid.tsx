@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { sileo } from 'sileo';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { Spotlight } from '@/components/magicui/spotlight';
@@ -21,6 +22,17 @@ import {
 } from 'lucide-react';
 
 type ProjectKey = 'publiProp' | 'edesa' | 'otbn' | 'notion';
+
+interface BentoItemData {
+  badge: string;
+  title: string;
+  shortDesc: string;
+  metric: string;
+  problem: string;
+  solution: string;
+  challenge: string;
+  stack: readonly string[];
+}
 
 interface ProjectConfig {
   key: ProjectKey;
@@ -294,7 +306,7 @@ function renderSyntaxHighlight(code: string) {
 export function EngineeringBentoGrid() {
   const { t, lang } = useLanguage();
   const bento = t.engineeringBento;
-  const items = bento.items;
+  const items = bento.items as unknown as Record<ProjectKey, BentoItemData>;
   const drawer = bento.drawer;
 
   const [selectedKey, setSelectedKey] = useState<ProjectKey | null>(null);
@@ -306,9 +318,13 @@ export function EngineeringBentoGrid() {
 
   const selectedData = selectedKey ? items[selectedKey] : null;
 
-  const handleCopyCode = (code: string) => {
+  const handleCopyCode = (code: string, filename: string) => {
     navigator.clipboard.writeText(code);
     setCopied(true);
+    sileo.success({
+      title: lang === 'es' ? 'Código copiado al portapapeles' : 'Code copied to clipboard',
+      description: filename,
+    });
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -334,16 +350,17 @@ export function EngineeringBentoGrid() {
           {PROJECT_CONFIGS.map((config) => {
             const data = items[config.key];
             const Icon = config.icon;
-            const stackArray = (data.stack as unknown as string[]) || [];
+            const stackArray = data.stack || [];
 
             return (
               <Spotlight
                 key={config.key}
+                onClick={() => setSelectedKey(config.key)}
                 className={`${config.spanClass} rounded-2xl border border-slate-800/90 ${
                   config.isHero
                     ? 'bg-gradient-to-br from-slate-900/90 via-slate-950 to-slate-900/50 shadow-xl shadow-cyan-950/20'
                     : 'bg-slate-900/35 hover:bg-slate-900/50'
-                } p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300 relative group overflow-hidden`}
+                } p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300 relative group overflow-hidden cursor-pointer`}
               >
                 {config.isHero && (
                   <BorderBeam
@@ -401,7 +418,10 @@ export function EngineeringBentoGrid() {
 
                   <button
                     type="button"
-                    onClick={() => setSelectedKey(config.key)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedKey(config.key);
+                    }}
                     className="w-full inline-flex items-center justify-between px-4 py-2.5 rounded-lg bg-slate-900 border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-500 hover:text-slate-950 text-cyan-300 font-mono text-xs font-medium transition-all duration-200 group/btn cursor-pointer shadow-sm"
                   >
                     <span className="flex items-center gap-2">
@@ -505,16 +525,14 @@ export function EngineeringBentoGrid() {
                     {drawer.stackLabel}
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {((selectedData.stack as unknown as string[]) || []).map(
-                      (tech: string, idx: number) => (
-                        <span
-                          key={idx}
-                          className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-cyan-300 font-mono text-xs"
-                        >
-                          {tech}
-                        </span>
-                      )
-                    )}
+                    {(selectedData.stack || []).map((tech: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-cyan-300 font-mono text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
@@ -546,7 +564,7 @@ export function EngineeringBentoGrid() {
 
                       <button
                         type="button"
-                        onClick={() => handleCopyCode(selectedConfig.code)}
+                        onClick={() => handleCopyCode(selectedConfig.code, selectedConfig.filename)}
                         className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-colors cursor-pointer"
                       >
                         {copied ? (
