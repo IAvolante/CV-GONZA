@@ -17,8 +17,19 @@ import {
   Zap,
   FileText,
   Activity,
-  MessageSquare
+  MessageSquare,
+  Globe,
+  Layout,
+  Cpu,
+  Database
 } from 'lucide-react';
+
+const metricAccents = [
+  { text: 'text-cyan-400', border: 'hover:border-cyan-500/40' },
+  { text: 'text-emerald-400', border: 'hover:border-emerald-500/40' },
+  { text: 'text-cyan-400', border: 'hover:border-cyan-500/40' },
+  { text: 'text-emerald-400', border: 'hover:border-emerald-500/40' },
+];
 
 export function DigitalTransformationCaseStudy() {
   const { t } = useLanguage();
@@ -62,34 +73,52 @@ export function DigitalTransformationCaseStudy() {
 
   const architectureSteps = [
     {
+      step: '01',
       role: 'Client / Interface',
       name: cs.architectureDiagram.user,
-      desc: 'Acceso seguro vía navegador',
+      badge: 'HTTPS / REST',
+      icon: Globe,
+      desc: 'Acceso seguro vía navegador y terminales autorizadas en campo',
     },
     {
+      step: '02',
       role: 'Single Page Application',
       name: cs.architectureDiagram.frontend,
-      desc: 'UI reactiva con Tailwind CSS',
+      badge: 'React SPA',
+      icon: Layout,
+      desc: 'UI reactiva con Tailwind CSS y sincronización de estado',
     },
     {
+      step: '03',
       role: 'Application Server',
       name: cs.architectureDiagram.backend,
-      desc: 'Enrutamiento modular en Blueprints',
+      badge: 'Flask Blueprints',
+      icon: Server,
+      desc: 'Enrutamiento modular en Blueprints y control de acceso RBAC',
     },
     {
+      step: '04',
       role: 'Calculation Engines',
       name: cs.architectureDiagram.engines,
-      desc: 'Modelado solar, parsers y algoritmos',
+      badge: 'Python Engine',
+      icon: Cpu,
+      desc: 'Modelado solar matemático, parsers PDF y algoritmos de balance',
     },
     {
+      step: '05',
       role: 'Persistent Storage',
       name: cs.architectureDiagram.database,
-      desc: 'Bases SQLite dedicadas por dominio',
+      badge: 'SQLite Especializado',
+      icon: Database,
+      desc: 'Almacenes SQLite dedicados por dominio con concurrencia aislada',
     },
     {
+      step: '06',
       role: 'External Ecosystem',
       name: cs.architectureDiagram.integrations,
-      desc: 'APIs, webhooks y servicios cloud',
+      badge: 'Webhooks & Cloud',
+      icon: Layers,
+      desc: 'APIs de telemetría IoT Growatt, webhooks, Chatwoot y servicios cloud',
     },
   ];
 
@@ -144,6 +173,26 @@ export function DigitalTransformationCaseStudy() {
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               {cs.overview}
             </p>
+          </div>
+
+          {/* High-Impact KPI Metrics Banner */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+            {cs.metrics?.map((metric: { label: string; value: string }, idx: number) => {
+              const accent = metricAccents[idx % metricAccents.length];
+              return (
+                <div
+                  key={idx}
+                  className={`p-4 rounded-xl border border-slate-800 bg-slate-900/60 flex flex-col justify-center items-center text-center space-y-1.5 ${accent.border} transition-all duration-200`}
+                >
+                  <span className={`text-2xl sm:text-3xl font-extrabold font-mono tracking-tight ${accent.text}`}>
+                    {metric.value}
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider leading-snug">
+                    {metric.label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </header>
 
@@ -231,26 +280,63 @@ export function DigitalTransformationCaseStudy() {
             <p>{cs.architectureOverview}</p>
           </div>
 
-          {/* Architecture Flow Visual Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 pt-2">
-            {architectureSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="relative rounded-lg border border-slate-800/90 bg-slate-900/40 p-4 space-y-2 hover:border-cyan-500/40 transition-colors"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">
-                    0{idx + 1} // {step.role}
-                  </span>
+          {/* Layered Architecture Pipeline Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            {architectureSteps.map((step, idx) => {
+              const StepIcon = step.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group relative rounded-xl border border-slate-800/90 bg-gradient-to-br from-slate-900/70 via-slate-950/80 to-slate-900/40 p-5 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-950/20 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none" />
+
+                  <div className="space-y-3.5 relative z-10">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-semibold flex items-center gap-1.5">
+                        <span className="text-cyan-500 font-bold">{step.step}</span>
+                        <span className="text-slate-600">//</span>
+                        <span className="text-slate-300 truncate">{step.role}</span>
+                      </span>
+                      <span className="px-2 py-0.5 rounded bg-slate-800/90 border border-slate-700/80 text-cyan-300 font-mono text-[10px] tracking-tight shrink-0 group-hover:border-cyan-500/40 group-hover:bg-cyan-950/40 transition-colors">
+                        {step.badge}
+                      </span>
+                    </div>
+
+                    <div className="flex items-start gap-3 pt-1">
+                      <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-cyan-400 group-hover:text-cyan-300 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all shrink-0 mt-0.5">
+                        <StepIcon className="w-5 h-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-sm sm:text-base font-bold text-white font-mono group-hover:text-cyan-200 transition-colors">
+                          {step.name}
+                        </h3>
+                        <p className="text-xs text-slate-400 group-hover:text-slate-300 leading-relaxed transition-colors">
+                          {step.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-800/60 text-[10px] font-mono text-slate-500 group-hover:text-cyan-400/80 transition-colors relative z-10">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/60 group-hover:bg-cyan-400 transition-colors" />
+                      {idx < 5 ? `PASO ${step.step} › INTERCONEXIÓN` : 'SISTEMA INTEGRADO'}
+                    </span>
+                    {idx < 5 ? (
+                      <span className="flex items-center gap-1 text-slate-400 group-hover:text-cyan-300 transition-colors">
+                        <span>Siguiente capa</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    ) : (
+                      <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3" /> Producción Activa
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <h3 className="text-sm font-bold text-white font-mono">
-                  {step.name}
-                </h3>
-                <p className="text-xs text-slate-400">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

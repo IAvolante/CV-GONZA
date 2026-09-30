@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Download, ArrowLeft } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, ArrowLeft, Printer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ResumeCV = () => {
@@ -9,7 +9,7 @@ const ResumeCV = () => {
         {`
           @page {
             size: A4;
-            margin: 10mm 12mm;
+            margin: 8mm 10mm;
           }
           @media print {
             .no-print {
@@ -19,7 +19,7 @@ const ResumeCV = () => {
               background: #ffffff !important;
               color: #0f172a !important;
               font-size: 11px !important;
-              line-height: 1.35 !important;
+              line-height: 1.32 !important;
             }
             .cv-wrapper {
               background: #ffffff !important;
@@ -38,30 +38,41 @@ const ResumeCV = () => {
               break-inside: avoid !important;
               page-break-inside: avoid !important;
             }
-            h1 { font-size: 1.7rem !important; }
-            h2 { font-size: 0.78rem !important; margin-bottom: 0.4rem !important; }
-            h3 { font-size: 0.75rem !important; margin-bottom: 0.35rem !important; padding-bottom: 0.2rem !important; }
-            h4 { font-size: 0.82rem !important; }
-            p, li { font-size: 0.72rem !important; line-height: 1.35 !important; }
-            .section-gap { margin-bottom: 0.75rem !important; }
+            h1 { font-size: 1.65rem !important; line-height: 1.15 !important; }
+            h2 { font-size: 0.75rem !important; margin-bottom: 0.35rem !important; line-height: 1.25 !important; }
+            h3 { font-size: 0.73rem !important; margin-bottom: 0.3rem !important; padding-bottom: 0.15rem !important; }
+            h4 { font-size: 0.8rem !important; margin-bottom: 0.1rem !important; }
+            p, li { font-size: 0.71rem !important; line-height: 1.32 !important; }
+            ul { margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
+            li { margin-bottom: 0.15rem !important; }
+            .section-gap { margin-bottom: 0.6rem !important; }
           }
         `}
       </style>
 
       {/* Floating Header Bar (Web view only) */}
-      <div className="no-print max-w-4xl mx-auto mb-6 flex justify-between items-center px-2">
+      <div className="no-print max-w-4xl mx-auto mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 px-2">
         <Link
           to="/"
           className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition-colors"
         >
           <ArrowLeft size={18} /> Volver al Portfolio Web
         </Link>
-        <button
-          onClick={() => window.print()}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-sm shadow-lg shadow-cyan-950/30 transition-all cursor-pointer"
-        >
-          <Download size={18} /> Imprimir / Guardar en PDF
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={`${import.meta.env.BASE_URL}Gonzalo_Volante_CV.pdf`}
+            download="Gonzalo_Volante_CV.pdf"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm shadow-lg shadow-cyan-950/30 transition-all cursor-pointer"
+          >
+            <Download size={18} /> Descargar PDF Oficial
+          </a>
+          <button
+            onClick={() => window.print()}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-sm transition-all cursor-pointer"
+          >
+            <Printer size={18} /> Imprimir / Guardar en PDF
+          </button>
+        </div>
       </div>
 
       {/* Main CV Container */}
@@ -95,7 +106,15 @@ const ResumeCV = () => {
               <strong className="font-mono text-cyan-400 print:text-blue-700">[in]</strong> linkedin.com/in/gonzalo-volante
             </span>
             <span className="flex items-center gap-1.5">
-              <strong className="font-mono text-cyan-400 print:text-blue-700">[web]</strong> Portfolio: gonzavolante.dev
+              <strong className="font-mono text-cyan-400 print:text-blue-700">[web]</strong>{' '}
+              <a
+                href="https://iavolante.github.io/CV-GONZA/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan-400 print:text-slate-800 transition-colors underline-offset-2 hover:underline"
+              >
+                iavolante.github.io/CV-GONZA
+              </a>
             </span>
           </div>
         </header>
@@ -146,6 +165,38 @@ const ResumeCV = () => {
             Experiencia Profesional (Sistemas en Producción Activa)
           </h3>
 
+          {/* Nuevas Energías ERP (Buque Insignia) */}
+          <div className="mb-4 print:mb-3 page-break-avoid">
+            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
+              <h4 className="text-sm font-bold text-white print:text-slate-950">
+                Nuevas Energías (Energía Solar & Renovables)
+              </h4>
+              <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
+                Sep 2024 – Presente | Producción Activa | Salta, Arg.
+              </span>
+            </div>
+            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
+              Lead Solutions Architect & Product Engineer | ERP Operativo & Plataforma de Balance Energético
+            </p>
+            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
+              Liderazgo de la transformación digital de la compañía, reemplazando procesos manuales y planillas dispersas por un ERP modular integral que orquesta la ingeniería solar, atención al cliente, facturación contable y análisis de activos fotovoltaicos en producción.
+            </p>
+            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+              <li>
+                <strong>Módulo de Ingesta & Conciliación Energética (EDESA × Growatt):</strong> Pipeline de ingesta automatizada de facturas de red eléctrica mediante extracción programática (pdfplumber) y cruce algorítmico contra telemetría por cuarto de hora de inversores solares Growatt, generando balances netos y reportes de inyección para clientes industriales (Bodegas Etchart, Cendis, Tambo Martorell).
+              </li>
+              <li>
+                <strong>Motor matemático de dimensionamiento fotovoltaico:</strong> Algoritmo de cálculo para instalaciones On-Grid y Off-Grid (radiación solar, potencias pico, bancos de baterías e inversores) con generación automatizada de presupuestos técnicos y memorias de cálculo.
+              </li>
+              <li>
+                <strong>Integraciones operativas centrales:</strong> Canal omnicanal Chatwoot con pre-cotizaciones automatizadas mediante bot, cliente de lectura noCRM con réplica local en SQLite para contingencia de red, control de flota y taller en Supabase y facturación contable en Xubio.
+              </li>
+              <li>
+                <strong>Infraestructura y confiabilidad:</strong> Mantenimiento de servicios en producción sobre VPS Linux utilizando systemd, Nginx, Gunicorn y persistencia relacional en SQLite con SQLAlchemy (almacenes especializados por dominio).
+              </li>
+            </ul>
+          </div>
+
           {/* LIS SARESA V4 */}
           <div className="mb-4 print:mb-3 page-break-avoid">
             <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
@@ -174,38 +225,6 @@ const ResumeCV = () => {
               </li>
               <li>
                 <strong>Operatividad clínica garantizada:</strong> Módulo de facturación médica a obras sociales, panel de trazabilidad de muestras, auditoría de logs y seguridad con bcrypt y mitigación de fallos de red en box de extracción.
-              </li>
-            </ul>
-          </div>
-
-          {/* Nuevas Energías ERP */}
-          <div className="mb-4 print:mb-3 page-break-avoid">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">
-                Nuevas Energías (Energía Solar & Renovables)
-              </h4>
-              <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
-                Sep 2025 – Presente | Producción Activa | Salta, Arg.
-              </span>
-            </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
-              Lead Solutions Architect & Product Engineer | ERP Operativo & Plataforma de Balance Energético
-            </p>
-            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
-              Liderazgo de la transformación digital de la compañía, reemplazando procesos manuales y planillas dispersas por un ERP modular integral que orquesta la ingeniería solar, atención al cliente, facturación contable y análisis de activos fotovoltaicos en producción.
-            </p>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>Módulo de Ingesta & Conciliación Energética (EDESA × Growatt):</strong> Pipeline de ingesta automatizada de facturas de red eléctrica mediante extracción programática (pdfplumber) y cruce algorítmico contra telemetría por cuarto de hora de inversores solares Growatt, generando balances netos y reportes de inyección para clientes industriales (Bodegas Etchart, Cendis, Tambo Martorell).
-              </li>
-              <li>
-                <strong>Motor matemático de dimensionamiento fotovoltaico:</strong> Algoritmo de cálculo para instalaciones On-Grid y Off-Grid (radiación solar, potencias pico, bancos de baterías e inversores) con generación automatizada de presupuestos técnicos y memorias de cálculo.
-              </li>
-              <li>
-                <strong>Integraciones operativas centrales:</strong> Canal omnicanal Chatwoot con pre-cotizaciones automatizadas mediante bot, cliente de lectura noCRM con réplica local en SQLite para contingencia de red, control de flota y taller en Supabase y facturación contable en Xubio.
-              </li>
-              <li>
-                <strong>Infraestructura y confiabilidad:</strong> Mantenimiento de servicios en producción sobre VPS Linux utilizando systemd, Nginx, Gunicorn y bases de datos relacionales PostgreSQL / SQLite.
               </li>
             </ul>
           </div>
@@ -270,7 +289,7 @@ const ResumeCV = () => {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certified Tech Developer Jr.</strong> — Digital House (2021 – 2023)
+              <strong>Certified Tech Developer</strong> — Digital House (2021 – 2023)
             </div>
             <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
               <strong>Certificación Full Stack Software Development</strong> — iGrowker (2024)

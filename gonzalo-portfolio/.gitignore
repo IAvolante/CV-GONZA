@@ -25,3 +25,6 @@ dist-ssr
 
 # Reference repositories
 reference-mouredev/
+
+# Playwright output
+scripts/playwright-audit-output/
