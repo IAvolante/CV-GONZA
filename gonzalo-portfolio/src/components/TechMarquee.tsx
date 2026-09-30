@@ -90,7 +90,7 @@ const techItems: TechItem[] = [
     ),
   },
   {
-    name: 'Gemini Vision API',
+    name: 'Google Gemini Vision API',
     icon: (
       <svg className="w-3.5 h-3.5 shrink-0 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z" />

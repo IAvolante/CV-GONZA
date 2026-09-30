@@ -1,7 +1,10 @@
-import { Mail, Phone, MapPin, Download, ArrowLeft, Printer } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, ArrowLeft, Printer, Globe, Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/i18n/LanguageContext';
 
 const ResumeCV = () => {
+  const { t, lang, toggleLanguage } = useLanguage();
+
   return (
     <div className="min-h-screen bg-slate-900 py-8 px-4 font-sans text-slate-100 print:bg-white print:text-slate-900 print:p-0 print:m-0">
       {/* High-Contrast Print & PDF Export Styling */}
@@ -18,8 +21,8 @@ const ResumeCV = () => {
             body, html {
               background: #ffffff !important;
               color: #0f172a !important;
-              font-size: 11px !important;
-              line-height: 1.32 !important;
+              font-size: 10.5px !important;
+              line-height: 1.3 !important;
             }
             .cv-wrapper {
               background: #ffffff !important;
@@ -38,14 +41,14 @@ const ResumeCV = () => {
               break-inside: avoid !important;
               page-break-inside: avoid !important;
             }
-            h1 { font-size: 1.65rem !important; line-height: 1.15 !important; }
-            h2 { font-size: 0.75rem !important; margin-bottom: 0.35rem !important; line-height: 1.25 !important; }
-            h3 { font-size: 0.73rem !important; margin-bottom: 0.3rem !important; padding-bottom: 0.15rem !important; }
-            h4 { font-size: 0.8rem !important; margin-bottom: 0.1rem !important; }
-            p, li { font-size: 0.71rem !important; line-height: 1.32 !important; }
-            ul { margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
-            li { margin-bottom: 0.15rem !important; }
-            .section-gap { margin-bottom: 0.6rem !important; }
+            h1 { font-size: 1.55rem !important; line-height: 1.15 !important; }
+            h2 { font-size: 0.72rem !important; margin-bottom: 0.3rem !important; line-height: 1.25 !important; }
+            h3 { font-size: 0.72rem !important; margin-bottom: 0.25rem !important; padding-bottom: 0.15rem !important; }
+            h4 { font-size: 0.78rem !important; margin-bottom: 0.1rem !important; }
+            p, li { font-size: 0.7rem !important; line-height: 1.3 !important; }
+            ul { margin-top: 0.15rem !important; margin-bottom: 0.15rem !important; }
+            li { margin-bottom: 0.12rem !important; }
+            .section-gap { margin-bottom: 0.5rem !important; }
           }
         `}
       </style>
@@ -56,64 +59,72 @@ const ResumeCV = () => {
           to="/"
           className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition-colors"
         >
-          <ArrowLeft size={18} /> Volver al Portfolio Web
+          <ArrowLeft size={18} /> {t.resume.backToPortfolio}
         </Link>
         <div className="flex flex-wrap items-center gap-3">
+          <button
+            onClick={toggleLanguage}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-mono text-xs font-semibold transition-all cursor-pointer shadow-sm"
+            title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+          >
+            <Languages size={15} className="text-cyan-400" />
+            <span>{lang === 'es' ? 'English (EN)' : 'Español (ES)'}</span>
+          </button>
           <a
             href={`${import.meta.env.BASE_URL}Gonzalo_Volante_CV.pdf`}
             download="Gonzalo_Volante_CV.pdf"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm shadow-lg shadow-cyan-950/30 transition-all cursor-pointer"
           >
-            <Download size={18} /> Descargar PDF Oficial
+            <Download size={18} /> {t.resume.downloadPdf}
           </a>
           <button
             onClick={() => window.print()}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white font-medium text-sm transition-all cursor-pointer"
           >
-            <Printer size={18} /> Imprimir / Guardar en PDF
+            <Printer size={18} /> {t.resume.printPdf}
           </button>
         </div>
       </div>
 
       {/* Main CV Container */}
-      <div className="cv-wrapper max-w-4xl mx-auto bg-slate-950/90 border border-slate-800 rounded-xl p-8 sm:p-10 shadow-2xl print:bg-white print:border-none print:p-0 print:shadow-none print:text-slate-900">
+      <div className="cv-wrapper max-w-4xl mx-auto bg-slate-950/90 border border-slate-800 rounded-xl p-6 sm:p-10 md:p-12 shadow-2xl print:bg-white print:border-none print:p-0 print:shadow-none print:text-slate-900">
         {/* Header */}
         <header className="border-b-2 border-slate-800 pb-5 mb-5 print:border-slate-900 print:pb-3 print:mb-4">
           <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-2">
             <div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1.5 print:text-slate-950">
-                GONZALO VOLANTE
+                {t.resume.header.title.toUpperCase()}
               </h1>
-              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 mb-2.5 print:text-blue-800">
-                FULL STACK SYSTEMS & APPLIED AI ENGINEER | LEAD SOLUTIONS ARCHITECT & SYSTEMS DEVELOPER
+              <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 mb-2.5 print:text-blue-800 uppercase">
+                {t.resume.header.role}
               </h2>
             </div>
             <div className="hidden sm:inline-flex px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold self-start print:hidden">
-              ● SISTEMAS EN PRODUCCIÓN ACTIVA
+              ● {t.resume.header.liveBadge}
             </div>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-slate-400 print:text-slate-700">
             <span className="flex items-center gap-1.5">
-              <Mail size={13} /> gonzavolante@gmail.com
+              <Mail size={13} /> {t.resume.header.email}
             </span>
             <span className="flex items-center gap-1.5">
-              <Phone size={13} /> +54 3876 111118
+              <Phone size={13} /> {t.resume.header.phone}
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin size={13} /> Salta Capital, Argentina
+              <MapPin size={13} /> {t.resume.header.location}
             </span>
             <span className="flex items-center gap-1.5">
-              <strong className="font-mono text-cyan-400 print:text-blue-700">[in]</strong> linkedin.com/in/gonzalo-volante
+              <strong className="font-mono text-cyan-400 print:text-blue-700">[in]</strong> {t.resume.header.linkedin}
             </span>
             <span className="flex items-center gap-1.5">
-              <strong className="font-mono text-cyan-400 print:text-blue-700">[web]</strong>{' '}
+              <Globe size={13} className="text-cyan-400 print:text-blue-700" />
               <a
-                href="https://iavolante.github.io/CV-GONZA/"
+                href={`https://${t.resume.header.website}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 print:text-slate-800 transition-colors underline-offset-2 hover:underline"
+                className="hover:text-cyan-400 print:text-slate-800 transition-colors underline-offset-2 hover:underline font-mono"
               >
-                iavolante.github.io/CV-GONZA
+                {t.resume.header.website}
               </a>
             </span>
           </div>
@@ -122,38 +133,41 @@ const ResumeCV = () => {
         {/* Perfil Profesional */}
         <section className="mb-5 print:mb-3 section-gap">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Perfil Profesional
+            {t.resume.summary.title}
           </h3>
-          <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800 mb-2">
-            <strong>Lead Solutions Architect & Product Engineer</strong> especializado en el diseño, desarrollo y despliegue de plataformas de software empresariales de misión crítica y sistemas de automatización industrial. Con un enfoque riguroso de ingeniería de extremo a extremo, transformo problemáticas complejas de negocio en sistemas centralizados de alta confiabilidad y rendimiento.
-          </p>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-300 print:text-slate-800">
-            Actualmente lidero en producción dos plataformas core activas en industrias exigentes: el <strong>ERP Operativo de Nuevas Energías</strong> (energía solar con conciliación de telemetría IoT y facturación de red eléctrica) y el <strong>LIS SARESA V4</strong> (sistema de información para laboratorio clínico con más de 1.4M de registros médicos migrados, IA multimodal Gemini Vision y respuesta analítica en 0 ms).
+            {t.resume.summary.text}
           </p>
         </section>
 
         {/* Competencias Clave */}
         <section className="mb-5 print:mb-3 section-gap">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Competencias Clave
+            {t.resume.competencies.title}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 print:grid-cols-3 print:gap-2">
             <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Arquitectura & Datos:</strong>
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">
+                {t.resume.competencies.architecture.title}:
+              </strong>
               <span className="text-slate-300 print:text-slate-700">
-                Domain-Driven Design, SQLite de alta concurrencia (better-sqlite3 sincrónico), PostgreSQL / Supabase, memorias intermedias en RAM (vrCache 0ms), migración y sanitización masiva (+1.4M registros).
+                {t.resume.competencies.architecture.desc}
               </span>
             </div>
             <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Full-Stack & IA Multimodal:</strong>
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">
+                {t.resume.competencies.fullStack.title}:
+              </strong>
               <span className="text-slate-300 print:text-slate-700">
-                React 18, TypeScript, Tailwind CSS, Node.js / Express, Python, Electron Desktop, Gemini Vision AI (OCR de comprobantes), algoritmos de compensación financiera FIFO.
+                {t.resume.competencies.fullStack.desc}
               </span>
             </div>
             <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs print:bg-slate-50 print:border-slate-200">
-              <strong className="block text-cyan-400 mb-1 print:text-blue-800">Infraestructura & Automatización:</strong>
+              <strong className="block text-cyan-400 mb-1 print:text-blue-800">
+                {t.resume.competencies.infrastructure.title}:
+              </strong>
               <span className="text-slate-300 print:text-slate-700">
-                Linux VPS (Nginx, Gunicorn, systemd, Certbot SSL), Playwright RPA (evasión anti-bot), telemetría solar Growatt, parsing de facturación con pdfplumber, n8n, webhooks y Chatwoot.
+                {t.resume.competencies.infrastructure.desc}
               </span>
             </div>
           </div>
@@ -162,154 +176,117 @@ const ResumeCV = () => {
         {/* Experiencia Profesional */}
         <section className="mb-5 print:mb-3 section-gap">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-3 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Experiencia Profesional (Sistemas en Producción Activa)
+            {t.resume.experience.title}
           </h3>
 
-          {/* Nuevas Energías ERP (Buque Insignia) */}
+          {/* 1. LIS SARESA V4 */}
           <div className="mb-4 print:mb-3 page-break-avoid">
             <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
               <h4 className="text-sm font-bold text-white print:text-slate-950">
-                Nuevas Energías (Energía Solar & Renovables)
+                {t.resume.experience.saresa.company}
               </h4>
               <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
-                Sep 2024 – Presente | Producción Activa | Salta, Arg.
+                {t.resume.experience.saresa.period}
               </span>
             </div>
             <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
-              Lead Solutions Architect & Product Engineer | ERP Operativo & Plataforma de Balance Energético
-            </p>
-            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
-              Liderazgo de la transformación digital de la compañía, reemplazando procesos manuales y planillas dispersas por un ERP modular integral que orquesta la ingeniería solar, atención al cliente, facturación contable y análisis de activos fotovoltaicos en producción.
+              <strong>{t.resume.experience.saresa.role}</strong> | {t.resume.experience.saresa.subtitle}
             </p>
             <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>Módulo de Ingesta & Conciliación Energética (EDESA × Growatt):</strong> Pipeline de ingesta automatizada de facturas de red eléctrica mediante extracción programática (pdfplumber) y cruce algorítmico contra telemetría por cuarto de hora de inversores solares Growatt, generando balances netos y reportes de inyección para clientes industriales (Bodegas Etchart, Cendis, Tambo Martorell).
-              </li>
-              <li>
-                <strong>Motor matemático de dimensionamiento fotovoltaico:</strong> Algoritmo de cálculo para instalaciones On-Grid y Off-Grid (radiación solar, potencias pico, bancos de baterías e inversores) con generación automatizada de presupuestos técnicos y memorias de cálculo.
-              </li>
-              <li>
-                <strong>Integraciones operativas centrales:</strong> Canal omnicanal Chatwoot con pre-cotizaciones automatizadas mediante bot, cliente de lectura noCRM con réplica local en SQLite para contingencia de red, control de flota y taller en Supabase y facturación contable en Xubio.
-              </li>
-              <li>
-                <strong>Infraestructura y confiabilidad:</strong> Mantenimiento de servicios en producción sobre VPS Linux utilizando systemd, Nginx, Gunicorn y persistencia relacional en SQLite con SQLAlchemy (almacenes especializados por dominio).
-              </li>
+              {t.resume.experience.saresa.highlights.map((bullet, idx) => (
+                <li key={idx}>{bullet}</li>
+              ))}
             </ul>
           </div>
 
-          {/* LIS SARESA V4 */}
+          {/* 2. Nuevas Energías */}
           <div className="mb-4 print:mb-3 page-break-avoid">
             <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
               <h4 className="text-sm font-bold text-white print:text-slate-950">
-                Laboratorio Bioquímico SARESA
+                {t.resume.experience.nuevasEnergias.company}
               </h4>
               <span className="text-xs font-medium text-cyan-400 print:text-slate-600 font-mono">
-                2024 – Presente | Producción Activa | Salta, Arg.
+                {t.resume.experience.nuevasEnergias.period}
               </span>
             </div>
             <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
-              Lead Solutions Architect & Systems Developer | LIS SARESA V4 (Core Laboratory Information System)
-            </p>
-            <p className="text-xs text-slate-300 print:text-slate-800 mb-1.5 leading-relaxed">
-              Diseño, desarrollo integral y despliegue del sistema central de gestión clínica y administrativa del laboratorio, modernizando una plataforma legacy hacia una arquitectura híbrida de alto rendimiento (Electron Desktop + Web SPA en Linux VPS DonWeb con Nginx y Certbot SSL).
+              <strong>{t.resume.experience.nuevasEnergias.role}</strong> | {t.resume.experience.nuevasEnergias.subtitle}
             </p>
             <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>Migración masiva de datos:</strong> Extracción, saneamiento e indexación sin pérdida de +1.400.000 resultados bioquímicos históricos, 86.000 órdenes de trabajo y 30.000 pacientes sobre SQLite embebido de alto rendimiento.
-              </li>
-              <li>
-                <strong>Arquitectura de ultra-baja latencia (0 ms):</strong> Implementación de memoria intermedia en RAM (<code className="text-cyan-300 print:text-slate-900 font-mono">vrCache</code>) para resolución instantánea de valores de referencia analíticos en caliente, eliminando cuellos de botella N+1 en pantallas críticas.
-              </li>
-              <li>
-                <strong>Gestión de compras con IA multimodal:</strong> Módulo de comprobantes con extracción automática mediante Google Gemini Vision AI (parseo estructurado de facturas PDF e imágenes con fallback a tesseract) y motor de resolución financiera de saldos por algoritmo FIFO.
-              </li>
-              <li>
-                <strong>Operatividad clínica garantizada:</strong> Módulo de facturación médica a obras sociales, panel de trazabilidad de muestras, auditoría de logs y seguridad con bcrypt y mitigación de fallos de red en box de extracción.
-              </li>
+              {t.resume.experience.nuevasEnergias.highlights.map((bullet, idx) => (
+                <li key={idx}>{bullet}</li>
+              ))}
             </ul>
           </div>
+        </section>
 
-          {/* Smart Projects */}
-          <div className="page-break-avoid">
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">
-                Smart Projects (Consultoría de Automatización & Software)
-              </h4>
-              <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
-                2022 – Presente | Remoto / Salta
-              </span>
+        {/* Proyectos de Ingeniería Especializada */}
+        <section className="mb-5 print:mb-3 page-break-avoid section-gap">
+          <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
+            {t.resume.engineeringProjects.title}
+          </h3>
+          <div className="space-y-2 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+            <div>
+              <strong className="text-white print:text-slate-950">{t.resume.engineeringProjects.publiProp.title}</strong> —{' '}
+              <span className="font-mono text-cyan-400 print:text-blue-800">{t.resume.engineeringProjects.publiProp.subtitle}</span>. {t.resume.engineeringProjects.publiProp.desc}
             </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1.5">
-              Consultor de Arquitectura de Soluciones & Automatización RPA
-            </p>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>Publi-Prop (RPA Inmobiliario de Alto Rendimiento):</strong> Bot de automatización con Playwright en modo headless para navegación web programática, evasión de detección bot, persistencia de sesiones de usuario y publicación estructurada multicanal.
-              </li>
-              <li>
-                <strong>Asistentes de Conocimiento & Flujos Conversacionales:</strong> Implementación de agentes basados en documentos vectoriales utilizando PostgreSQL con pgvector en Supabase, REST APIs y WhatsApp Cloud API para consulta de catálogos y derivación de leads.
-              </li>
-              <li>
-                <strong>Análisis Geoespacial Satelital (OTBN Salta):</strong> Procesamiento de imágenes satelitales multiespectrales (NDVI/NDWI) y capas vectoriales catastrales con Python, QGIS y Google Earth Engine para la comisión de la Ley de Bosques Nativos.
-              </li>
-            </ul>
+            <div>
+              <strong className="text-white print:text-slate-950">{t.resume.engineeringProjects.edesa.title}</strong> —{' '}
+              <span className="font-mono text-cyan-400 print:text-blue-800">{t.resume.engineeringProjects.edesa.subtitle}</span>. {t.resume.engineeringProjects.edesa.desc}
+            </div>
+            <div>
+              <strong className="text-white print:text-slate-950">{t.resume.engineeringProjects.otbn.title}</strong> —{' '}
+              <span className="font-mono text-cyan-400 print:text-blue-800">{t.resume.engineeringProjects.otbn.subtitle}</span>. {t.resume.engineeringProjects.otbn.desc}
+            </div>
+            <div>
+              <strong className="text-white print:text-slate-950">{t.resume.engineeringProjects.notion.title}</strong> —{' '}
+              <span className="font-mono text-cyan-400 print:text-blue-800">{t.resume.engineeringProjects.notion.subtitle}</span>. {t.resume.engineeringProjects.notion.desc}
+            </div>
           </div>
         </section>
 
         {/* Ingeniería Colaborativa & Software Factory */}
         <section className="mb-5 print:mb-3 page-break-avoid section-gap">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Ingeniería Colaborativa & Software Factory
+            {t.resume.simulation.title}
           </h3>
-          <div>
-            <div className="flex justify-between items-baseline flex-wrap gap-1 mb-0.5">
-              <h4 className="text-sm font-bold text-white print:text-slate-950">iGrowker & Foo Talent Group</h4>
-              <span className="text-xs font-medium text-slate-400 print:text-slate-600 font-mono">
-                2023 – 2024 | Remoto
-              </span>
-            </div>
-            <p className="text-xs font-medium text-slate-300 print:text-blue-800 mb-1">
-              Frontend Lead & Full-Stack Developer (Equipos Multidisciplinarios)
-            </p>
-            <ul className="list-disc pl-4 space-y-1 text-xs text-slate-300 print:text-slate-800 leading-relaxed">
-              <li>
-                <strong>YouCreate:</strong> Liderazgo técnico del equipo frontend en el desarrollo de una plataforma SaaS para creadores de contenido (liquidaciones, balance de cuentas, analítica financiera y pasarelas de pago).
-              </li>
-              <li>
-                <strong>Aceleración de Software:</strong> Trabajo en squads ágiles bajo estándares de software factory con React, TypeScript, Tailwind CSS, revisiones de código exhaustivas, control de versiones Git/GitHub y entregas continuas en sprints de 2 semanas.
-              </li>
-            </ul>
+          <div className="space-y-2 text-xs">
+            {t.resume.simulation.items.map((item, idx) => (
+              <div key={idx}>
+                <div className="flex justify-between items-baseline flex-wrap gap-1">
+                  <h4 className="text-xs font-bold text-white print:text-slate-950">{item.title}</h4>
+                  <span className="text-[11px] font-medium text-cyan-400 print:text-blue-800">{item.role}</span>
+                </div>
+                <p className="text-xs text-slate-300 print:text-slate-800 leading-relaxed mt-0.5">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Formación y Certificaciones */}
         <section className="mb-4 print:mb-3 page-break-avoid section-gap">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-2 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Formación & Certificaciones
+            {t.resume.education.title}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certified Tech Developer — Software Engineering Program (Digital House)</strong> (2021 – 2023)
-            </div>
-            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certificación Full Stack Software Development</strong> — iGrowker (2024)
-            </div>
-            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certificación Aceleración de Software</strong> — Foo Talent Group (2024)
-            </div>
-            <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Diseño UX/UI</strong> — Coderhouse (2021)
-            </div>
+            {t.resume.education.items.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800"
+              >
+                <strong>{item.title}</strong> — {item.issuer}
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Idiomas */}
         <section className="page-break-avoid">
           <h3 className="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase pb-1.5 mb-1.5 border-b border-slate-800 print:border-slate-300 print:text-slate-900">
-            Idiomas
+            {t.resume.languages.title}
           </h3>
-          <p className="text-xs text-slate-300 print:text-slate-800">
-            <strong>Español:</strong> Nativo | <strong>Inglés:</strong> B2 Profesional (Capacidad de lectura técnica avanzada, redacción de documentación de arquitectura y comunicación fluida en equipos internacionales).
+          <p className="text-xs text-slate-300 print:text-slate-800 leading-relaxed">
+            {t.resume.languages.text}
           </p>
         </section>
       </div>

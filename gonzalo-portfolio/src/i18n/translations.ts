@@ -728,6 +728,127 @@ export const translations = {
       toastTitle: 'Pipeline de Automatización Ejecutado',
       toastDesc: 'Flujo completado en 3.2s. 8.5 horas operativas ahorradas con 0% error de cálculo.',
     },
+    // Resume / CV
+    resume: {
+      backToPortfolio: 'Volver al Portfolio Web',
+      downloadPdf: 'Descargar PDF Oficial',
+      printPdf: 'Imprimir / Guardar en PDF',
+      header: {
+        title: 'Gonzalo Volante',
+        role: 'Software Systems & Applied AI Engineer | Solutions Architect',
+        location: 'Salta, Argentina',
+        liveBadge: 'SISTEMAS EN PRODUCCIÓN ACTIVA',
+        email: 'gonzavolante@gmail.com',
+        phone: '+54 3876 111118',
+        linkedin: 'linkedin.com/in/gonzalo-volante',
+        website: 'iavolante.github.io/CV-GONZA',
+      },
+      summary: {
+        title: 'Perfil Profesional',
+        text: 'Ingeniero de Sistemas de Software e IA Aplicada especializado en el diseño de plataformas de misión crítica, pipelines de ingesta de datos y arquitecturas de automatización de procesos. Trayectoria comprobada en producción diseñando ERPs para el sector salud y plataformas industriales de gestión de energía renovable, manejando más de 1.4 millones de registros clínicos y telemetría de hardware IoT en tiempo real. Sólida experiencia en integración multimodal de LLMs (Google Gemini Vision API), parsing de datos desde formatos semiestructurados (PDFs, facturas de servicios, resúmenes bancarios), mecanismos de caché en memoria y pipelines de despliegue automatizado en entornos Linux.',
+      },
+      competencies: {
+        title: 'Competencias Clave',
+        architecture: {
+          title: 'Arquitectura & Datos',
+          desc: 'Domain-Driven Design, SQLite de alta concurrencia (better-sqlite3 sincrónico), memorias intermedias en RAM (vrCache 0 ms de latencia), migración y saneamiento masivo (+1.4M de registros).',
+        },
+        fullStack: {
+          title: 'Full-Stack & IA Aplicada',
+          desc: 'React, TypeScript, Tailwind CSS, Python (Flask), Google Gemini Vision API (OCR multimodal de comprobantes), algoritmos financieros deterministas FIFO, REST APIs & Webhooks.',
+        },
+        infrastructure: {
+          title: 'Infraestructura & Automatización',
+          desc: 'Linux VPS (systemd, Nginx, Gunicorn, Certbot SSL), Playwright RPA (navegación headless anti-bot), telemetría solar (Growatt API), parsing con pdfplumber, GitHub Actions CI/CD.',
+        },
+      },
+      experience: {
+        title: 'Experiencia Profesional (Sistemas en Producción Activa)',
+        saresa: {
+          company: 'Laboratorio Bioquímico SARESA',
+          period: '2024 – Presente · Salta, Argentina',
+          role: 'Lead Solutions Architect & Full-Stack Systems Developer',
+          subtitle: 'LIS SARESA V4 (Core Laboratory Information System & Medical ERP)',
+          highlights: [
+            'Architected and deployed LIS SARESA V4, an end-to-end mission-critical laboratory information system and medical ERP serving active healthcare operations.',
+            'Engineered the migration, indexing, and sanitization of +1,400,000 clinical analysis results, +86,000 medical orders, and a registry of +30,000 active patients.',
+            'Implemented an in-memory RAM caching engine (vrCache) that eliminated N+1 database queries, achieving 0 ms latency across 1,000+ age-and-sex-dependent biological reference evaluations.',
+            'Integrated Google Gemini Vision API for automated multimodal extraction of medical reagent supplier invoices and packing slips into validated database records.',
+            'Developed a deterministic FIFO transactional accounting algorithm to automate debt allocation and ledger consolidation across medical supplier accounts.',
+            'Configured automated deployment pipelines on a dedicated Linux VPS utilizing systemd services, synchronous SQLite access, and Nginx with Certbot SSL renewal.',
+          ],
+        },
+        nuevasEnergias: {
+          company: 'Nuevas Energías',
+          period: 'Sep 2024 – Presente · Salta, Argentina',
+          role: 'IT Specialist & Software Solutions Developer',
+          subtitle: 'Central Operations Platform & Solar Energy Balance Engine',
+          highlights: [
+            'Designed and put into production the central internal operating platform, replacing fragmented legacy spreadsheets with a unified web-based management system.',
+            'Programmed automated solar photovoltaic sizing algorithms (On-Grid and Off-Grid), reducing proposal turnaround time from 48 hours to under 3 minutes (-90% cycle reduction).',
+            'Built an automated ingestion and document parsing pipeline using Python (pdfplumber) to analyze provincial electricity bills (EDESA) and detect contracted power transgressions.',
+            'Integrated solar inverter IoT hardware telemetry (Growatt API) with utility billing data in an isolated SQLite database (plantas.db) for automated net-metering energy balances.',
+            'Built a custom read-only CRM client with local persistent caching to interface with external APIs, eliminating rate-limit penalties while maintaining real-time commercial tracking.',
+            'Implemented full CI/CD deployment automation using GitHub Actions, compiling React/TypeScript frontends and syncing to a production Linux host running Gunicorn and Nginx.',
+          ],
+        },
+      },
+      engineeringProjects: {
+        title: 'Proyectos de Ingeniería Especializada',
+        publiProp: {
+          title: 'Publi-Prop',
+          subtitle: 'Headless Web Automation & Browser Session Orchestrator (Node.js, Playwright, Chromium, Session Storage)',
+          desc: 'Built an automated real estate publishing pipeline capable of bypassing complex web forms through headless Chromium execution and persistent session management.',
+        },
+        edesa: {
+          title: 'Auditor EDESA',
+          subtitle: 'Electrical Tariff Ingestion & Analytical Engine (Python 3.11, pdfplumber, SQLite, Flask, WeasyPrint)',
+          desc: 'Analytical document parser extracting time-differentiated hourly energy consumption patterns and modeling mathematical penalty curves into structured audit reports.',
+        },
+        otbn: {
+          title: 'OTBN Geospatial Platform',
+          subtitle: 'Satellite Remote Sensing & GIS (Python, Google Earth Engine API, QGIS, GeoPandas)',
+          desc: 'Spatial analysis scripts supporting the Technical Committee for the Native Forests Law (Ley de Bosques) in Salta, extracting NDVI and NDWI vegetation indices over Sentinel and Landsat imagery.',
+        },
+        notion: {
+          title: 'Notion Statement Importer',
+          subtitle: 'Standalone Financial Parsing Engine (Python, Notion API, PyInstaller, REST APIs)',
+          desc: 'Standalone executable ingesting credit card PDF statements with automatic tagging, duplicate filtering, and REST API database synchronization.',
+        },
+      },
+      simulation: {
+        title: 'Ingeniería Colaborativa & Software Factory',
+        items: [
+          {
+            title: 'YouCreate 2.0 (iGrowker, 2024)',
+            role: 'Frontend Lead & Squad Contributor',
+            desc: 'Led frontend engineering squad delivering modular financial balance dashboards using React, TypeScript, and Tailwind CSS.',
+          },
+          {
+            title: 'Smart Projects (Foo Talent Group, 2024)',
+            role: 'Software Developer',
+            desc: 'Agile team simulation with continuous Git/GitHub branch management, code reviews, and sprint delivery cadences.',
+          },
+        ],
+      },
+      education: {
+        title: 'Formación & Certificaciones',
+        items: [
+          {
+            title: 'Certified Tech Developer — Software Engineering Program',
+            issuer: 'Digital House (2021 – 2023)',
+          },
+          {
+            title: 'Diseño UX/UI Especializado',
+            issuer: 'Coderhouse (2021)',
+          },
+        ],
+      },
+      languages: {
+        title: 'Idiomas',
+        text: 'Español: Nativo | Inglés: B2 Profesional (Capacidad de lectura técnica avanzada, redacción de documentación de arquitectura y comunicación fluida en equipos internacionales).',
+      },
+    },
     // Footer
     footer: {
       builtWith: 'Construido con React, TypeScript y',
@@ -1460,6 +1581,127 @@ export const translations = {
       },
       toastTitle: 'Automation Pipeline Executed',
       toastDesc: 'Simulation completed in 3.2s. 8.5 operational hours saved with 0% calculation error.',
+    },
+    // Resume / CV
+    resume: {
+      backToPortfolio: 'Back to Web Portfolio',
+      downloadPdf: 'Download Official PDF',
+      printPdf: 'Print / Save as PDF',
+      header: {
+        title: 'Gonzalo Volante',
+        role: 'Software Systems & Applied AI Engineer | Solutions Architect',
+        location: 'Salta, Argentina',
+        liveBadge: 'ACTIVE PRODUCTION SYSTEMS',
+        email: 'gonzavolante@gmail.com',
+        phone: '+54 3876 111118',
+        linkedin: 'linkedin.com/in/gonzalo-volante',
+        website: 'iavolante.github.io/CV-GONZA',
+      },
+      summary: {
+        title: 'Professional Summary',
+        text: 'Software Systems and Applied AI Engineer specialized in designing mission-critical platforms, data ingestion pipelines, and process automation architectures. Proven production track record architecting healthcare ERPs and industrial renewable energy management platforms handling over 1.4 million clinical records and real-time IoT hardware telemetry. Strong expertise in LLM multimodal integration (Google Gemini Vision API), data parsing from semi-structured formats (PDFs, utility bills, financial statements), in-memory caching mechanisms, and automated deployment pipelines on Linux environments.',
+      },
+      competencies: {
+        title: 'Core Competencies',
+        architecture: {
+          title: 'Architecture & Data',
+          desc: 'Domain-Driven Design, High-concurrency SQLite (synchronous better-sqlite3), in-memory RAM caching (vrCache 0 ms latency), massive data migration and sanitization (+1.4M clinical records).',
+        },
+        fullStack: {
+          title: 'Full-Stack & Applied AI',
+          desc: 'React, TypeScript, Tailwind CSS, Python (Flask), Google Gemini Vision API (multimodal invoice OCR), deterministic FIFO financial clearing algorithms, REST APIs & Webhooks.',
+        },
+        infrastructure: {
+          title: 'Infrastructure & Automation',
+          desc: 'Linux VPS (systemd, Nginx, Gunicorn, Certbot SSL), Playwright RPA (headless bot-bypass), solar telemetry integration (Growatt API), pdfplumber document parsing, GitHub Actions CI/CD.',
+        },
+      },
+      experience: {
+        title: 'Professional Experience (Active Production Systems)',
+        saresa: {
+          company: 'Laboratorio Bioquímico SARESA',
+          period: '2024 – Present · Salta, Argentina',
+          role: 'Lead Solutions Architect & Full-Stack Systems Developer',
+          subtitle: 'LIS SARESA V4 (Core Laboratory Information System & Medical ERP)',
+          highlights: [
+            'Architected and deployed LIS SARESA V4, an end-to-end mission-critical laboratory information system and medical ERP serving active healthcare operations.',
+            'Engineered the migration, indexing, and sanitization of +1,400,000 clinical analysis results, +86,000 medical orders, and a registry of +30,000 active patients.',
+            'Implemented an in-memory RAM caching engine (vrCache) that eliminated N+1 database queries, achieving 0 ms latency across 1,000+ age-and-sex-dependent biological reference evaluations.',
+            'Integrated Google Gemini Vision API for automated multimodal extraction of medical reagent supplier invoices and packing slips into validated database records.',
+            'Developed a deterministic FIFO transactional accounting algorithm to automate debt allocation and ledger consolidation across medical supplier accounts.',
+            'Configured automated deployment pipelines on a dedicated Linux VPS utilizing systemd services, synchronous SQLite access, and Nginx with Certbot SSL renewal.',
+          ],
+        },
+        nuevasEnergias: {
+          company: 'Nuevas Energías (Renewable Energy & Solar Engineering)',
+          period: 'Sep 2024 – Present · Salta, Argentina',
+          role: 'IT Specialist & Software Solutions Developer',
+          subtitle: 'Central Operations Platform & Solar Energy Balance Engine',
+          highlights: [
+            'Designed and put into production the central internal operating platform, replacing fragmented legacy spreadsheets with a unified web-based management system.',
+            'Programmed automated solar photovoltaic sizing algorithms (On-Grid and Off-Grid), reducing proposal turnaround time from 48 hours to under 3 minutes (-90% cycle reduction).',
+            'Built an automated ingestion and document parsing pipeline using Python (pdfplumber) to analyze provincial electricity bills (EDESA) and detect contracted power transgressions.',
+            'Integrated solar inverter IoT hardware telemetry (Growatt API) with utility billing data in an isolated SQLite database (plantas.db) for automated net-metering energy balances.',
+            'Built a custom read-only CRM client with local persistent caching to interface with external APIs, eliminating rate-limit penalties while maintaining real-time commercial tracking.',
+            'Implemented full CI/CD deployment automation using GitHub Actions, compiling React/TypeScript frontends and syncing to a production Linux host running Gunicorn and Nginx.',
+          ],
+        },
+      },
+      engineeringProjects: {
+        title: 'Specialized Engineering Projects',
+        publiProp: {
+          title: 'Publi-Prop',
+          subtitle: 'Headless Web Automation & Browser Session Orchestrator (Node.js, Playwright, Chromium, Session Storage)',
+          desc: 'Built an automated real estate publishing pipeline capable of bypassing complex web forms through headless Chromium execution and persistent session management.',
+        },
+        edesa: {
+          title: 'Auditor EDESA',
+          subtitle: 'Electrical Tariff Ingestion & Analytical Engine (Python 3.11, pdfplumber, SQLite, Flask, WeasyPrint)',
+          desc: 'Analytical document parser extracting time-differentiated hourly energy consumption patterns and modeling mathematical penalty curves into structured audit reports.',
+        },
+        otbn: {
+          title: 'OTBN Geospatial Platform',
+          subtitle: 'Satellite Remote Sensing & GIS (Python, Google Earth Engine API, QGIS, GeoPandas)',
+          desc: 'Spatial analysis scripts supporting the Technical Committee for the Native Forests Law (Ley de Bosques) in Salta, extracting NDVI and NDWI vegetation indices over Sentinel and Landsat imagery.',
+        },
+        notion: {
+          title: 'Notion Statement Importer',
+          subtitle: 'Standalone Financial Parsing Engine (Python, Notion API, PyInstaller, REST APIs)',
+          desc: 'Standalone executable ingesting credit card PDF statements with automatic tagging, duplicate filtering, and REST API database synchronization.',
+        },
+      },
+      simulation: {
+        title: 'Collaborative Engineering & Software Factory',
+        items: [
+          {
+            title: 'YouCreate 2.0 (iGrowker, 2024)',
+            role: 'Frontend Lead & Squad Contributor',
+            desc: 'Led frontend engineering squad delivering modular financial balance dashboards using React, TypeScript, and Tailwind CSS.',
+          },
+          {
+            title: 'Smart Projects (Foo Talent Group, 2024)',
+            role: 'Software Developer',
+            desc: 'Agile team simulation with continuous Git/GitHub branch management, code reviews, and sprint delivery cadences.',
+          },
+        ],
+      },
+      education: {
+        title: 'Education & Certifications',
+        items: [
+          {
+            title: 'Certified Tech Developer — Software Engineering Program',
+            issuer: 'Digital House (2021 – 2023)',
+          },
+          {
+            title: 'UX/UI Design Specialization',
+            issuer: 'Coderhouse (2021)',
+          },
+        ],
+      },
+      languages: {
+        title: 'Languages',
+        text: 'Spanish: Native | English: B2 Professional (Advanced technical reading, architecture documentation, and fluent communication across international engineering teams).',
+      },
     },
     footer: {
       builtWith: 'Built with React, TypeScript and',
