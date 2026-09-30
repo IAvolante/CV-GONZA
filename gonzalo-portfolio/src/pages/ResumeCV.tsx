@@ -85,7 +85,7 @@ const ResumeCV = () => {
                 GONZALO VOLANTE
               </h1>
               <h2 className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 mb-2.5 print:text-blue-800">
-                LEAD SOLUTIONS ARCHITECT & PRODUCT ENGINEER | FULL-STACK SYSTEMS · MISSION-CRITICAL ERPS · INDUSTRIAL AUTOMATION
+                FULL STACK SYSTEMS & APPLIED AI ENGINEER | LEAD SOLUTIONS ARCHITECT & SYSTEMS DEVELOPER
               </h2>
             </div>
             <div className="hidden sm:inline-flex px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold self-start print:hidden">
@@ -289,7 +289,7 @@ const ResumeCV = () => {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
             <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
-              <strong>Certified Tech Developer</strong> — Digital House (2021 – 2023)
+              <strong>Certified Tech Developer — Software Engineering Program (Digital House)</strong> (2021 – 2023)
             </div>
             <div className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800">
               <strong>Certificación Full Stack Software Development</strong> — iGrowker (2024)

@@ -16,7 +16,8 @@ export const translations = {
     hero: {
       location: 'Basado en Argentina · Disponible para trabajo remoto',
       name: 'Gonzalo Volante',
-      title: 'Lead Solutions Architect & Product Engineer',
+      title: 'Full Stack Systems & Applied AI Engineer',
+      subtitle: 'Lead Solutions Architect & Systems Developer',
       summary: 'Diseño y construyo sistemas de misión crítica, plataformas internas y pipelines de automatización que transforman operaciones manuales complejas en software de alto rendimiento en producción activa.',
       focusPills: 'System Architecture · Mission-Critical ERPs · Industrial IoT · Data Pipelines · Applied AI',
       architectureBadge: '⚡ Architecture Sandbox',
@@ -611,7 +612,7 @@ export const translations = {
       ],
       academicItems: [
         {
-          title: 'Certified Tech Developer Jr.',
+          title: 'Certified Tech Developer — Software Engineering Program (Digital House)',
           issuer: 'Digital House',
           period: '2021 – 2023',
           badge: 'Carrera Profesional',
@@ -630,57 +631,20 @@ export const translations = {
     extras: {
       sectionTag: '05 / INICIATIVAS & SOLUCIONES',
       sectionTitle: 'Proyectos independientes y desarrollo especializado',
-      sectionSubtitle: 'Herramientas creadas para resolver desafíos técnicos concretos: desde bots de automatización hasta procesamiento de datos satelitales.',
+      sectionSubtitle: 'Herramientas creadas para resolver desafíos técnicos concretos: desde bots de automatización hasta interfaces web de alta fidelidad.',
       filterAll: 'Todos',
       categories: {
         all: 'Todos',
-        automation: 'Automatización & Scripts',
-        data: 'Datos & Documentos',
-        geospatial: 'Geoespacial / GIS',
-        integrations: 'Integraciones & Web',
+        automation: 'Prototipos & Automatización',
+        integrations: 'Frontend & Sitios Web',
       },
       items: [
         {
-          title: 'Visor OTBN & GIS (Ley de Bosques)',
-          tag: 'GEOESPACIAL / GIS',
-          category: 'geospatial',
-          description: 'Herramienta de análisis geoespacial para el Comité Técnico de la Ley de Bosques en Salta. Permite evaluar coberturas boscosas mediante índices satelitales (NDVI/NDWI) e información geográfica vectorial.',
-          stack: ['Python', 'QGIS', 'Google Earth Engine', 'GeoPandas'],
-        },
-        {
-          title: 'Publi-Prop',
-          tag: 'AUTOMATIZACIÓN & SCRIPTS',
-          category: 'automation',
-          description: 'Sistema headless de automatización en Node.js y Playwright para publicación estructurada de propiedades con gestión de sesiones, perfiles de navegación y ejecución programada.',
-          stack: ['Node.js', 'Playwright', 'Automation', 'Chromium'],
-        },
-        {
           title: 'Prototipos de Asistencia & Webhooks',
           tag: 'EXPERIMENTACIÓN // APIS',
-          category: 'integrations',
-          description: 'Prototipos experimentales de consulta documental y triaje automatizado conectando APIs de modelos de lenguaje con webhooks y canales de mensajería para pruebas conceptuales de asistencia técnica interna.',
-          stack: ['Python', 'REST APIs', 'Webhooks', 'OpenAI API'],
-        },
-        {
-          title: 'Auditor & Analizador de Facturas EDESA',
-          tag: 'DATOS & DOCUMENTOS',
-          category: 'data',
-          description: 'Aplicación de escritorio y servicio web para procesamiento estructurado de facturas eléctricas digitales mediante pdfplumber y parsers en Python. Extrae consumos históricos discriminados por franja horaria y detecta transgresiones de potencia contratada.',
-          stack: ['Python', 'pdfplumber', 'Tkinter', 'Flask'],
-        },
-        {
-          title: 'Generador de Propuestas & Dimensionamiento',
-          tag: 'DOCUMENT ENGINE',
-          category: 'data',
-          description: 'Automatización en Python que interactúa con planillas de cálculo (xlwings), genera gráficos con matplotlib y compila propuestas técnico-comerciales en documentos Word y PDF.',
-          stack: ['Python', 'xlwings', 'Matplotlib', 'python-docx', 'docx2pdf'],
-        },
-        {
-          title: 'Cargador de Resúmenes Bancarios para Notion',
-          tag: 'INTEGRACIONES & AUTOMATIZACIÓN',
           category: 'automation',
-          description: 'Herramienta ejecutable (.exe) para ingesta estructurada de resúmenes de tarjetas de crédito mediante parsing digital de PDFs, sincronizando consumos categorizados en bases de datos de Notion.',
-          stack: ['Python', 'Notion API', 'PyInstaller', 'PDF Parsing'],
+          description: 'Prototipos experimentales de consulta documental y triaje automatizado conectando APIs de modelos de lenguaje con webhooks y canales de mensajería para pruebas conceptuales de asistencia técnica interna.',
+          stack: ['Python', 'REST APIs', 'Webhooks', 'Gemini / OpenAI API'],
         },
         {
           title: 'Prototipo de Bot de Mantenimiento & Flujos Operativos',
@@ -785,7 +749,8 @@ export const translations = {
     hero: {
       location: 'Based in Argentina · Open to remote opportunities',
       name: 'Gonzalo Volante',
-      title: 'Lead Solutions Architect & Product Engineer',
+      title: 'Full Stack Systems & Applied AI Engineer',
+      subtitle: 'Lead Solutions Architect & Systems Developer',
       summary: 'I design and build mission-critical systems, enterprise platforms, and automation pipelines that transform complex manual operations into high-performance software in active production.',
       focusPills: 'System Architecture · Mission-Critical ERPs · Industrial IoT · Data Pipelines · Applied AI',
       architectureBadge: '⚡ Architecture Sandbox',
@@ -1381,7 +1346,7 @@ export const translations = {
       ],
       academicItems: [
         {
-          title: 'Certified Tech Developer Jr.',
+          title: 'Certified Tech Developer — Software Engineering Program (Digital House)',
           issuer: 'Digital House',
           period: '2021 – 2023',
           badge: 'Professional Degree',
@@ -1400,57 +1365,20 @@ export const translations = {
     extras: {
       sectionTag: '05 / INITIATIVES & SOLUTIONS',
       sectionTitle: 'Independent engineering and specialized systems',
-      sectionSubtitle: 'Purpose-built tools addressing specific technical challenges: from headless automation bots to satellite geospatial analytics.',
+      sectionSubtitle: 'Purpose-built tools addressing specific technical challenges: from headless automation bots to high-fidelity frontend systems.',
       filterAll: 'All',
       categories: {
         all: 'All',
-        automation: 'Automation & Scripts',
-        data: 'Data & Documents',
-        geospatial: 'Geospatial / GIS',
-        integrations: 'Integrations & Web',
+        automation: 'Prototypes & Automation',
+        integrations: 'Frontend & Web Platforms',
       },
       items: [
         {
-          title: 'OTBN Geospatial Viewer (Forest Law)',
-          tag: 'GEOSPATIAL / GIS',
-          category: 'geospatial',
-          description: 'Geospatial analytics tool for the Provincial Technical Committee in Salta. Evaluates native forest coverage using satellite spectral indices (NDVI/NDWI) and multi-layered vector data.',
-          stack: ['Python', 'QGIS', 'Google Earth Engine', 'GeoPandas'],
-        },
-        {
-          title: 'Publi-Prop',
-          tag: 'AUTOMATION & SCRIPTS',
-          category: 'automation',
-          description: 'Headless automation system built with Node.js and Playwright for structured property publishing with session management, browser profiles, and automated navigation.',
-          stack: ['Node.js', 'Playwright', 'Automation', 'Chromium'],
-        },
-        {
           title: 'Assistant Prototypes & Webhooks',
           tag: 'EXPERIMENTAL // APIS',
-          category: 'integrations',
-          description: 'Experimental prototypes for document queries and automated triaging connecting LLM APIs with webhooks and messaging channels for internal technical support tests.',
-          stack: ['Python', 'REST APIs', 'Webhooks', 'OpenAI API'],
-        },
-        {
-          title: 'EDESA Utility Bill Auditor & Analyzer',
-          tag: 'DATA & DOCUMENTS',
-          category: 'data',
-          description: 'Desktop application and web service for structured parsing of digital electricity bills using pdfplumber and Python parsers. Extracts historical time-of-use consumption and flags contracted power transgressions.',
-          stack: ['Python', 'pdfplumber', 'Tkinter', 'Flask'],
-        },
-        {
-          title: 'Proposal Generator & Solar Sizing Engine',
-          tag: 'DOCUMENT ENGINE',
-          category: 'data',
-          description: 'Python automation interacting with engineering spreadsheets (xlwings), generating matplotlib charts, and compiling technical-commercial Word and PDF proposals.',
-          stack: ['Python', 'xlwings', 'Matplotlib', 'python-docx', 'docx2pdf'],
-        },
-        {
-          title: 'Notion Bank Statement Ingestion Tool',
-          tag: 'INTEGRATIONS & AUTOMATION',
           category: 'automation',
-          description: 'Standalone executable tool (.exe) for structured credit card statement ingestion via digital PDF parsing, synchronizing categorized expenses into Notion databases.',
-          stack: ['Python', 'Notion API', 'PyInstaller', 'PDF Parsing'],
+          description: 'Experimental prototypes for document queries and automated triaging connecting LLM APIs with webhooks and messaging channels for internal technical support tests.',
+          stack: ['Python', 'REST APIs', 'Webhooks', 'Gemini / OpenAI API'],
         },
         {
           title: 'Maintenance Bot Prototype & Operational Flows',

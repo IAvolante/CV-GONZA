@@ -51,8 +51,6 @@ export function Extras() {
   const categories = [
     { key: 'all', label: t.extras.categories.all },
     { key: 'automation', label: t.extras.categories.automation },
-    { key: 'data', label: t.extras.categories.data },
-    { key: 'geospatial', label: t.extras.categories.geospatial },
     { key: 'integrations', label: t.extras.categories.integrations },
   ];
 

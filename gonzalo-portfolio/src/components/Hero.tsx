@@ -87,15 +87,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.05 }}
-          className="space-y-3 mb-6"
+          className="space-y-2 mb-6"
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white">
             {t.hero.name}
           </h1>
-          {/* 2. Software Solutions Developer */}
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-300 tracking-tight">
             {t.hero.title}
           </h2>
+          {t.hero.subtitle && (
+            <p className="text-sm sm:text-base md:text-lg font-mono text-cyan-400 font-medium tracking-tight">
+              {t.hero.subtitle}
+            </p>
+          )}
         </motion.div>
 
         {/* 3. Value Proposition / Summary */}
