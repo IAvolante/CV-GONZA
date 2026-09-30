@@ -276,7 +276,7 @@ const ResumeCV = () => {
                 key={idx}
                 className="p-2 rounded bg-slate-900/70 border border-slate-800 text-slate-300 print:bg-slate-50 print:border-slate-200 print:text-slate-800"
               >
-                <strong>{item.title}</strong> — {item.issuer}
+                <strong>{item.title}</strong> | {item.issuer}
               </div>
             ))}
           </div>
