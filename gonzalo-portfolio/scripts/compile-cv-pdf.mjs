@@ -58,40 +58,47 @@ async function generatePDF() {
   await new Promise(resolve => server.listen(4173, '127.0.0.1', resolve));
   console.log('Server running on http://127.0.0.1:4173/CV-GONZA/');
 
-  console.log('🚀 Launching Playwright to render CV...');
+  console.log('🚀 Launching Playwright to render CVs in ES and EN...');
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  await page.goto('http://127.0.0.1:4173/CV-GONZA/cv', { waitUntil: 'networkidle', timeout: 30000 });
+  // Helper to render and save PDF for a given language
+  async function exportForLang(lang, filename) {
+    console.log(`📄 Generating PDF for language: ${lang} (${filename})...`);
+    await page.goto('http://127.0.0.1:4173/CV-GONZA/cv', { waitUntil: 'networkidle', timeout: 30000 });
+    await page.evaluate((l) => {
+      localStorage.setItem('portfolio-lang', l);
+    }, lang);
+    await page.reload({ waitUntil: 'networkidle', timeout: 30000 });
+    await page.emulateMedia({ media: 'print' });
+    await page.waitForTimeout(600);
 
-  // Emulate print media
-  await page.emulateMedia({ media: 'print' });
+    const outPublic = path.resolve(`public/${filename}`);
+    const outDist = path.resolve(`dist/${filename}`);
 
-  // Wait a moment for any fonts/styles to settle
-  await page.waitForTimeout(500);
+    await page.pdf({
+      path: outPublic,
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '8mm',
+        bottom: '8mm',
+        left: '10mm',
+        right: '10mm'
+      }
+    });
 
-  const outPublic = path.resolve('public/Gonzalo_Volante_CV.pdf');
-  const outDist = path.resolve('dist/Gonzalo_Volante_CV.pdf');
+    fs.copyFileSync(outPublic, outDist);
+    const size = fs.statSync(outPublic).size;
+    console.log(`✅ PDF generated successfully: ${outPublic} (${(size / 1024).toFixed(1)} kB)`);
+    console.log(`✅ PDF copied to: ${outDist}`);
+  }
 
-  console.log('📄 Exporting A4 PDF...');
-  await page.pdf({
-    path: outPublic,
-    format: 'A4',
-    printBackground: true,
-    margin: {
-      top: '8mm',
-      bottom: '8mm',
-      left: '10mm',
-      right: '10mm'
-    }
-  });
+  // 1. Spanish PDF
+  await exportForLang('es', 'Gonzalo_Volante_CV.pdf');
 
-  // Also copy directly to dist so it is immediately available
-  fs.copyFileSync(outPublic, outDist);
-
-  const size = fs.statSync(outPublic).size;
-  console.log(`✅ PDF generated successfully: ${outPublic} (${(size / 1024).toFixed(1)} kB)`);
-  console.log(`✅ PDF copied to: ${outDist}`);
+  // 2. English PDF
+  await exportForLang('en', 'Gonzalo_Volante_Resume_EN.pdf');
 
   await browser.close();
   server.close();

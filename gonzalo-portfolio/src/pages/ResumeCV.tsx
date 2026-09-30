@@ -5,6 +5,8 @@ import { useLanguage } from '@/i18n/LanguageContext';
 const ResumeCV = () => {
   const { t, lang, toggleLanguage } = useLanguage();
 
+  const pdfFileName = lang === 'en' ? 'Gonzalo_Volante_Resume_EN.pdf' : 'Gonzalo_Volante_CV.pdf';
+
   return (
     <div className="min-h-screen bg-slate-900 py-8 px-4 font-sans text-slate-100 print:bg-white print:text-slate-900 print:p-0 print:m-0">
       {/* High-Contrast Print & PDF Export Styling */}
@@ -71,8 +73,8 @@ const ResumeCV = () => {
             <span>{lang === 'es' ? 'English (EN)' : 'Español (ES)'}</span>
           </button>
           <a
-            href={`${import.meta.env.BASE_URL}Gonzalo_Volante_CV.pdf`}
-            download="Gonzalo_Volante_CV.pdf"
+            href={`${import.meta.env.BASE_URL}${pdfFileName}`}
+            download={pdfFileName}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-sm shadow-lg shadow-cyan-950/30 transition-all cursor-pointer"
           >
             <Download size={18} /> {t.resume.downloadPdf}
