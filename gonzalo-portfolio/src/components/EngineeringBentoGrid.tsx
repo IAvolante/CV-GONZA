@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Gauge,
   Code2,
+  Lock,
 } from 'lucide-react';
 
 type ProjectKey = 'publiProp' | 'edesa' | 'otbn' | 'notion';
@@ -303,6 +304,305 @@ function renderSyntaxHighlight(code: string) {
   });
 }
 
+/**
+ * Widget 1: Ventana simulada de Chromium Headless & Sesión Activa (Publi-Prop)
+ */
+function PubliPropBrowserWidget() {
+  return (
+    <div className="bg-slate-950/80 border border-slate-800/80 rounded-lg p-3 my-3 font-mono text-xs shadow-inner space-y-2.5">
+      {/* Barra de título con botones ● ● ●, URL y badge storageState */}
+      <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-800/70 text-[11px]">
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="w-2 h-2 rounded-full bg-slate-600/80" />
+          <span className="w-2 h-2 rounded-full bg-slate-600/80" />
+          <span className="w-2 h-2 rounded-full bg-slate-600/80" />
+        </div>
+        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900/90 border border-slate-800 text-slate-400 text-[11px] truncate flex-1 max-w-[280px]">
+          <Lock className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
+          <span className="truncate">https://portal-inmobiliario.com/panel</span>
+        </div>
+        <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-cyan-950/50 border border-cyan-800/40 text-[10px] text-cyan-300 shrink-0 font-medium">
+          storageState: auth.json
+        </span>
+      </div>
+
+      {/* 3 líneas de log de ejecución con colores de terminal sobrios */}
+      <div className="space-y-1 text-[11px] leading-relaxed">
+        <div className="flex items-start gap-1.5 text-slate-300">
+          <span className="text-cyan-400 select-none shrink-0">&gt;</span>
+          <span className="break-all sm:break-normal">
+            <span className="text-cyan-400 font-semibold">[AUTH]</span>{' '}
+            Restoring session from <span className="text-slate-200">./storage/auth.json</span> ...{' '}
+            <span className="text-emerald-400 font-medium">[OK 12ms]</span>
+          </span>
+        </div>
+        <div className="flex items-start gap-1.5 text-slate-300">
+          <span className="text-emerald-400 select-none shrink-0">&gt;</span>
+          <span className="break-all sm:break-normal">
+            <span className="text-emerald-400 font-semibold">[BOT-BYPASS]</span>{' '}
+            <span className="text-slate-300">--disable-blink-features=AutomationControlled</span>{' '}
+            <span className="text-emerald-300 font-medium">active</span>
+          </span>
+        </div>
+        <div className="flex items-start gap-1.5 text-slate-300">
+          <span className="text-cyan-400 select-none shrink-0">&gt;</span>
+          <span className="break-all sm:break-normal">
+            <span className="text-cyan-400 font-semibold">[STATUS]</span>{' '}
+            Session verified alive. Re-login omitted.{' '}
+            <span className="text-cyan-300 font-medium">Captchas: 0</span>
+          </span>
+        </div>
+      </div>
+
+      {/* Indicador pulsante */}
+      <div className="pt-2 border-t border-slate-800/70 flex items-center justify-between text-[11px] text-slate-400">
+        <div className="flex items-center gap-2">
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+          </span>
+          <span className="text-slate-300 font-medium truncate">
+            Chromium Headless v124 <span className="text-slate-600">·</span> Context: Persisted
+          </span>
+        </div>
+        <span className="sm:hidden text-[9px] px-1.5 py-0.5 rounded bg-cyan-950/50 border border-cyan-800/40 text-cyan-300 shrink-0">
+          auth.json
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Widget 2: Discriminación Tarifaria & Barras Horarias (Auditor EDESA)
+ */
+function EdesaTariffWidget({ lang }: { lang: 'es' | 'en' }) {
+  return (
+    <div className="bg-slate-950/80 border border-slate-800/80 rounded-lg p-3 my-3 space-y-2 text-xs font-mono shadow-inner">
+      {/* Header */}
+      <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-800/70 text-slate-400">
+        <span className="flex items-center gap-1.5 text-slate-300">
+          <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+          <span>{lang === 'es' ? 'Discriminación Tarifaria' : 'Tariff Breakdown'}</span>
+        </span>
+        <span className="text-[10px] text-slate-500 font-mono">T3-BT / MT</span>
+      </div>
+
+      {/* Mini barras horizontales de progreso */}
+      <div className="space-y-1.5">
+        {/* PICO */}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between text-[11px]">
+            <span className="text-cyan-400 font-semibold">{lang === 'es' ? 'PICO (18-23h)' : 'PEAK (18-23h)'}</span>
+            <span className="text-slate-200 font-mono">142.5 kWh</span>
+          </div>
+          <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800/80">
+            <div className="h-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full" style={{ width: '68%' }} />
+          </div>
+        </div>
+
+        {/* VALLE */}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between text-[11px]">
+            <span className="text-emerald-400 font-semibold">{lang === 'es' ? 'VALLE (23-05h)' : 'VALLEY (23-05h)'}</span>
+            <span className="text-slate-200 font-mono">89.2 kWh</span>
+          </div>
+          <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800/80">
+            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full" style={{ width: '42%' }} />
+          </div>
+        </div>
+
+        {/* RESTO */}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between text-[11px]">
+            <span className="text-slate-400 font-semibold">{lang === 'es' ? 'RESTO (05-18h)' : 'OFF-PEAK (05-18h)'}</span>
+            <span className="text-slate-200 font-mono">210.0 kWh</span>
+          </div>
+          <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800/80">
+            <div className="h-full bg-slate-400 rounded-full" style={{ width: '100%' }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Badge al pie: Detección de penalizaciones: 0 multas | Cruce kW/kWh OK */}
+      <div className="pt-2 border-t border-slate-800/70 flex items-center justify-between gap-1 text-[10px] text-slate-400">
+        <div className="flex items-center gap-1.5 truncate">
+          <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
+          <span className="truncate">
+            {lang === 'es' ? 'Detección de penalizaciones: 0 multas' : 'Penalty Detection: 0 fines'}
+          </span>
+        </div>
+        <span className="text-cyan-400 font-medium shrink-0 bg-cyan-950/50 px-1.5 py-0.5 rounded border border-cyan-800/40">
+          {lang === 'es' ? 'Cruce kW/kWh OK' : 'kW/kWh Audit OK'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Widget 3: Sensor Satelital & Índice NDVI (Visor OTBN & GIS)
+ */
+function OtbnSentinelWidget({ lang }: { lang: 'es' | 'en' }) {
+  return (
+    <div className="bg-slate-950/80 border border-slate-800/80 rounded-lg p-3 my-3 space-y-2 text-xs font-mono shadow-inner">
+      {/* Header: Sentinel-2 // QA60 Cloud Mask con badge 10m Resolución */}
+      <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-800/70 text-slate-400">
+        <div className="flex items-center gap-1.5 text-slate-300 truncate">
+          <Satellite className="w-3 h-3 text-cyan-400 shrink-0" />
+          <span className="truncate font-semibold">Sentinel-2 // QA60 Cloud Mask</span>
+        </div>
+        <span className="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-[10px] text-cyan-300 shrink-0 font-medium">
+          {lang === 'es' ? '10m Resolución' : '10m Resolution'}
+        </span>
+      </div>
+
+      {/* Barra espectral NDVI con gradiente sutil y marcador en 0.72 */}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between text-[11px]">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="text-slate-200 font-semibold font-mono">NDVI: 0.72</span>
+          </div>
+          <span className="text-[10px] text-emerald-300 bg-emerald-950/50 px-1.5 py-0.5 rounded border border-emerald-800/40 truncate max-w-[150px] sm:max-w-none">
+            {lang === 'es' ? 'Bosque Nativo (Categoría I - Rojo)' : 'Native Forest (Category I - Red)'}
+          </span>
+        </div>
+
+        <div className="relative pt-1 pb-1">
+          <div className="h-2 w-full rounded-full bg-gradient-to-r from-amber-600 via-lime-500 to-emerald-400 border border-slate-800 opacity-90" />
+          {/* Indicador de posición en 0.72 */}
+          <div
+            className="absolute top-0 flex flex-col items-center -ml-1.5"
+            style={{ left: '72%' }}
+          >
+            <div className="w-3 h-3 bg-white rounded-full border-2 border-slate-950 shadow-sm" />
+          </div>
+          <div className="flex justify-between text-[9px] text-slate-500 font-mono mt-1">
+            <span>0.0</span>
+            <span>0.4</span>
+            <span className="text-emerald-400 font-bold">0.72</span>
+            <span>1.0</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer: Filtro de nubes bitwise aplicado · 0% interferencia */}
+      <div className="pt-2 border-t border-slate-800/70 flex items-center justify-between text-[10px] text-slate-400">
+        <span className="truncate">
+          {lang === 'es' ? 'Filtro de nubes bitwise aplicado' : 'Bitwise cloud filter applied'}
+        </span>
+        <span className="text-emerald-400 shrink-0 font-medium">
+          {lang === 'es' ? '0% interferencia' : '0% interference'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Widget 4: Feed de Conciliación Idempotente (SHA-256) (Cargador Notion)
+ */
+function NotionSyncWidget({ lang }: { lang: 'es' | 'en' }) {
+  return (
+    <div className="bg-slate-950/80 border border-slate-800/80 rounded-lg p-3 my-3 space-y-1.5 text-xs font-mono shadow-inner">
+      {/* Header */}
+      <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-slate-800/70 text-slate-400">
+        <div className="flex items-center gap-1.5 text-slate-300">
+          <CreditCard className="w-3 h-3 text-cyan-400 shrink-0" />
+          <span>{lang === 'es' ? 'Conciliación Idempotente' : 'Idempotent Reconciliation'}</span>
+        </div>
+        <span className="text-[10px] text-slate-400 font-mono">SHA-256 Hash Stream</span>
+      </div>
+
+      {/* Filas de transacciones bancarias normalizadas */}
+      <div className="space-y-1.5 text-[11px]">
+        {/* Fila 1 */}
+        <div className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/60 border border-slate-800/80">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-cyan-400 font-semibold shrink-0">TX-9041</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-400 shrink-0">18/09</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-200 font-medium shrink-0">USD 450.00</span>
+            <span className="text-slate-600 hidden md:inline">|</span>
+            <span className="text-slate-500 font-mono text-[10px] truncate hidden md:inline">
+              SHA-256: 8f4c2e...
+            </span>
+          </div>
+          <span className="px-2 py-0.5 rounded bg-emerald-950/50 border border-emerald-800/50 text-[10px] text-emerald-300 shrink-0 font-medium">
+            [SYNCED TO NOTION]
+          </span>
+        </div>
+
+        {/* Fila 2 */}
+        <div className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/30 border border-slate-800/50 opacity-80">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-slate-400 font-semibold shrink-0">TX-9042</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-400 shrink-0">19/09</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-200 font-medium shrink-0">ARS 128,500</span>
+            <span className="text-slate-600 hidden md:inline">|</span>
+            <span className="text-slate-500 font-mono text-[10px] truncate hidden md:inline">
+              SHA-256: 3a1b9f...
+            </span>
+          </div>
+          <span className="px-2 py-0.5 rounded bg-slate-800/60 border border-slate-700/60 text-[10px] text-slate-400 shrink-0 font-medium">
+            [IDEMPOTENT - SKIPPED]
+          </span>
+        </div>
+
+        {/* Fila 3 */}
+        <div className="flex items-center justify-between gap-2 p-1.5 rounded-lg bg-slate-900/60 border border-slate-800/80">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-cyan-400 font-semibold shrink-0">TX-9043</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-400 shrink-0">20/09</span>
+            <span className="text-slate-600 hidden sm:inline">|</span>
+            <span className="text-slate-200 font-medium shrink-0">USD 1,200.00</span>
+            <span className="text-slate-600 hidden md:inline">|</span>
+            <span className="text-slate-500 font-mono text-[10px] truncate hidden md:inline">
+              SHA-256: e7d40a...
+            </span>
+          </div>
+          <span className="px-2 py-0.5 rounded bg-emerald-950/50 border border-emerald-800/50 text-[10px] text-emerald-300 shrink-0 font-medium">
+            [SYNCED TO NOTION]
+          </span>
+        </div>
+      </div>
+
+      {/* Footer: Control estricto de duplicados · Idempotencia 100% garantizada */}
+      <div className="pt-2 border-t border-slate-800/70 flex items-center justify-between text-[10px] text-slate-400">
+        <div className="flex items-center gap-1.5 truncate">
+          <ShieldCheck className="w-3 h-3 text-cyan-400 shrink-0" />
+          <span className="truncate">
+            {lang === 'es' ? 'Control estricto de duplicados' : 'Strict duplicate control'}
+          </span>
+        </div>
+        <span className="text-cyan-400 font-medium shrink-0 bg-cyan-950/50 px-1.5 py-0.5 rounded border border-cyan-800/40">
+          {lang === 'es' ? 'Idempotencia 100% garantizada' : '100% Guaranteed Idempotency'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function ProjectTechnicalWidget({ projectKey, lang }: { projectKey: ProjectKey; lang: 'es' | 'en' }) {
+  switch (projectKey) {
+    case 'publiProp':
+      return <PubliPropBrowserWidget />;
+    case 'edesa':
+      return <EdesaTariffWidget lang={lang} />;
+    case 'otbn':
+      return <OtbnSentinelWidget lang={lang} />;
+    case 'notion':
+      return <NotionSyncWidget lang={lang} />;
+    default:
+      return null;
+  }
+}
+
 export function EngineeringBentoGrid() {
   const { t, lang } = useLanguage();
   const bento = t.engineeringBento;
@@ -401,6 +701,9 @@ export function EngineeringBentoGrid() {
                   <p className="text-slate-300 text-sm leading-relaxed">
                     {data.shortDesc}
                   </p>
+
+                  {/* Technical UI Vector Widget */}
+                  <ProjectTechnicalWidget projectKey={config.key} lang={lang} />
                 </div>
 
                 {/* Card Footer: Stack Tags & Open Drawer CTA */}
