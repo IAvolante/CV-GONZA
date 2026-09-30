@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, ArrowUpRight, Search } from 'lucide-react';
+import { Menu, X, Globe, ArrowUpRight } from 'lucide-react';
 
 export function Navbar() {
   const { t, lang, toggleLanguage } = useLanguage();
@@ -94,16 +94,6 @@ export function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
-            className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-mono transition-colors cursor-pointer"
-            title="Abrir paleta de comandos (⌘K / Ctrl+K)"
-          >
-            <Search className="w-3 h-3 text-cyan-400" />
-            <span>{t.nav.searchHint}</span>
-          </button>
-
           <Button
             variant="ghost"
             size="sm"

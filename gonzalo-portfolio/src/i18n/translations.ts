@@ -2,7 +2,6 @@ export const translations = {
   es: {
     // Navbar
     nav: {
-      searchHint: 'Buscar... ⌘K',
       work: 'Trabajo',
       engineering: 'Ingeniería',
       experience: 'Experiencia',
@@ -764,23 +763,9 @@ export const translations = {
       builtWith: 'Construido con React, TypeScript y',
       rights: 'Todos los derechos reservados.',
     },
-    // Command Palette
-    cmd: {
-      placeholder: 'Buscar sección, proyecto o acción...',
-      navigation: 'Navegación',
-      actions: 'Acciones',
-      engineering: 'Ingeniería & Automatización (Bento)',
-      copyEmail: 'Copiar Email',
-      emailCopied: 'Email copiado al portapapeles',
-      downloadCV: 'Descargar CV',
-      openGitHub: 'Abrir GitHub',
-      openLinkedIn: 'Abrir LinkedIn',
-      switchLang: 'Switch to English',
-    },
   },
   en: {
     nav: {
-      searchHint: 'Search... ⌘K',
       work: 'Work',
       engineering: 'Engineering',
       experience: 'Experience',
@@ -1539,18 +1524,6 @@ export const translations = {
     footer: {
       builtWith: 'Built with React, TypeScript and',
       rights: 'All rights reserved.',
-    },
-    cmd: {
-      placeholder: 'Search section, project or action...',
-      navigation: 'Navigation',
-      actions: 'Actions',
-      engineering: 'Engineering & Automation (Bento)',
-      copyEmail: 'Copy Email',
-      emailCopied: 'Email copied to clipboard',
-      downloadCV: 'Download CV',
-      openGitHub: 'Open GitHub',
-      openLinkedIn: 'Open LinkedIn',
-      switchLang: 'Cambiar a Español',
     },
   },
 } as const;
