@@ -52,9 +52,11 @@ export function Education() {
                     <h5 className="text-base font-bold text-white tracking-tight">
                       {item.title}
                     </h5>
-                    <p className="text-xs font-medium text-slate-400 mt-0.5">
-                      {item.issuer}
-                    </p>
+                    {item.issuer && !item.title.includes(item.issuer) && (
+                      <p className="text-xs font-medium text-slate-400 mt-0.5">
+                        {item.issuer}
+                      </p>
+                    )}
                   </div>
 
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

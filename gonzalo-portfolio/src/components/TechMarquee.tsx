@@ -7,7 +7,7 @@ interface TechItem {
 }
 
 // Curated certified production stack (11 technologies):
-// Python, TypeScript, React, Flask, SQLite / SQLAlchemy, Linux, Playwright, REST APIs & Webhooks, Gemini Vision API, n8n, GitHub Actions
+// Python, TypeScript, React, Flask, SQLite / SQLAlchemy, Linux, Playwright, REST APIs & Webhooks, Google Gemini Vision API, n8n, GitHub Actions
 const techItems: TechItem[] = [
   {
     name: 'Python',

@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { 
-  Layers, 
-  Terminal, 
   Sparkles, 
-  FileSpreadsheet, 
   FileCode2, 
-  Database, 
   Bot, 
   Palette, 
   Globe 
@@ -18,26 +14,14 @@ export function Extras() {
 
   const getProjectIcon = (title: string) => {
     const lower = title.toLowerCase();
-    if (lower.includes('otbn') || lower.includes('geospatial') || lower.includes('bosques')) {
-      return <Layers className="w-5 h-5 text-emerald-400" />;
+    if (lower.includes('propuesta') || lower.includes('dimensionamiento') || lower.includes('proposal') || lower.includes('sizing')) {
+      return <FileCode2 className="w-5 h-5 text-cyan-400" />;
     }
-    if (lower.includes('publi-prop')) {
-      return <Terminal className="w-5 h-5 text-cyan-400" />;
-    }
-    if (lower.includes('rag') || lower.includes('asistentes')) {
+    if (lower.includes('asistencia') || lower.includes('assistant')) {
       return <Sparkles className="w-5 h-5 text-violet-400" />;
     }
-    if (lower.includes('factura') || lower.includes('edesa') || lower.includes('bill')) {
-      return <FileSpreadsheet className="w-5 h-5 text-amber-400" />;
-    }
-    if (lower.includes('propuesta') || lower.includes('dimensionamiento') || lower.includes('proposal') || lower.includes('sizing')) {
-      return <FileCode2 className="w-5 h-5 text-blue-400" />;
-    }
-    if (lower.includes('notion') || lower.includes('resúmenes') || lower.includes('statement')) {
-      return <Database className="w-5 h-5 text-rose-400" />;
-    }
-    if (lower.includes('nuevi') || lower.includes('mantenimiento') || lower.includes('growth')) {
-      return <Bot className="w-5 h-5 text-teal-400" />;
+    if (lower.includes('mantenimiento') || lower.includes('maintenance') || lower.includes('bot')) {
+      return <Bot className="w-5 h-5 text-emerald-400" />;
     }
     if (lower.includes('hairphoria')) {
       return <Palette className="w-5 h-5 text-pink-400" />;
@@ -51,7 +35,8 @@ export function Extras() {
   const categories = [
     { key: 'all', label: t.extras.categories.all },
     { key: 'automation', label: t.extras.categories.automation },
-    { key: 'integrations', label: t.extras.categories.integrations },
+    { key: 'dataDocs', label: t.extras.categories.dataDocs },
+    { key: 'frontend', label: t.extras.categories.frontend },
   ];
 
   const filteredItems = activeCategory === 'all'
