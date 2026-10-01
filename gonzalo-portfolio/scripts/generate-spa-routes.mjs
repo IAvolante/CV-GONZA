@@ -1,4 +1,4 @@
-﻿import fs from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 
 const distDir = path.resolve('dist');
@@ -13,6 +13,7 @@ const htmlContent = fs.readFileSync(indexHtmlPath, 'utf-8');
 
 const routes = [
   'cv',
+  'cv-empresas',
   'work/digital-transformation-nuevas-energias',
   'work/lis-saresa-v4',
   'work/pv-reporting-system',

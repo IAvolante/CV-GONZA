@@ -10,6 +10,7 @@ import 'sileo/styles.css';
 import Portfolio from './pages/Portfolio';
 
 const ResumeCV = lazy(() => import('./pages/ResumeCV'));
+const BusinessResumeCV = lazy(() => import('./pages/BusinessResumeCV'));
 const DigitalTransformationCaseStudy = lazy(() =>
   import('./pages/case-studies/DigitalTransformationCaseStudy').then((m) => ({
     default: m.DigitalTransformationCaseStudy,
@@ -63,6 +64,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Portfolio />} />
               <Route path="/cv" element={<ResumeCV />} />
+              <Route path="/cv-empresas" element={<BusinessResumeCV />} />
               <Route 
                 path="/work/digital-transformation-nuevas-energias" 
                 element={<DigitalTransformationCaseStudy />} 

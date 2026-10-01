@@ -731,6 +731,7 @@ export const translations = {
     // Resume / CV
     resume: {
       backToPortfolio: 'Volver al Portfolio Web',
+      switchToBusinessCv: 'Ver Perfil Empresas & PyMEs',
       downloadPdf: 'Descargar PDF Oficial',
       printPdf: 'Imprimir / Guardar en PDF',
       header: {
@@ -848,6 +849,111 @@ export const translations = {
         title: 'Idiomas',
         text: 'Español: Nativo | Inglés: B2 Profesional (Capacidad de lectura técnica avanzada, redacción de documentación de arquitectura y comunicación fluida en equipos internacionales).',
       },
+    },
+    // Business Resume / CV para Empresas & PyMEs
+    businessResume: {
+      backToPortfolio: 'Volver al Portfolio Web',
+      switchToTechCv: 'Ver Versión Técnica & Arquitectura',
+      downloadPdf: 'Descargar CV para Empresas (PDF)',
+      printPdf: 'Imprimir / Guardar en PDF',
+      header: {
+        title: 'Gonzalo Volante',
+        role: 'Líder de Sistemas & Transformación Digital | Automatización de Procesos con IA',
+        location: 'Salta, Argentina',
+        liveBadge: 'SOLUCIONES DIGITALES EN PRODUCCIÓN',
+        email: 'gonzavolante@gmail.com',
+        phone: '+54 3876 111118',
+        linkedin: 'linkedin.com/in/gonzalo-volante',
+        website: 'iavolante.github.io/CV-GONZA',
+      },
+      summary: {
+        title: 'Perfil Profesional & Enfoque de Negocio',
+        text: 'Desarrollador de software y consultor de soluciones tecnológicas enfocado en resolver cuellos de botella operativos en empresas y PyMEs. Especializado en transformar operaciones manuales y desorganizadas (como planillas de Excel dispersas y tareas repetitivas) en sistemas web a medida rápidos, seguros y fáciles de usar. Mi objetivo es aumentar la rentabilidad del negocio reduciendo costos operativos, eliminando errores de tipeo y automatizando la administración con Inteligencia Artificial para que los equipos de trabajo se enfoquen en el crecimiento comercial.',
+      },
+      coreAreas: {
+        title: 'Áreas de Solución para Empresas',
+        automation: {
+          title: 'Automatización & Ahorro de Tiempo',
+          desc: 'Eliminación de tareas manuales repetitivas mediante software automático para acelerar la operativa diaria, reducir demoras de días a minutos y evitar costos innecesarios.',
+        },
+        customSystems: {
+          title: 'Sistemas a Medida & Control Operativo',
+          desc: 'Centralización de toda la información comercial y operativa de la empresa, reemplazando múltiples planillas Excel por paneles de control web unificados y en tiempo real.',
+        },
+        appliedAi: {
+          title: 'Inteligencia Artificial para Documentos',
+          desc: 'Lectura y escaneo inteligente de facturas, remitos y resúmenes bancarios para la carga automática de datos en sistemas contables y de gestión sin intervención humana.',
+        },
+      },
+      experience: {
+        title: 'Experiencia Profesional & Casos de Éxito',
+        nuevasEnergias: {
+          company: 'Nuevas Energías (Energías Renovables & Clientes Industriales)',
+          period: 'Sep 2024 – Presente · Salta, Argentina',
+          role: 'Líder de Sistemas & Transformación Digital',
+          subtitle: 'Plataforma Operativa Central & Optimización Comercial',
+          highlights: [
+            'Digitalización operativa integral: Reemplazo de planillas Excel dispersas por un sistema web centralizado que organiza las operaciones, clientes y obras de la empresa en un solo lugar.',
+            'Motor de presupuestos instantáneos: Desarrollo de un sistema que genera cotizaciones comerciales complejas en menos de 3 minutos, reduciendo los tiempos de respuesta que antes tomaban hasta 48 horas (un 90% más rápido).',
+            'Auditoría automática de facturas eléctricas: Creación de una herramienta que analiza automáticamente facturas de luz de clientes corporativos, detectando sobrecostos y multas de potencia sin revisión manual.',
+            'Control de generación y ahorro energético: Conexión automática de los paneles solares para monitorear en tiempo real el ahorro monetario y la energía inyectada a la red eléctrica.',
+            'Integración con canales comerciales: Vinculación del sistema con canales de atención al cliente (WhatsApp, CRM) para seguimiento inmediato de consultas y ventas.',
+          ],
+        },
+        saresa: {
+          company: 'Laboratorio Bioquímico SARESA (Sector Salud)',
+          period: '2024 – Presente · Salta, Argentina',
+          role: 'Arquitecto de Sistemas & Software de Gestión',
+          subtitle: 'Sistema Integral de Gestión (ERP Médico & Administrativo)',
+          highlights: [
+            'Sistema integral de gestión clínica y administrativa: Creación de la plataforma central que administra pacientes, órdenes de análisis médicos, resultados y la facturación completa.',
+            'Carga automática de facturas con Inteligencia Artificial: Implementación de tecnología de lectura inteligente que procesa facturas y remitos de insumos médicos e ingresa los datos al sistema automáticamente, ahorrando horas de tipeo manual.',
+            'Control contable y gestión de pagos a proveedores: Automatización del seguimiento de finanzas y cuentas corrientes, garantizando un control preciso del dinero sin errores humanos de imputación.',
+            'Máxima velocidad y seguridad: Plataforma confiable diseñada para funcionar de manera continua los 365 días del año, permitiendo buscar información entre millones de registros al instante.',
+          ],
+        },
+      },
+      projects: {
+        title: 'Soluciones & Herramientas Aplicadas a Negocios',
+        publiProp: {
+          title: 'Automatizador Inmobiliario (Publi-Prop)',
+          subtitle: 'Publicación Automática en Múltiples Portales Inmobiliarios',
+          desc: 'Sistema que publica de forma masiva y automática propiedades en portales web de bienes raíces, ahorrando horas de carga manual repetitiva al equipo de ventas.',
+        },
+        edesa: {
+          title: 'Auditor Tarifario & Analizador de Costos de Luz',
+          subtitle: 'Detección Automática de Sobrecostos en Servicios Eléctricos',
+          desc: 'Herramienta de software que lee y procesa facturas complejas de electricidad para auditar cobros indebidos, multas de potencia y calcular ahorros para clientes corporativos.',
+        },
+        notion: {
+          title: 'Lector Inteligente de Resúmenes Bancarios',
+          subtitle: 'Conciliación Automática de Tarjetas y Gastos',
+          desc: 'Sistema de extracción digital que analiza resúmenes de tarjetas de crédito y vuelca automáticamente los gastos categorizados hacia bases de datos de gestión sin tipeo manual.',
+        },
+        otbn: {
+          title: 'Herramienta de Análisis Satelital y Catastral',
+          subtitle: 'Monitoreo de Tierras y Cumplimiento Normativo',
+          desc: 'Plataforma con mapas satelitales para monitorear predios rurales y bosques, facilitando auditorías ambientales y el cumplimiento de normativas gubernamentales.',
+        },
+      },
+      education: {
+        title: 'Formación & Habilidades',
+        items: [
+          {
+            title: 'Certified Tech Developer — Software Engineering Program',
+            issuer: 'Digital House (2021 – 2023)',
+          },
+          {
+            title: 'Diseño UX/UI & Experiencia de Usuario',
+            issuer: 'Coderhouse (2021)',
+          },
+        ],
+      },
+      languages: {
+        title: 'Idiomas',
+        text: 'Español: Nativo | Inglés: B2 Profesional (Capacidad de comunicación fluida y coordinación con equipos y clientes internacionales).',
+      },
+      badgeNotice: 'Perfil de Soluciones para Empresas & PyMEs',
     },
     // Footer
     footer: {
@@ -1585,6 +1691,7 @@ export const translations = {
     // Resume / CV
     resume: {
       backToPortfolio: 'Back to Web Portfolio',
+      switchToBusinessCv: 'View Business & SME Version',
       downloadPdf: 'Download Official PDF',
       printPdf: 'Print / Save as PDF',
       header: {
@@ -1702,6 +1809,111 @@ export const translations = {
         title: 'Languages',
         text: 'Spanish: Native | English: B2 Professional (Advanced technical reading, architecture documentation, and fluent communication across international engineering teams).',
       },
+    },
+    // Business Resume / CV for Companies & SMEs
+    businessResume: {
+      backToPortfolio: 'Back to Web Portfolio',
+      switchToTechCv: 'View Technical & Architecture Version',
+      downloadPdf: 'Download Business CV (PDF)',
+      printPdf: 'Print / Save as PDF',
+      header: {
+        title: 'Gonzalo Volante',
+        role: 'Systems & Digital Transformation Lead | AI-Powered Process Automation',
+        location: 'Salta, Argentina',
+        liveBadge: 'DIGITAL SOLUTIONS IN ACTIVE PRODUCTION',
+        email: 'gonzavolante@gmail.com',
+        phone: '+54 3876 111118',
+        linkedin: 'linkedin.com/in/gonzalo-volante',
+        website: 'iavolante.github.io/CV-GONZA',
+      },
+      summary: {
+        title: 'Professional Summary & Business Focus',
+        text: 'Software developer and digital solutions consultant focused on solving real operational bottlenecks across companies and SMEs. Specialized in transforming disorganized manual operations (such as scattered Excel spreadsheets and repetitive tasks) into custom, fast, secure, and user-friendly web platforms. My goal is to increase business profitability by reducing operational costs, eliminating manual data-entry errors, and automating administration with Artificial Intelligence so teams can focus on commercial growth.',
+      },
+      coreAreas: {
+        title: 'Business Solution Areas',
+        automation: {
+          title: 'Process Automation & Time Savings',
+          desc: 'Elimination of repetitive manual workflows through automated software to accelerate daily operations, cut turnaround from days to minutes, and prevent unnecessary overhead.',
+        },
+        customSystems: {
+          title: 'Custom Systems & Operational Control',
+          desc: 'Centralization of all corporate and operational data, replacing scattered Excel spreadsheets with unified, real-time web control panels.',
+        },
+        appliedAi: {
+          title: 'Artificial Intelligence for Administrative Documents',
+          desc: 'Intelligent scanning and parsing of invoices, supplier delivery slips, and bank statements for automated data entry into accounting systems without human intervention.',
+        },
+      },
+      experience: {
+        title: 'Professional Experience & Proven Track Record',
+        nuevasEnergias: {
+          company: 'Nuevas Energías (Renewable Energy & Industrial Clients)',
+          period: 'Sep 2024 – Present · Salta, Argentina',
+          role: 'Systems & Digital Transformation Lead',
+          subtitle: 'Central Operations Platform & Commercial Optimization',
+          highlights: [
+            'End-to-end operational digitization: Replaced scattered Excel spreadsheets with a centralized web management platform that organizes projects, clients, and field operations in one place.',
+            'Instant quotation engine: Developed an automated proposal system delivering complex solar estimates in under 3 minutes, cutting turnaround that previously took up to 48 hours (a 90% speedup).',
+            'Automated utility bill auditing: Created an analytical tool that automatically processes electricity bills, detecting utility penalties and contracted power transgressions without manual review.',
+            'Real-time solar monitoring & savings: Automated telemetry connection with solar inverters to track generated kilowatt-hours and financial savings injected into the grid in real time.',
+            'Commercial channel integration: Connected the core platform to customer messaging (WhatsApp, CRM) for instant lead routing and commercial follow-up.',
+          ],
+        },
+        saresa: {
+          company: 'Laboratorio Bioquímico SARESA (Healthcare Sector)',
+          period: '2024 – Present · Salta, Argentina',
+          role: 'Management Software Architect',
+          subtitle: 'Comprehensive Medical & Administrative ERP System',
+          highlights: [
+            'Comprehensive clinical & administrative ERP: Designed and deployed the core operating platform managing patients, medical analysis orders, clinical results, and full financial tracking.',
+            'Automated invoice ingestion with AI: Implemented smart document scanning that processes medical reagent supplier invoices and packing slips, logging validated entries automatically and eliminating manual typing.',
+            'Accounts payable & vendor ledger control: Automated balance tracking and supplier payment allocation, ensuring precise bookkeeping and zero human allocation errors.',
+            'High reliability & speed: Highly reliable platform engineered to run 24/7/365, enabling instantaneous data retrieval across millions of historical clinical records without downtime.',
+          ],
+        },
+      },
+      projects: {
+        title: 'Applied Business Solutions & Tools',
+        publiProp: {
+          title: 'Real Estate Auto-Publisher (Publi-Prop)',
+          subtitle: 'Automated Multi-Portal Property Distribution',
+          desc: 'Automated platform that bulk-publishes property listings across multiple real estate portals, saving hours of manual data entry for sales and operations teams.',
+        },
+        edesa: {
+          title: 'Utility Tariff Auditor & Electricity Cost Analyzer',
+          subtitle: 'Automated Overcharge & Penalty Detection',
+          desc: 'Software tool that ingests complex utility invoices to detect billing discrepancies, contracted power penalties, and model financial savings for corporate clients.',
+        },
+        notion: {
+          title: 'Smart Bank Statement Processor',
+          subtitle: 'Automated Credit Card & Expense Reconciliation',
+          desc: 'Document extraction tool that parses PDF credit card statements and automatically syncs categorized business expenses into management databases without manual input.',
+        },
+        otbn: {
+          title: 'Satellite Land & GIS Monitoring Tool',
+          subtitle: 'Land Asset Monitoring & Regulatory Compliance',
+          desc: 'Geospatial platform leveraging satellite imagery to monitor rural land parcels and native forests, facilitating environmental audits and regulatory compliance.',
+        },
+      },
+      education: {
+        title: 'Education & Credentials',
+        items: [
+          {
+            title: 'Certified Tech Developer — Software Engineering Program',
+            issuer: 'Digital House (2021 – 2023)',
+          },
+          {
+            title: 'UX/UI Design Specialization',
+            issuer: 'Coderhouse (2021)',
+          },
+        ],
+      },
+      languages: {
+        title: 'Languages',
+        text: 'Spanish: Native | English: B2 Professional (Fluent communication, project coordination, and international collaboration).',
+      },
+      badgeNotice: 'Business & SME Solutions Profile',
     },
     footer: {
       builtWith: 'Built with React, TypeScript and',

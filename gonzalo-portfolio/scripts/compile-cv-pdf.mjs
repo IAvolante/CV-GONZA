@@ -62,10 +62,10 @@ async function generatePDF() {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
 
-  // Helper to render and save PDF for a given language
-  async function exportForLang(lang, filename) {
-    console.log(`📄 Generating PDF for language: ${lang} (${filename})...`);
-    await page.goto('http://127.0.0.1:4173/CV-GONZA/cv', { waitUntil: 'networkidle', timeout: 30000 });
+  // Helper to render and save PDF for a given route and language
+  async function exportPdf(route, lang, filename) {
+    console.log(`📄 Generating PDF for route: ${route}, language: ${lang} (${filename})...`);
+    await page.goto(`http://127.0.0.1:4173/CV-GONZA${route}`, { waitUntil: 'networkidle', timeout: 30000 });
     await page.evaluate((l) => {
       localStorage.setItem('portfolio-lang', l);
     }, lang);
@@ -94,11 +94,17 @@ async function generatePDF() {
     console.log(`✅ PDF copied to: ${outDist}`);
   }
 
-  // 1. Spanish PDF
-  await exportForLang('es', 'Gonzalo_Volante_CV.pdf');
+  // 1. Technical CV (Spanish)
+  await exportPdf('/cv', 'es', 'Gonzalo_Volante_CV.pdf');
 
-  // 2. English PDF
-  await exportForLang('en', 'Gonzalo_Volante_Resume_EN.pdf');
+  // 2. Technical CV (English)
+  await exportPdf('/cv', 'en', 'Gonzalo_Volante_Resume_EN.pdf');
+
+  // 3. Business CV for Companies & SMEs (Spanish)
+  await exportPdf('/cv-empresas', 'es', 'Gonzalo_Volante_CV_Empresas.pdf');
+
+  // 4. Business CV for Companies & SMEs (English)
+  await exportPdf('/cv-empresas', 'en', 'Gonzalo_Volante_Business_Resume_EN.pdf');
 
   await browser.close();
   server.close();
