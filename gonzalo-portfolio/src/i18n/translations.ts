@@ -755,7 +755,7 @@ export const translations = {
       },
       summary: {
         title: 'Perfil Profesional',
-        text: 'Desarrollador de software enfocado en diagnosticar ineficiencias operativas y construir soluciones funcionales impulsadas por software e Inteligencia Artificial Aplicada (AI-Driven). Con probada capacidad de aprendizaje autónomo y adaptabilidad técnica, cuento con experiencia en producción diseñando arquitecturas locales de alto rendimiento, integrando modelos de visión multimodal y LLMs para extracción documental inteligente, y automatizando flujos de datos sobre servidores Linux. Mi enfoque combina solidez en ingeniería de software con el aprovechamiento pragmático y agnóstico de la IA para agilizar procesos críticos de gestión, soporte e información.',
+        text: 'Desarrollador de software enfocado en diagnosticar ineficiencias operativas y construir soluciones funcionales impulsadas por software e Inteligencia Artificial Aplicada (AI-Driven). Con una probada capacidad de aprendizaje autónomo y adaptabilidad técnica, cuento con experiencia en producción diseñando arquitecturas locales de alto rendimiento, integrando modelos de visión multimodal y LLMs para extracción documental inteligente, y automatizando flujos de datos sobre servidores Linux. Mi enfoque combina solidez en ingeniería de software con el aprovechamiento pragmático y agnóstico de la IA para agilizar procesos críticos de gestión, soporte e información.',
       },
       competencies: {
         title: 'Caja de Herramientas & Competencias',

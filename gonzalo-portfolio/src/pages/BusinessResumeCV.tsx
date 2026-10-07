@@ -26,6 +26,8 @@ const BusinessResumeCV = () => {
               color: #0f172a !important;
               font-size: 10.5px !important;
               line-height: 1.3 !important;
+              word-spacing: 0.085em !important;
+              letter-spacing: 0.005em !important;
             }
             .cv-wrapper {
               background: #ffffff !important;
@@ -35,6 +37,8 @@ const BusinessResumeCV = () => {
               margin: 0 !important;
               max-width: 100% !important;
               width: 100% !important;
+              word-spacing: 0.085em !important;
+              letter-spacing: 0.005em !important;
             }
             * {
               -webkit-print-color-adjust: exact !important;
@@ -44,11 +48,11 @@ const BusinessResumeCV = () => {
               break-inside: avoid !important;
               page-break-inside: avoid !important;
             }
-            h1 { font-size: 1.55rem !important; line-height: 1.15 !important; }
+            h1 { font-size: 1.55rem !important; line-height: 1.15 !important; word-spacing: normal !important; }
             h2 { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; line-height: 1.25 !important; }
             h3 { font-size: 0.72rem !important; margin-bottom: 0.25rem !important; padding-bottom: 0.15rem !important; }
             h4 { font-size: 0.78rem !important; margin-bottom: 0.1rem !important; }
-            p, li { font-size: 0.7rem !important; line-height: 1.3 !important; }
+            p, li { font-size: 0.7rem !important; line-height: 1.3 !important; word-spacing: 0.085em !important; letter-spacing: 0.005em !important; }
             ul { margin-top: 0.15rem !important; margin-bottom: 0.15rem !important; }
             li { margin-bottom: 0.12rem !important; }
             .section-gap { margin-bottom: 0.5rem !important; }
@@ -100,7 +104,7 @@ const BusinessResumeCV = () => {
       </div>
 
       {/* Main Business CV Container */}
-      <div className="cv-wrapper max-w-4xl mx-auto bg-slate-950/90 border border-slate-800 rounded-xl p-6 sm:p-10 md:p-12 shadow-2xl print:bg-white print:border-none print:p-0 print:shadow-none print:text-slate-900">
+      <div className="cv-wrapper max-w-4xl mx-auto bg-slate-950/90 border border-slate-800 rounded-xl p-6 sm:p-10 md:p-12 shadow-2xl [word-spacing:0.085em] [letter-spacing:0.005em] print:bg-white print:border-none print:p-0 print:shadow-none print:text-slate-900">
         {/* Header */}
         <header className="border-b-2 border-slate-800 pb-5 mb-5 print:border-slate-900 print:pb-3 print:mb-4">
           <div className="flex flex-col sm:flex-row justify-between sm:items-start gap-2">
