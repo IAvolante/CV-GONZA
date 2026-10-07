@@ -737,6 +737,7 @@ export const translations = {
       toastDesc: 'Flujo completado en 3.2s. 8.5 horas operativas ahorradas con 0% error de cálculo.',
     },
     // Resume / CV
+    // Resume / CV Adaptativo - Orientación a Sistemas y Resolución de Problemas (UCASAL)
     resume: {
       backToPortfolio: 'Volver al Portfolio Web',
       switchToBusinessCv: 'Ver Perfil Empresas & PyMEs',
@@ -744,7 +745,7 @@ export const translations = {
       printPdf: 'Imprimir / Guardar en PDF',
       header: {
         title: 'Gonzalo Volante',
-        role: 'Software Systems & Applied AI Engineer | Solutions Architect',
+        role: 'Software Solutions Developer | Integración de Sistemas y Automatización',
         location: 'Salta, Argentina',
         liveBadge: 'SISTEMAS EN PRODUCCIÓN ACTIVA',
         email: 'gonzavolante@gmail.com',
@@ -754,21 +755,21 @@ export const translations = {
       },
       summary: {
         title: 'Perfil Profesional',
-        text: 'Ingeniero de Sistemas de Software e IA Aplicada especializado en el diseño de plataformas de misión crítica, pipelines de ingesta de datos y arquitecturas de automatización de procesos. Trayectoria comprobada en producción diseñando ERPs para el sector salud y plataformas industriales de gestión de energía renovable, manejando más de 1.4 millones de registros clínicos y telemetría de hardware IoT en tiempo real. Sólida experiencia en integración multimodal de LLMs (Google Gemini Vision API), parsing de datos desde formatos semiestructurados (PDFs, facturas de servicios, resúmenes bancarios), mecanismos de caché en memoria y pipelines de despliegue automatizado en entornos Linux.',
+        text: 'Desarrollador de software enfocado en diagnosticar ineficiencias operativas y construir herramientas funcionales y estables. Con probada capacidad de aprendizaje autónomo y adaptabilidad a diversos entornos tecnológicos, cuento con experiencia en producción integrando APIs, bases de datos locales de alto rendimiento y pipelines de procesamiento documental sobre servidores Linux. No me defino por un único lenguaje, sino por la disciplina metodológica para analizar documentación técnica, diseñar la solución adecuada para cada desafío e implementar sistemas que optimizan procesos críticos de gestión e información.',
       },
       competencies: {
-        title: 'Competencias Clave',
+        title: 'Caja de Herramientas & Competencias',
         architecture: {
-          title: 'Arquitectura & Datos',
-          desc: 'Domain-Driven Design, SQLite de alta concurrencia (better-sqlite3 sincrónico), memorias intermedias en RAM (vrCache 0 ms de latencia), migración y saneamiento masivo (+1.4M de registros).',
+          title: 'Desarrollo Web & Interfaces',
+          desc: 'React, TypeScript, JavaScript (ES6+), Tailwind CSS, Vite. Creación de paneles internos, componentes modulares, accesibilidad semántica y consumo asíncrono de APIs.',
         },
         fullStack: {
-          title: 'Full-Stack & IA Aplicada',
-          desc: 'React, TypeScript, Tailwind CSS, Python (Flask), Google Gemini Vision API (OCR multimodal de comprobantes), algoritmos financieros deterministas FIFO, REST APIs & Webhooks.',
+          title: 'Backend, Lógica & Automatización',
+          desc: 'Python (Flask), Node.js, SQLite / SQLAlchemy (persistencia sincrónica optimizada). REST APIs, Webhooks, Google Gemini Vision API (OCR de comprobantes), Playwright y n8n.',
         },
         infrastructure: {
-          title: 'Infraestructura & Automatización',
-          desc: 'Linux VPS (systemd, Nginx, Gunicorn, Certbot SSL), Playwright RPA (navegación headless anti-bot), telemetría solar (Growatt API), parsing con pdfplumber, GitHub Actions CI/CD.',
+          title: 'Infraestructura & Metodología',
+          desc: 'Entornos Linux (VPS), systemd, proxy inverso Nginx, SSL Certbot. Trabajo colaborativo en Git/GitHub (Pull Requests, code reviews) y CI/CD con GitHub Actions.',
         },
       },
       experience: {
@@ -779,12 +780,11 @@ export const translations = {
           role: 'Lead Solutions Architect & Full-Stack Systems Developer',
           subtitle: 'LIS SARESA V4 (Core Laboratory Information System & ERP Médico)',
           highlights: [
-            'Diseño y puesta en producción de LIS SARESA V4, un sistema integral de información de laboratorio y ERP médico de misión crítica para la operación clínica activa.',
-            'Ingeniería de migración, indexación y saneamiento de +1.400.000 resultados de análisis clínicos, +86.000 órdenes médicas y un padrón de +30.000 pacientes activos.',
-            'Implementación de motor de caché en memoria RAM (vrCache) que eliminó consultas N+1 a base de datos, alcanzando 0 ms de latencia en más de 1.000 evaluaciones de valores de referencia biológicos dependientes de edad y sexo.',
-            'Integración de Google Gemini Vision API para la extracción multimodal automatizada de facturas y remitos de reactivos médicos hacia registros de base de datos validados.',
-            'Desarrollo de un algoritmo contable transaccional determinista FIFO para automatizar la imputación de deuda y la consolidación de mayores contables de proveedores.',
-            'Configuración de pipelines de despliegue automatizado en VPS Linux dedicado utilizando servicios systemd, persistencia sincrónica en SQLite y Nginx con renovación SSL Certbot.',
+            'Desafío: Sistema clínico con más de 1.4 millones de registros que requería alta disponibilidad, eliminación de cuellos de botella y extracción de datos de documentos médicos.',
+            'Cero latencia: Diseño de memoria intermedia en RAM (vrCache) que eliminó consultas redundantes a base de datos, alcanzando 0 ms de respuesta en más de 1.000 valores de referencia biológicos dependientes de edad y sexo.',
+            'Integración de IA multimodal: Extracción automatizada de facturas y remitos escaneados de reactivos médicos mediante Google Gemini Vision API hacia registros de base de datos validados.',
+            'Lógica contable transaccional: Desarrollo de un algoritmo determinista FIFO para la imputación de deuda y consolidación de mayores contables de proveedores de salud.',
+            'Infraestructura autónoma: Despliegue y administración continua en VPS Linux dedicado mediante servicios systemd, persistencia en SQLite y Nginx con renovación automática SSL Certbot.',
           ],
         },
         nuevasEnergias: {
@@ -793,58 +793,58 @@ export const translations = {
           role: 'IT Specialist & Software Solutions Developer',
           subtitle: 'Plataforma Operativa Central & Motor de Balance Energético',
           highlights: [
-            'Diseño y puesta en marcha de la plataforma operativa interna central, reemplazando planillas de cálculo manuales dispersas por un sistema de gestión web unificado.',
-            'Programación de algoritmos automatizados de dimensionamiento solar fotovoltaico (On-Grid y Off-Grid), reduciendo el tiempo de generación de propuestas de 48 horas a menos de 3 minutos (-90% de reducción de ciclo).',
-            'Construcción de pipeline automatizado de ingesta y parseo documental en Python (pdfplumber) para auditar facturas de la distribuidora eléctrica provincial (EDESA) y detectar transgresiones de potencia contratada.',
-            'Integración de telemetría de hardware IoT de inversores solares (API Growatt) con datos de facturación de red en base de datos SQLite aislada (plantas.db) para balances energéticos automatizados de inyección neta.',
-            'Desarrollo de cliente CRM de solo lectura con caché persistente local para interactuar con APIs externas, eliminando penalizaciones por límite de consultas y manteniendo seguimiento comercial en tiempo real.',
-            'Implementación de automatización CI/CD con GitHub Actions, compilando frontends en React/TypeScript y sincronizando hacia un host Linux en producción con Gunicorn y Nginx.',
+            'Desafío: Procesos comerciales y técnicos dispersos en planillas manuales de cálculo que demoraban hasta 48 horas en cotizaciones e informes de balance.',
+            'Centralización operativa: Relevamiento del circuito de trabajo y desarrollo de plataforma web integral (React/TypeScript + Python/Flask), reemplazando planillas aisladas por un sistema unificado.',
+            'Optimización algorítmica: Cálculo automatizado de dimensionamiento solar fotovoltaico (On-Grid y Off-Grid), reduciendo el tiempo de generación de propuestas de 48 horas a menos de 3 minutos (-94%).',
+            'Procesamiento documental: Ingesta y parseo automatizado de facturas eléctricas complejas en Python (pdfplumber) para detectar penalizaciones de potencia contratada en segundos.',
+            'Integración IoT y resiliencia: Cruce de telemetría de inversores solares (API Growatt) con datos tarifarios, y cliente CRM con caché local para operar de forma fluida dentro de los rate-limits.',
+            'Entrega continua: Pipeline de CI/CD automatizado con GitHub Actions compilando frontends y sincronizando hacia host Linux en producción con Gunicorn y Nginx.',
           ],
         },
       },
       engineeringProjects: {
-        title: 'Proyectos de Ingeniería Especializada',
+        title: 'Soluciones Técnicas Independientes & Proyectos Clave',
         publiProp: {
           title: 'Publi-Prop',
           subtitle: 'Automatización Web Headless & Orquestador de Sesiones (Node.js, Playwright, Chromium, Session Storage)',
-          desc: 'Pipeline automatizado de publicación inmobiliaria capaz de sortear formularios web complejos mediante ejecución de Chromium headless y gestión persistente de sesiones.',
+          desc: 'Pipeline de publicación automatizada en portales web complejos, gestionando sesiones persistentes (storageState), emulación de navegación real y formularios dinámicos desatendidos.',
         },
         edesa: {
           title: 'Auditor EDESA',
           subtitle: 'Motor Analítico & Ingesta de Tarifas Eléctricas (Python 3.11, pdfplumber, SQLite, Flask, WeasyPrint)',
-          desc: 'Parser analítico documental que extrae patrones de consumo energético discriminados por franja horaria y modela curvas matemáticas de penalización en informes de auditoría estructurados.',
+          desc: 'Parser analítico documental que extrae patrones de consumo en franjas pico, valle y resto, modelando curvas matemáticas de penalización en informes de auditoría PDF estructurados.',
         },
         otbn: {
           title: 'Plataforma Geoespacial OTBN',
           subtitle: 'Percepción Remota Satelital & GIS (Python, Google Earth Engine API, QGIS, GeoPandas)',
-          desc: 'Scripts de análisis espacial para el Comité Técnico de la Ley de Bosques Nativos en Salta, extrayendo índices espectrales de vegetación (NDVI/NDWI) sobre imágenes satelitales Sentinel y Landsat.',
+          desc: 'Herramienta de análisis geoespacial para el Comité Técnico de la Ley de Bosques en Salta, procesando mosaicos Sentinel-2 y calculando índices espectrales (NDVI/NDWI) sobre polígonos catastrales.',
         },
         notion: {
           title: 'Cargador de Resúmenes para Notion',
           subtitle: 'Motor Autónomo de Parseo Financiero (Python, Notion API, PyInstaller, REST APIs)',
-          desc: 'Herramienta ejecutable independiente para ingesta estructurada de resúmenes de tarjetas de crédito mediante parseo digital de PDFs, con etiquetado automático, filtrado de duplicados y sincronización a Notion vía REST API.',
+          desc: 'Herramienta ejecutable independiente (.exe) para ingesta de resúmenes de tarjetas de crédito mediante parseo de PDFs, con etiquetado automático y control de duplicidad con hash SHA-256.',
         },
       },
       simulation: {
-        title: 'Ingeniería Colaborativa & Software Factory',
+        title: 'Formación Colaborativa & Simulación de Software Factory',
         items: [
           {
             title: 'YouCreate 2.0 (iGrowker, 2024)',
             role: 'Líder Técnico Frontend & Desarrollador',
-            desc: 'Liderazgo técnico del equipo frontend en el desarrollo de tableros modulares de balance financiero con React, TypeScript y Tailwind CSS.',
+            desc: 'Trabajo en equipo multidisciplinario bajo metodología ágil (Scrum). Implementación de code reviews, gestión de ramas en Git/GitHub, pull requests y entregas iterativas.',
           },
           {
             title: 'Smart Projects (Foo Talent Group, 2024)',
             role: 'Desarrollador de Software',
-            desc: 'Simulación de equipo ágil con gestión continua de ramas Git/GitHub, revisiones técnicas de código y entregas continuas en sprints.',
+            desc: 'Simulación de software factory: sincronización continua entre frontend y backend, resolución de conflictos de integración y aseguramiento de calidad de software.',
           },
         ],
       },
       education: {
-        title: 'Formación & Certificaciones',
+        title: 'Educación & Formación Técnica',
         items: [
           {
-            title: 'Certified Tech Developer — Software Engineering Program',
+            title: 'Certified Tech Developer — Programa de Desarrollo Web / Ingeniería de Software',
             issuer: 'Digital House (2021 – 2023)',
           },
           {
@@ -855,7 +855,7 @@ export const translations = {
       },
       languages: {
         title: 'Idiomas',
-        text: 'Español: Nativo | Inglés: B2 Profesional (Capacidad de lectura técnica avanzada, redacción de documentación de arquitectura y comunicación fluida en equipos internacionales).',
+        text: 'Español: Nativo | Inglés: B2 Profesional (Capacidad de lectura técnica avanzada, comprensión de documentación de arquitectura y comunicación fluida en entornos internacionales).',
       },
     },
     // Business Resume / CV para Empresas & PyMEs
