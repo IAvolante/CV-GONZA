@@ -745,7 +745,7 @@ export const translations = {
       printPdf: 'Imprimir / Guardar en PDF',
       header: {
         title: 'Gonzalo Volante',
-        role: 'Software Solutions Developer | Integración de Sistemas y Automatización',
+        role: 'Software & Applied AI Developer | Integración de Sistemas y Automatización Operativa',
         location: 'Salta, Argentina',
         liveBadge: 'SISTEMAS EN PRODUCCIÓN ACTIVA',
         email: 'gonzavolante@gmail.com',
@@ -755,7 +755,7 @@ export const translations = {
       },
       summary: {
         title: 'Perfil Profesional',
-        text: 'Desarrollador de software enfocado en diagnosticar ineficiencias operativas y construir herramientas funcionales y estables. Con probada capacidad de aprendizaje autónomo y adaptabilidad a diversos entornos tecnológicos, cuento con experiencia en producción integrando APIs, bases de datos locales de alto rendimiento y pipelines de procesamiento documental sobre servidores Linux. No me defino por un único lenguaje, sino por la disciplina metodológica para analizar documentación técnica, diseñar la solución adecuada para cada desafío e implementar sistemas que optimizan procesos críticos de gestión e información.',
+        text: 'Desarrollador de software enfocado en diagnosticar ineficiencias operativas y construir soluciones funcionales impulsadas por software e Inteligencia Artificial Aplicada (AI-Driven). Con probada capacidad de aprendizaje autónomo y adaptabilidad técnica, cuento con experiencia en producción diseñando arquitecturas locales de alto rendimiento, integrando modelos de visión multimodal y LLMs para extracción documental inteligente, y automatizando flujos de datos sobre servidores Linux. Mi enfoque combina solidez en ingeniería de software con el aprovechamiento pragmático y agnóstico de la IA para agilizar procesos críticos de gestión, soporte e información.',
       },
       competencies: {
         title: 'Caja de Herramientas & Competencias',
@@ -764,8 +764,8 @@ export const translations = {
           desc: 'React, TypeScript, JavaScript (ES6+), Tailwind CSS, Vite. Creación de paneles internos, componentes modulares, accesibilidad semántica y consumo asíncrono de APIs.',
         },
         fullStack: {
-          title: 'Backend, Lógica & Automatización',
-          desc: 'Python (Flask), Node.js, SQLite / SQLAlchemy (persistencia sincrónica optimizada). REST APIs, Webhooks, Google Gemini Vision API (OCR de comprobantes), Playwright y n8n.',
+          title: 'Backend, Lógica & IA Aplicada',
+          desc: 'Python (Flask), Node.js, SQLite / SQLAlchemy (persistencia sincrónica optimizada). IA Aplicada: Integración de modelos multimodales y LLMs para extracción documental y triaje asistido, REST APIs, Webhooks, Playwright y n8n.',
         },
         infrastructure: {
           title: 'Infraestructura & Metodología',
@@ -782,7 +782,7 @@ export const translations = {
           highlights: [
             'Desafío: Sistema clínico con más de 1.4 millones de registros que requería alta disponibilidad, eliminación de cuellos de botella y extracción de datos de documentos médicos.',
             'Cero latencia: Diseño de memoria intermedia en RAM (vrCache) que eliminó consultas redundantes a base de datos, alcanzando 0 ms de respuesta en más de 1.000 valores de referencia biológicos dependientes de edad y sexo.',
-            'Integración de IA multimodal: Extracción automatizada de facturas y remitos escaneados de reactivos médicos mediante Google Gemini Vision API hacia registros de base de datos validados.',
+            'Extracción documental con IA: Integración de modelos multimodales de Inteligencia Artificial para el procesamiento y estructuración inteligente de facturas y remitos escaneados hacia registros validados en base de datos sin error de tipeo.',
             'Lógica contable transaccional: Desarrollo de un algoritmo determinista FIFO para la imputación de deuda y consolidación de mayores contables de proveedores de salud.',
             'Infraestructura autónoma: Despliegue y administración continua en VPS Linux dedicado mediante servicios systemd, persistencia en SQLite y Nginx con renovación automática SSL Certbot.',
           ],
@@ -1722,7 +1722,7 @@ export const translations = {
       },
       summary: {
         title: 'Professional Summary',
-        text: 'Software Systems and Applied AI Engineer specialized in designing mission-critical platforms, data ingestion pipelines, and process automation architectures. Proven production track record architecting healthcare ERPs and industrial renewable energy management platforms handling over 1.4 million clinical records and real-time IoT hardware telemetry. Strong expertise in LLM multimodal integration (Google Gemini Vision API), data parsing from semi-structured formats (PDFs, utility bills, financial statements), in-memory caching mechanisms, and automated deployment pipelines on Linux environments.',
+        text: 'Software Systems and Applied AI Engineer specialized in designing mission-critical platforms, data ingestion pipelines, and process automation architectures. Proven production track record architecting healthcare ERPs and industrial renewable energy management platforms handling over 1.4 million clinical records and real-time IoT hardware telemetry. Strong expertise in multimodal AI models and LLM integration, data parsing from semi-structured formats (PDFs, utility bills, financial statements), in-memory caching mechanisms, and automated deployment pipelines on Linux environments.',
       },
       competencies: {
         title: 'Core Competencies',
@@ -1732,7 +1732,7 @@ export const translations = {
         },
         fullStack: {
           title: 'Full-Stack & Applied AI',
-          desc: 'React, TypeScript, Tailwind CSS, Python (Flask), Google Gemini Vision API (multimodal invoice OCR), deterministic FIFO financial clearing algorithms, REST APIs & Webhooks.',
+          desc: 'React, TypeScript, Tailwind CSS, Python (Flask), Applied AI: Multimodal model integration for intelligent document extraction, deterministic FIFO financial clearing algorithms, REST APIs & Webhooks.',
         },
         infrastructure: {
           title: 'Infrastructure & Automation',
@@ -1750,7 +1750,7 @@ export const translations = {
             'Architected and deployed LIS SARESA V4, an end-to-end mission-critical laboratory information system and medical ERP serving active healthcare operations.',
             'Engineered the migration, indexing, and sanitization of +1,400,000 clinical analysis results, +86,000 medical orders, and a registry of +30,000 active patients.',
             'Implemented an in-memory RAM caching engine (vrCache) that eliminated N+1 database queries, achieving 0 ms latency across 1,000+ age-and-sex-dependent biological reference evaluations.',
-            'Integrated Google Gemini Vision API for automated multimodal extraction of medical reagent supplier invoices and packing slips into validated database records.',
+            'Applied Multimodal AI: Automated extraction and processing of medical reagent supplier invoices and packing slips using vision-language models into validated database records without manual data entry.',
             'Developed a deterministic FIFO transactional accounting algorithm to automate debt allocation and ledger consolidation across medical supplier accounts.',
             'Configured automated deployment pipelines on a dedicated Linux VPS utilizing systemd services, synchronous SQLite access, and Nginx with Certbot SSL renewal.',
           ],
